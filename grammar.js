@@ -71,6 +71,8 @@ module.exports = grammar({
     $._token_identifier,
     $._token_label,
     $._token_anti_markup,
+    $._token_word_apostrophe,
+    $._token_prose_marker,
 
     $.comment,
     $._sp,
@@ -100,9 +102,11 @@ module.exports = grammar({
     shebang: $ => token(prec(20, seq('#!', /[^\r\n]*/))),
 
     _line_content: $ => prec.right(choice(
-      seq(choice($.section, $.item, $.term), repeat($._markup)),
+      seq(choice($.section, $.item, $.term, $.prose_marker), repeat($._markup)),
       repeat1($._markup),
     )),
+
+    prose_marker: $ => $._token_prose_marker,
 
     parbreak: $ => token(seq(LB, repeat1(seq(repeat(SP), LB)))),
     escape: $ => seq(token(choice(
@@ -116,7 +120,7 @@ module.exports = grammar({
     _content_lb: $ => seq(optional($._redent), choice($.parbreak, $._lb), $._line_start_check),
 
     linebreak: $ => /\\/,
-    quote: $ => /"|'/,
+    quote: $ => /"|'|“|”|‘|’/,
     _brackets: $ => seq(alias($._token_bracket, $.text), content($), alias($._termination, $.text)),
 
     _markup: $ => choice(
@@ -138,13 +142,14 @@ module.exports = grammar({
 
     text: $ => prec.right(repeat1(choice(
       $._token_anti_markup,
+      $._token_word_apostrophe,
       $.escape,
       /./,
     ))),
 
     _indented: $ => seq($._indent, inside($), $._dedent),
     item: $ => seq(
-      alias($._token_item, '-'),
+      alias($._token_item, $.item_marker),
       $._barrier,
       repeat($._markup),
       $._termination,

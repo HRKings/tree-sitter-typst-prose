@@ -83,6 +83,10 @@
                   {
                     "type": "SYMBOL",
                     "name": "term"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "prose_marker"
                   }
                 ]
               },
@@ -104,6 +108,10 @@
           }
         ]
       }
+    },
+    "prose_marker": {
+      "type": "SYMBOL",
+      "name": "_token_prose_marker"
     },
     "parbreak": {
       "type": "TOKEN",
@@ -236,7 +244,7 @@
     },
     "quote": {
       "type": "PATTERN",
-      "value": "\"|'"
+      "value": "\"|'|“|”|‘|’"
     },
     "_brackets": {
       "type": "SEQ",
@@ -361,6 +369,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "_token_word_apostrophe"
+            },
+            {
+              "type": "SYMBOL",
               "name": "escape"
             },
             {
@@ -409,8 +421,8 @@
             "type": "SYMBOL",
             "name": "_token_item"
           },
-          "named": false,
-          "value": "-"
+          "named": true,
+          "value": "item_marker"
         },
         {
           "type": "SYMBOL",
@@ -3661,6 +3673,14 @@
     {
       "type": "SYMBOL",
       "name": "_token_anti_markup"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_token_word_apostrophe"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_token_prose_marker"
     },
     {
       "type": "SYMBOL",

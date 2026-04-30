@@ -1913,6 +1913,10 @@
           "named": true
         },
         {
+          "type": "prose_marker",
+          "named": true
+        },
+        {
           "type": "quote",
           "named": true
         },
@@ -2502,6 +2506,10 @@
         },
         {
           "type": "parbreak",
+          "named": true
+        },
+        {
+          "type": "prose_marker",
           "named": true
         },
         {
@@ -3412,6 +3420,10 @@
           "named": true
         },
         {
+          "type": "prose_marker",
+          "named": true
+        },
+        {
           "type": "quote",
           "named": true
         },
@@ -3997,7 +4009,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "code",
@@ -4009,6 +4021,10 @@
         },
         {
           "type": "item",
+          "named": true
+        },
+        {
+          "type": "item_marker",
           "named": true
         },
         {
@@ -4025,6 +4041,10 @@
         },
         {
           "type": "parbreak",
+          "named": true
+        },
+        {
+          "type": "prose_marker",
           "named": true
         },
         {
@@ -5382,6 +5402,11 @@
     }
   },
   {
+    "type": "prose_marker",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "raw_blck",
     "named": true,
     "fields": {
@@ -6448,6 +6473,10 @@
           "named": true
         },
         {
+          "type": "prose_marker",
+          "named": true
+        },
+        {
           "type": "quote",
           "named": true
         },
@@ -6543,6 +6572,10 @@
         },
         {
           "type": "parbreak",
+          "named": true
+        },
+        {
+          "type": "prose_marker",
           "named": true
         },
         {
@@ -7143,6 +7176,10 @@
             "named": true
           },
           {
+            "type": "prose_marker",
+            "named": true
+          },
+          {
             "type": "quote",
             "named": true
           },
@@ -7215,6 +7252,10 @@
         },
         {
           "type": "parbreak",
+          "named": true
+        },
+        {
+          "type": "prose_marker",
           "named": true
         },
         {
@@ -7679,6 +7720,10 @@
   {
     "type": "include",
     "named": false
+  },
+  {
+    "type": "item_marker",
+    "named": true
   },
   {
     "type": "let",

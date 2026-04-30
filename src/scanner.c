@@ -56,6 +56,8 @@ enum token_type {
 	TOKEN_IDENTIFIER,
 	TOKEN_LABEL,
 	TOKEN_ANTI_MARKUP,
+	TOKEN_WORD_APOSTROPHE,
+	TOKEN_PROSE_MARKER,
 
 	TOKEN_COMMENT,
 	TOKEN_SPACE,
@@ -764,6 +766,24 @@ bool tree_sitter_typst_external_scanner_scan(
 				}
 			}
 		}
+		else {
+			uint32_t c = lex_next;
+			bool is_prose_marker =
+				c == 0x2022 || c == 0x2023 || c == 0x2043 ||
+				c == 0x00B7 || c == 0x25E6 ||
+				c == 0x2014 || c == 0x2013 ||
+				c == 0x2010 || c == 0x2015;
+			if (is_prose_marker) {
+				lex_advance();
+				if (
+					is_sp(lex_next) ||
+					is_lb(lex_next) ||
+					lexer->eof(lexer)
+				) {
+					self->line_start = true;
+				}
+			}
+		}
 		lexer->result_symbol = TOKEN_LINE_START_CHECK;
 		return true;
 	}
@@ -875,6 +895,29 @@ bool tree_sitter_typst_external_scanner_scan(
 		return false;
 	}
 
+	// line-start unicode bullet glyphs and em/en-dashes that prose
+	// authors use as list markers. Emitted as a distinct token so the
+	// linter can exclude them as structural rather than slicing them
+	// out of text with a regex.
+	if (self->line_start && valid_symbols[TOKEN_PROSE_MARKER]) {
+		uint32_t c = lex_next;
+		bool is_marker =
+			c == 0x2022 || c == 0x2023 || c == 0x2043 ||
+			c == 0x00B7 || c == 0x25E6 ||
+			c == 0x2014 || c == 0x2013 ||
+			c == 0x2010 || c == 0x2015;
+		if (is_marker) {
+			uint32_t column = lexer->get_column(lexer);
+			lexer->advance(lexer, false);
+			if (is_sp(lex_next) || is_lb(lex_next) || lexer->eof(lexer)) {
+				self->line_start = false;
+				scanner_redent(self, column);
+				lex_accept(TOKEN_PROSE_MARKER);
+			}
+			return false;
+		}
+	}
+
 	if (self->line_start && valid_symbols[TOKEN_ITEM]) {
 		if (lex_next == '-' || lex_next == '+') {
 			uint32_t column = lexer->get_column(lexer);
@@ -911,13 +954,33 @@ bool tree_sitter_typst_external_scanner_scan(
 			return false;
 		}
 	}
-  // this token matches `_` and `*` when they are between alphanumeric
-  // characters because, in that case, they do not count as markup
-	if (valid_symbols[TOKEN_ANTI_MARKUP] && is_word_part(lex_next)) {
+  // word-internal infix tokens: anti-markup keeps `_` and `*` inside
+  // words (snake_case, foo*bar); word-apostrophe keeps contractions
+  // (I'm, don't, it's, U+2019) as a single text run.
+  // Both require <word_part><infix><word_part>, so dispatch on the
+  // middle character after consuming the leading word character.
+	if ((valid_symbols[TOKEN_ANTI_MARKUP] || valid_symbols[TOKEN_WORD_APOSTROPHE])
+	    && is_word_part(lex_next)) {
 		lex_advance();
-		lex_advance_if(lex_next == '_' || lex_next == '*');
-		lex_advance_if(is_word_part(lex_next));
-		lex_accept(TOKEN_ANTI_MARKUP);
+		if (valid_symbols[TOKEN_ANTI_MARKUP]
+		    && (lex_next == '_' || lex_next == '*')) {
+			lex_advance();
+			if (is_word_part(lex_next)) {
+				lex_advance();
+				lex_accept(TOKEN_ANTI_MARKUP);
+			}
+			return false;
+		}
+		if (valid_symbols[TOKEN_WORD_APOSTROPHE]
+		    && (lex_next == '\'' || lex_next == 0x2019)) {
+			lex_advance();
+			if (is_word_part(lex_next)) {
+				lex_advance();
+				lex_accept(TOKEN_WORD_APOSTROPHE);
+			}
+			return false;
+		}
+		return false;
 	}
 
 	if (valid_symbols[TOKEN_MATH_IDENT] && is_id_start(lex_next)) {

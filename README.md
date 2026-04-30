@@ -21,6 +21,28 @@ The documentation of the current implementation (not the rewrite) is available i
 
 Targets Typst v0.14.
 
+## Prose-focus fork (`prose-focus` branch)
+
+This branch diverges from upstream to better support prose-oriented tooling
+(grammar/style linters such as LanguageTool). Differences from upstream:
+
+- **Word-internal apostrophes stay inside `text`.** Contractions like `I'm`,
+  `don't`, `it's` (ASCII `'` and U+2019) parse as a single `text` node instead
+  of being split into `text | quote | text`.
+- **Smart quotes are `quote` nodes.** `quote` now matches `" '` plus the
+  curly quotes `“ ” ‘ ’`. Pairing (open vs close) is not yet typed.
+- **`item_marker` is a named child of `item`.** Previously the marker was an
+  anonymous `'-'` alias; it is now a real node carrying the marker text
+  (`-`, `+`, or `1.`). Downstream consumers that asserted on the anonymous
+  child must update.
+- **`prose_marker` line-start node.** Unicode bullet glyphs (`• ‣ ⁃ · ◦`) and
+  em/en-dashes (`— – ‐ ―`) followed by whitespace at line start now parse as
+  a dedicated `prose_marker` node, ahead of the prose body on that line.
+  This lets prose linters exclude them as structural without text-slicing.
+
+These changes only affect markup contexts; code, math, raw, and string
+contexts are unchanged.
+
 ## TODO
 
 - [x] Update 0.13

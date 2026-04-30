@@ -6,8 +6,8 @@ _
 ---------------------
 
 (source_file
-	(ERROR))
-
+  (ERROR
+    (item_marker)))
 
 =====================
 negative/001
@@ -18,4 +18,5 @@ negative/001
 ---------------------
 
 (source_file
-	(ERROR))
+  (ERROR
+    (item_marker)))

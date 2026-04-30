@@ -392,8 +392,6 @@ Rust is memory-safe and blazingly fast. Let's rewrite everything in rust.
             (ident))
           (text)))))
   (text)
-  (quote)
-  (text)
   (parbreak))
 
 ====================
@@ -467,6 +465,7 @@ World
   (parbreak)
   (text)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -767,8 +766,6 @@ typst/show-text/show-text-smartquote
   (text)
   (quote)
   (text)
-  (quote)
-  (text)
   (parbreak))
 
 ====================
@@ -790,11 +787,7 @@ We've got it.
           (string)))
       (ident)))
   (text)
-  (quote)
-  (text)
   (linebreak)
-  (text)
-  (quote)
   (text)
   (parbreak))
 
@@ -847,11 +840,14 @@ hi
       (string)
       (content
         (item
+          (item_marker)
           (text)))))
   (item
+    (item_marker)
     (text))
   (text)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -1087,8 +1083,6 @@ What's #[ ] up at #"your" #text(red)[party?]
       (string)
       (ident)))
   (text)
-  (quote)
-  (text)
   (code
     (content))
   (text)
@@ -1299,14 +1293,19 @@ typst/show/show-selector-basic
           (string)))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -1988,10 +1987,13 @@ typst/show/show-multiple-rules
       (ident)
       (content)))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (section
     (heading
@@ -2073,6 +2075,7 @@ typst/show/show-rule-in-function
         (ident))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak)
   (code
@@ -2080,13 +2083,17 @@ typst/show/show-rule-in-function
       (ident)
       (content
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text)))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -2146,12 +2153,16 @@ typst/show/show-recursive-multiple
       (ident)))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -3244,8 +3255,10 @@ typst/set/set-instantiation-site-markup
       (ident)
       (content
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text))
         (code
           (call
@@ -3260,6 +3273,7 @@ typst/set/set-instantiation-site-markup
               (text)))))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (code
     (content
@@ -3275,6 +3289,7 @@ typst/set/set-instantiation-site-markup
       (code
         (ident))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -3437,10 +3452,13 @@ typst/set/closure-path-resolve-in-layout-phase
                             (unit))))))))))))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -8290,8 +8308,6 @@ typst/counter/counter-figure
             (content
               (text)
               (quote)
-              (text)
-              (quote)
               (text)))
           (tagged
             (ident)
@@ -8315,8 +8331,6 @@ typst/counter/counter-figure
             (content
               (text)
               (quote)
-              (text)
-              (quote)
               (text)))
           (tagged
             (ident)
@@ -8335,8 +8349,6 @@ typst/counter/counter-figure
           (tagged
             (ident)
             (content
-              (text)
-              (quote)
               (text)
               (quote)
               (text)))
@@ -8378,8 +8390,6 @@ typst/counter/counter-figure
           (tagged
             (ident)
             (content
-              (text)
-              (quote)
               (text)
               (quote)
               (text)))
@@ -10711,8 +10721,10 @@ typst/comment/issue-4632-sth-followed-by-comment
           (text)
           (comment))
         (content
-          (item)
-          (item)))))
+          (item
+            (item_marker))
+          (item
+            (item_marker))))))
   (parbreak)
   (comment)
   (code
@@ -10730,11 +10742,15 @@ typst/comment/issue-4632-sth-followed-by-comment
           (text)
           (comment))
         (content
-          (item)
-          (item)
+          (item
+            (item_marker))
+          (item
+            (item_marker))
           (parbreak)
-          (item)
-          (item)))))
+          (item
+            (item_marker))
+          (item
+            (item_marker))))))
   (parbreak))
 
 ====================
@@ -10790,8 +10806,6 @@ typst/shebang/shebang
   (code
     (ERROR)
     (ident)))
-
-
 
 ====================
 typst/escape/escape
@@ -10982,9 +10996,11 @@ typst/shorthand/shorthand-dashes
 
 (source_file
   (item
+    (item_marker)
     (text)
     (shorthand))
   (item
+    (item_marker)
     (text)))
 
 ====================
@@ -12778,8 +12794,6 @@ typst/smartquote/smartquote-he
   (text)
   (quote)
   (text)
-  (quote)
-  (text)
   (parbreak))
 
 ====================
@@ -12961,10 +12975,6 @@ He said "I'm a big fella."
   (comment)
   (text)
   (quote)
-  (text)
-  (quote)
-  (quote)
-  (text)
   (quote)
   (text)
   (quote)
@@ -12974,8 +12984,6 @@ He said "I'm a big fella."
   (quote)
   (text)
   (parbreak)
-  (text)
-  (quote)
   (text)
   (quote)
   (text)
@@ -13149,8 +13157,6 @@ He's told some books contain questionable "example text".
   (text)
   (quote)
   (text)
-  (quote)
-  (text)
   (parbreak)
   (code
     (set
@@ -13160,8 +13166,6 @@ He's told some books contain questionable "example text".
           (tagged
             (ident)
             (bool))))))
-  (text)
-  (quote)
   (text)
   (quote)
   (text)
@@ -13202,8 +13206,6 @@ Some people's thought on this would be #[#set smartquote(enabled: false); "stran
   (quote)
   (text)
   (parbreak)
-  (text)
-  (quote)
   (text)
   (code
     (content
@@ -13270,8 +13272,6 @@ When you said _that "he_ surely meant that 'she intended to say "I'm sorry"'", I
     (text)
     (quote)
     (text))
-  (text)
-  (quote)
   (text)
   (quote)
   (text)
@@ -13574,13 +13574,14 @@ typst/smartquote/issue-3662-pdf-smartquotes
       (text)
       (quote)
       (text)
-      (quote)
-      (text)
       (quote))
     (content))
   (section
     (heading
-      (text))
+      (text)
+      (quote)
+      (text)
+      (quote))
     (content
       (parbreak)
       (code
@@ -13596,6 +13597,11 @@ typst/smartquote/issue-3662-pdf-smartquotes
       (text)
       (quote)
       (text)
+      (quote))
+    (content))
+  (section
+    (heading
+      (text)
       (quote)
       (text)
       (quote))
@@ -13605,13 +13611,7 @@ typst/smartquote/issue-3662-pdf-smartquotes
       (text)
       (quote)
       (text)
-      (quote)
-      (text)
       (quote))
-    (content))
-  (section
-    (heading
-      (text))
     (content
       (parbreak))))
 
@@ -15818,8 +15818,6 @@ I
                 (string)
                 (string)))))
         (content
-          (text)
-          (quote)
           (text)))))
   (code
     (ident))
@@ -16107,6 +16105,10 @@ typst/font/text-font-covers-chinese
               (string)
               (string)))))))
   (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
   (parbreak)
   (comment)
   (code
@@ -16131,6 +16133,10 @@ typst/font/text-font-covers-chinese
                         (escape))))))
               (string)))))))
   (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
   (parbreak)
   (comment)
   (code
@@ -16149,6 +16155,10 @@ typst/font/text-font-covers-chinese
                   (ident)
                   (string)))
               (string)))))))
+  (text)
+  (quote)
+  (text)
+  (quote)
   (text)
   (parbreak))
 
@@ -60272,8 +60282,6 @@ $ a + b $
               (bool)))))))
   (parbreak)
   (text)
-  (quote)
-  (text)
   (math
     (formula
       (letter)
@@ -60329,8 +60337,6 @@ $ a + b $
             (ident)
             (string))))))
   (parbreak)
-  (text)
-  (quote)
   (text)
   (math
     (formula
@@ -68257,8 +68263,6 @@ Bye!
         (linebreak)
         (text))))
   (text)
-  (quote)
-  (text)
   (code
     (call
       (ident)
@@ -75333,25 +75337,35 @@ Hidden:
       (ident)
       (content
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text)
           (item
+            (item_marker)
             (text))
           (item
+            (item_marker)
             (text)))
         (item
+          (item_marker)
           (text)))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -76355,6 +76369,7 @@ Paragraph
     (blob))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak)
   (text)
@@ -81673,8 +81688,6 @@ typst/columns/columns-in-fixed-size-rect
               (text)
               (text)
               (text)
-              (quote)
-              (text)
               (text)))))))
   (parbreak))
 
@@ -81741,8 +81754,6 @@ a page for a test but it does get the job done.
       (ident)
       (group)))
   (parbreak)
-  (text)
-  (quote)
   (text)
   (text)
   (text)
@@ -81991,8 +82002,6 @@ typst/columns/columns-empty-second-column
             (number
               (unit)))))
       (content
-        (text)
-        (quote)
         (text))))
   (parbreak))
 
@@ -88104,8 +88113,6 @@ When you said that #quote[he surely meant that #quote[she intended to say #quote
                 (call
                   (ident)
                   (content
-                    (text)
-                    (quote)
                     (text))))))))))
   (text)
   (parbreak))
@@ -89978,12 +89985,14 @@ typst/terms/issue-1050-terms-indent
               (unit)))))))
   (parbreak)
   (item
+    (item_marker)
     (code
       (call
         (ident)
         (group
           (number)))))
   (item
+    (item_marker)
     (code
       (call
         (ident)
@@ -89991,12 +90000,14 @@ typst/terms/issue-1050-terms-indent
           (number)))))
   (parbreak)
   (item
+    (item_marker)
     (code
       (call
         (ident)
         (group
           (number)))))
   (item
+    (item_marker)
     (code
       (call
         (ident)
@@ -90847,8 +90858,6 @@ I'm a paragraph.
       (ident)))
   (parbreak)
   (text)
-  (quote)
-  (text)
   (parbreak)
   (code
     (call
@@ -90986,8 +90995,6 @@ I'm a paragraph.
     (content
       (parbreak)
       (text)
-      (quote)
-      (text)
       (parbreak)
       (code
         (call
@@ -90998,8 +91005,6 @@ I'm a paragraph.
             (group
               (string)))
           (content
-            (text)
-            (quote)
             (text))))
       (parbreak)
       (code
@@ -91383,8 +91388,10 @@ starts a paragraph, also with indent.
       (text))
     (content
       (item
+        (item_marker)
         (text))
       (item
+        (item_marker)
         (text)
         (parbreak)
         (text))
@@ -91557,6 +91564,7 @@ typst/par/par-first-line-indent-all-list
               (unit)))))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -91574,6 +91582,7 @@ typst/par/par-first-line-indent-all-list
     (text))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -91638,6 +91647,7 @@ typst/par/par-first-line-indent-all-enum
               (unit)))))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -91655,6 +91665,7 @@ typst/par/par-first-line-indent-all-enum
     (text))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -93578,8 +93589,6 @@ What's up?
             (content
               (text)))))))
   (text)
-  (quote)
-  (text)
   (parbreak))
 
 ====================
@@ -93652,8 +93661,6 @@ What's up?
             (ident)
             (group
               (number)))))))
-  (text)
-  (quote)
   (text)
   (parbreak))
 
@@ -94800,21 +94807,26 @@ typst/list/list-nested
 
 (source_file
   (item
+    (item_marker)
     (text)
     (parbreak)
     (item
+      (item_marker)
       (text)
       (text)
       (parbreak)
       (item
+        (item_marker)
         (text))
       (parbreak)
       (text))
     (parbreak)
     (item
+      (item_marker)
       (text)))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -94831,8 +94843,10 @@ typst/list/list-content-block
 
 (source_file
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)
       (code
         (content
@@ -94850,8 +94864,10 @@ typst/list/list-top-level-indent
 
 (source_file
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -94912,23 +94928,30 @@ typst/list/list-indent-trivia-nesting
       (ident)
       (content
         (item
+          (item_marker)
           (text)
           (comment)
           (item
+            (item_marker)
             (text)))
         (comment)
         (item
+          (item_marker)
           (text))
         (comment)
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text))
         (comment)
         (item
+          (item_marker)
           (text))
         (comment)
         (item
+          (item_marker)
           (text)))))
   (parbreak)
   (code
@@ -95053,26 +95076,36 @@ typst/list/list-indent-bracket-nesting
       (block
         (content
           (item
+            (item_marker)
             (text))
           (item
+            (item_marker)
             (text)))
         (content
           (item
+            (item_marker)
             (text))
           (item
+            (item_marker)
             (text))
           (item
+            (item_marker)
             (text)
             (item
+              (item_marker)
               (text))))
         (content
           (item
+            (item_marker)
             (text)
             (item
+              (item_marker)
               (text)))
           (item
+            (item_marker)
             (text))
           (item
+            (item_marker)
             (text))))))
   (parbreak)
   (code
@@ -95162,8 +95195,10 @@ typst/list/list-tabs
 (source_file
   (comment)
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (parbreak))
 
@@ -95180,8 +95215,10 @@ typst/list/list-mixed-tabs-and-spaces
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95198,7 +95235,8 @@ Not in list
 
 (source_file
   (comment)
-  (item)
+  (item
+    (item_marker))
   (text)
   (text)
   (parbreak))
@@ -95224,6 +95262,7 @@ typst/list/list-marker-align-unaffected
           (ident)))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (linebreak)
     (text)
@@ -95254,8 +95293,10 @@ typst/list/list-marker-dash
             (content
               (shorthand)))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95286,10 +95327,13 @@ typst/list/list-marker-cycle
               (content
                 (text))))))))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)
       (item
+        (item_marker)
         (text))))
   (parbreak))
 
@@ -95328,16 +95372,22 @@ typst/list/list-marker-closure
                 (content
                   (text)))))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)
       (item
+        (item_marker)
         (text))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95364,8 +95414,10 @@ typst/list/list-marker-bare-hyphen
             (content
               (text)))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95407,8 +95459,10 @@ Next paragraph.
   (comment)
   (text)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak)
   (text)
@@ -95442,9 +95496,11 @@ World
                 (unit))))))))
   (text)
   (item
+    (item_marker)
     (text))
   (text)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95469,10 +95525,12 @@ World
   (text)
   (parbreak)
   (item
+    (item_marker)
     (text))
   (parbreak)
   (text)
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95506,12 +95564,15 @@ More.
               (unit)))))))
   (text)
   (item
+    (item_marker)
     (text))
   (text)
   (parbreak)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak)
   (text)
@@ -95544,9 +95605,11 @@ World
               (unit)))))))
   (text)
   (item
+    (item_marker)
     (text))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (text)
   (parbreak))
@@ -95596,16 +95659,19 @@ typst/list/list-items-context
     (context
       (content
         (item
+          (item_marker)
           (text)))))
   (code
     (context
       (content
         (item
+          (item_marker)
           (text)))))
   (code
     (context
       (content
         (item
+          (item_marker)
           (text)))))
   (parbreak))
 
@@ -95621,6 +95687,7 @@ typst/list/list-item-styling
 
 (source_file
   (item
+    (item_marker)
     (text))
   (code
     (call
@@ -95630,6 +95697,7 @@ typst/list/list-item-styling
           (ident)))
       (content
         (item
+          (item_marker)
           (text)))))
   (code
     (call
@@ -95639,6 +95707,7 @@ typst/list/list-item-styling
           (ident)))
       (content
         (item
+          (item_marker)
           (text)))))
   (parbreak))
 
@@ -95701,8 +95770,10 @@ typst/list/list-par
       (content
         (comment)
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text)))))
   (parbreak)
   (code
@@ -95710,11 +95781,13 @@ typst/list/list-par
       (ident)
       (content
         (item
+          (item_marker)
           (text)
           (comment)
           (parbreak)
           (text))
         (item
+          (item_marker)
           (text)
           (comment)))))
   (parbreak)
@@ -95723,6 +95796,7 @@ typst/list/list-par
       (ident)
       (content
         (item
+          (item_marker)
           (text)
           (comment)
           (parbreak)
@@ -95731,6 +95805,7 @@ typst/list/list-par
           (text))
         (parbreak)
         (item
+          (item_marker)
           (text)
           (comment)))))
   (parbreak))
@@ -95815,6 +95890,7 @@ typst/list/issue-1850-list-attach-spacing
             (formula
               (letter)))
           (item
+            (item_marker)
             (text))))
       (call
         (ident)
@@ -95846,6 +95922,7 @@ typst/list/issue-1850-list-attach-spacing
               (letter)))
           (parbreak)
           (item
+            (item_marker)
             (text))))
       (call
         (ident)
@@ -95904,8 +95981,10 @@ typst/list/issue-5503-list-in-align
       (content
         (text))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (code
     (call
@@ -95915,8 +95994,10 @@ typst/list/issue-5503-list-in-align
           (ident)))
       (content
         (item
+          (item_marker)
           (text)))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -95936,12 +96017,16 @@ typst/list/issue-5719-list-nested
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text)
     (text))
   (parbreak))
@@ -95969,12 +96054,16 @@ typst/list/issue-6242-tight-list-attach-spacing
             (number
               (unit)))))))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text)))
 
 ====================
@@ -100084,6 +100173,7 @@ typst/enum/enum-built-in-loop
       (block
         (content
           (item
+            (item_marker)
             (code
               (call
                 (ident)
@@ -100108,8 +100198,10 @@ typst/enum/list-mix
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (term
     (text)
@@ -100151,7 +100243,8 @@ a + 0.
 
 (source_file
   (comment)
-  (item)
+  (item
+    (item_marker))
   (text)
   (linebreak)
   (text)
@@ -100177,16 +100270,21 @@ typst/enum/enum-syntax-number-length
   (comment)
   (parbreak)
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)
       (comment)
       (item
+        (item_marker)
         (text)
         (comment))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100210,10 +100308,13 @@ typst/enum/enum-number-override
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak)
   (code
@@ -100293,14 +100394,19 @@ typst/enum/enum-numbering-pattern
             (ident)
             (string))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)
       (item
+        (item_marker)
         (text))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100329,8 +100435,10 @@ typst/enum/enum-numbering-full
             (ident)
             (bool))))))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (parbreak))
 
@@ -100357,10 +100465,13 @@ typst/enum/enum-numbering-reversed
             (ident)
             (bool))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100390,16 +100501,22 @@ typst/enum/enum-numbering-reversed-overridden
             (ident)
             (bool))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100534,10 +100651,13 @@ typst/enum/enum-numbering-closure-nested
                   (code
                     (ident))))))))))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100592,16 +100712,22 @@ typst/enum/enum-numbering-closure-nested-complex
             (ident)
             (bool))))))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)
       (item
+        (item_marker)
         (text))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100660,8 +100786,10 @@ typst/enum/enum-numbering-huge
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100688,18 +100816,21 @@ typst/enum/enum-number-align-unaffected
           (ident)))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (linebreak)
     (text)
     (linebreak)
     (text)
     (item
+      (item_marker)
       (text)
       (linebreak)
       (text)
       (linebreak)
       (text)))
   (item
+    (item_marker)
     (text)
     (linebreak)
     (text))
@@ -100719,10 +100850,13 @@ typst/enum/enum-number-align-default
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100747,10 +100881,13 @@ typst/enum/enum-number-align-specified
             (ident)
             (ident))))))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -100777,6 +100914,7 @@ typst/enum/enum-number-align-2d
               (ident)
               (ident)))))))
   (item
+    (item_marker)
     (code
       (call
         (call
@@ -100792,6 +100930,7 @@ typst/enum/enum-number-align-2d
         (content
           (text)))))
   (item
+    (item_marker)
     (code
       (call
         (call
@@ -100807,6 +100946,7 @@ typst/enum/enum-number-align-2d
         (content
           (text)))))
   (item
+    (item_marker)
     (code
       (call
         (call
@@ -100858,20 +100998,26 @@ typst/enum/enum-number-align-unfolded
             (ident))))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (linebreak)
     (text)
     (item
+      (item_marker)
       (text)
       (linebreak)
       (text))
     (item
+      (item_marker)
       (text))
     (item
+      (item_marker)
       (text)))
   (parbreak))
 
@@ -101018,8 +101164,10 @@ typst/enum/enum-par
       (ident)
       (content
         (item
+          (item_marker)
           (text))
         (item
+          (item_marker)
           (text)))))
   (parbreak)
   (code
@@ -101027,11 +101175,13 @@ typst/enum/enum-par
       (ident)
       (content
         (item
+          (item_marker)
           (text)
           (comment)
           (parbreak)
           (text))
         (item
+          (item_marker)
           (text)
           (comment)))))
   (parbreak)
@@ -101040,6 +101190,7 @@ typst/enum/enum-par
       (ident)
       (content
         (item
+          (item_marker)
           (text)
           (comment)
           (parbreak)
@@ -101048,6 +101199,7 @@ typst/enum/enum-par
           (text))
         (parbreak)
         (item
+          (item_marker)
           (text)
           (comment)))))
   (parbreak))
@@ -101101,8 +101253,10 @@ typst/enum/issue-5503-enum-in-align
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (code
     (call
@@ -101112,8 +101266,10 @@ typst/enum/issue-5503-enum-in-align
           (ident)))
       (content
         (item
+          (item_marker)
           (text)))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -101133,16 +101289,22 @@ typst/enum/issue-5719-enum-nested
 (source_file
   (comment)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text)
     (item
+      (item_marker)
       (text)))
   (item
+    (item_marker)
     (text)
     (text)))
 
@@ -101210,10 +101372,13 @@ typst/content/content-field-syntax
               (number)))))))
   (parbreak)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -136886,15 +137051,18 @@ typst/blocks/right-bracket-nesting
     (content))
   (text)
   (item
+    (item_marker)
     (text)
     (text)
     (text)
     (item
+      (item_marker)
       (text)))
   (text)
   (comment)
   (comment)
   (item
+    (item_marker)
     (text))
   (text)
   (text)
@@ -144304,8 +144472,6 @@ Beautiful footnotes. #footnote[Wonderful, aren't they?]
     (call
       (ident)
       (content
-        (text)
-        (quote)
         (text))))
   (parbreak))
 
@@ -144875,6 +145041,7 @@ typst/footnote/footnote-in-list
               (unit)))))))
   (parbreak)
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144882,6 +145049,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144889,6 +145057,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144896,6 +145065,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144903,6 +145073,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144910,6 +145081,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -144917,6 +145089,7 @@ typst/footnote/footnote-in-list
         (content
           (text)))))
   (item
+    (item_marker)
     (text)
     (code
       (call
@@ -145271,12 +145444,14 @@ typst/footnote/footnote-duplicate
       (ident)))
   (parbreak)
   (item
+    (item_marker)
     (quote)
     (text)
     (quote)
     (code
       (ident)))
   (item
+    (item_marker)
     (quote)
     (text)
     (quote)
@@ -145284,12 +145459,14 @@ typst/footnote/footnote-duplicate
       (ident)))
   (parbreak)
   (item
+    (item_marker)
     (quote)
     (text)
     (quote)
     (code
       (ident)))
   (item
+    (item_marker)
     (quote)
     (text)
     (quote)
@@ -145800,12 +145977,14 @@ typst/footnote/issue-1433-footnote-in-list
           (ident)))))
   (parbreak)
   (item
+    (item_marker)
     (code
       (call
         (ident)
         (content
           (text)))))
   (item
+    (item_marker)
     (code
       (call
         (ident)
@@ -155377,6 +155556,7 @@ typst/rtl/list-rtl
             (ident)
             (ident))))))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -168157,6 +168337,7 @@ typst/grid/issue-grid-base-auto-row-list
           (number
             (unit))))))
   (item
+    (item_marker)
     (code
       (call
         (ident)
@@ -168170,6 +168351,7 @@ typst/grid/issue-grid-base-auto-row-list
             (number
               (unit))))))
     (item
+      (item_marker)
       (code
         (call
           (ident)
@@ -168343,6 +168525,7 @@ typst/grid/issue-grid-skip-list
       (group
         (number))))
   (item
+    (item_marker)
     (code
       (call
         (ident)
@@ -168382,8 +168565,10 @@ The following:
           (unit)))))
   (text)
   (item
+    (item_marker)
     (text))
   (item
+    (item_marker)
     (text))
   (parbreak))
 
@@ -177605,8 +177790,6 @@ It's a #emph[Tree]beard.
             (ident)
             (bool))))))
   (text)
-  (quote)
-  (text)
   (code
     (call
       (ident)
@@ -178301,8 +178484,6 @@ typst/hyphenate/costs-hyphenation-avoid
     (let
       (ident)
       (content
-        (text)
-        (quote)
         (text))))
   (parbreak)
   (code
@@ -179573,6 +179754,9 @@ typst/cjk/cjk-punctuation-adjustment-3
   (parbreak)
   (text)
   (parbreak)
+  (quote)
+  (text)
+  (quote)
   (text)
   (parbreak)
   (text)
@@ -180335,8 +180519,6 @@ http://mydataurl/hash/12098541029831025981024980124124214/incremental/progress%l
             (ident)
             (bool))))))
   (parbreak)
-  (text)
-  (quote)
   (text)
   (url)
   (text)
@@ -181383,8 +181565,6 @@ I'm in#text(tracking: 0.15em + 1.5pt)[ spaace]!
 
 (source_file
   (comment)
-  (text)
-  (quote)
   (text)
   (code
     (call
@@ -182851,12 +183031,21 @@ typst/justify/justify-whitespace-adjustment
               (group
                 (string))))))
       (content
+        (quote)
+        (text)
+        (quote)
         (text)
         (parbreak)
         (text)
         (parbreak)
         (text))))
   (parbreak)
+  (text)
+  (quote)
+  (quote)
+  (text)
+  (quote)
+  (quote)
   (text)
   (parbreak))
 
@@ -182922,6 +183111,13 @@ typst/justify/justify-variants
             (bool))))))
   (parbreak)
   (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
+  (quote)
   (parbreak)
   (code
     (set

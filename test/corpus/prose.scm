@@ -106,8 +106,7 @@ prose/item-plus
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -123,8 +122,7 @@ prose/item-numbered
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -140,8 +138,7 @@ prose/item-dash
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -359,8 +356,7 @@ prose/prose-marker-then-item
   (paragraph
     (prose_marker
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -410,8 +406,122 @@ Third line of same paragraph.
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
-    (text))
-  (paragraph
+    (text)
+    (text)
     (text)))
+
+==============================
+prose/ref-bare
+==============================
+See @smith2020 for details
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (ref)
+    (text)))
+
+==============================
+prose/ref-with-body
+==============================
+See @smith2020[p. 12] for details
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (ref_with_body
+      (content
+        (paragraph
+          (text))))
+    (text)))
+
+==============================
+prose/quote-nested-double-single
+==============================
+He said "she said 'hi' loudly"
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)
+    (rquote)))
+
+==============================
+prose/quote-pair-multi
+==============================
+He said "hi", "she" replied.
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
+
+==============================
+prose/bracket-multi-paragraph
+==============================
+#[
+First paragraph.
+
+Second paragraph.
+]
+------------------------------
+
+(source_file
+  (paragraph
+    (code
+      (content
+        (paragraph
+          (text))
+        (parbreak)
+        (paragraph
+          (text))))))
+
+==============================
+prose/section-multi-paragraph
+==============================
+= Heading
+
+First.
+
+Second.
+------------------------------
+
+(source_file
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (parbreak)
+        (paragraph
+          (text))
+        (parbreak)
+        (paragraph
+          (text))))))
+
+==============================
+prose/emph-stays-flat
+==============================
+_emphasized text_
+------------------------------
+
+(source_file
+  (paragraph
+    (emph
+      (text))))

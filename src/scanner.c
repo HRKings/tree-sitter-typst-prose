@@ -141,8 +141,11 @@ static bool is_lb(uint32_t c) {
 #define is_word_part(c) unicode_class(ucd_table_in_word, 0, UCD_LEN_IN_WORD, c)
 
 // Character class tracked across scanner invocations to drive quote pairing.
-// CLASS_NONE marks "no useful context" (start of input, after parbreak, or
-// stale state we cannot recover).
+// CLASS_NONE marks "no useful context" (start of input, after parbreak).
+// CLASS_STALE marks "we lost track" — set after termination/barrier/etc.
+// where arbitrary text was just consumed without scanner involvement.
+// The quote block treats STALE as a signal to consult the nesting bitfield
+// before falling back to lookahead.
 enum char_class {
 	CLASS_NONE = 0,
 	CLASS_WS,
@@ -150,6 +153,7 @@ enum char_class {
 	CLASS_OPEN_PUNCT,
 	CLASS_CLOSE_PUNCT,
 	CLASS_QUOTE,
+	CLASS_STALE,
 };
 
 static bool is_quote_glyph(uint32_t c) {
@@ -198,7 +202,18 @@ static uint8_t classify_char(uint32_t c) {
 	return CLASS_CLOSE_PUNCT;  // unknown → safe to treat as terminator
 }
 
-// vec<u32> ////////////////////////////////////////////////////////////////////
+// True when the glyph is one of the "double" family of quotes — including
+// guillemets and CJK corner brackets, which logically pair as doubles even
+// though they're a single glyph each.
+static bool is_double_quote(uint32_t c) {
+	return
+		c == '"' ||
+		c == 0x201C || c == 0x201D ||  // “ ”
+		c == 0x201E ||                 // „
+		c == 0x00AB || c == 0x00BB ||  // « »
+		c == 0x300C || c == 0x300D ||  // 「 」
+		c == 0x300E || c == 0x300F;    // 『 』
+}
 struct vec_u32 {
 	size_t cap;
 	size_t len;
@@ -269,11 +284,35 @@ struct scanner {
 	uint8_t raw_level;
 	// character class of the last consumed character. Drives lquote / rquote
 	// pairing decisions. Reset to CLASS_NONE on parbreak / start of input;
-	// updated whenever a quote token is emitted. Stays stale across runs of
-	// internal /./ text; the quote lex block falls back to lookahead when
-	// the stored class is too coarse to decide.
+	// updated whenever a quote token is emitted. Set to CLASS_STALE after
+	// termination/barrier accept points where the parser may have consumed
+	// arbitrary internal text we cannot classify; the quote lex block then
+	// consults the nesting bitfield (quote_depth / quote_kinds) and falls
+	// back to lookahead.
 	uint8_t last_class;
+	// nesting depth of currently-open quotes (max 32, clamped). Each push
+	// records `is_double` of the open glyph in `quote_kinds` at bit
+	// (depth - 1). Reset on parbreak. Mirrors Typst's SmartQuoter design.
+	uint8_t quote_depth;
+	uint32_t quote_kinds;
 };
+
+static bool quote_pair_open_depth(struct scanner* self, bool is_double) {
+	if (self->quote_depth >= 32) return false;
+	if (is_double) self->quote_kinds |=  (1u << self->quote_depth);
+	else           self->quote_kinds &= ~(1u << self->quote_depth);
+	self->quote_depth += 1;
+	return true;
+}
+
+static bool quote_pair_close_top(struct scanner* self, bool is_double) {
+	if (self->quote_depth == 0) return false;
+	uint32_t top_is_double = (self->quote_kinds >> (self->quote_depth - 1)) & 1u;
+	if ((bool)top_is_double != is_double) return false;
+	self->quote_depth -= 1;
+	self->quote_kinds &= ~(1u << self->quote_depth);
+	return true;
+}
 
 static void scanner_redent(struct scanner* self, uint32_t col) {
 	if (self->indentation.len == 0) {
@@ -388,6 +427,8 @@ void * tree_sitter_typst_external_scanner_create() {
 	self->line_start = false;
 	self->raw_level = 0;
 	self->last_class = CLASS_NONE;
+	self->quote_depth = 0;
+	self->quote_kinds = 0;
 	return self;
 }
 
@@ -412,6 +453,11 @@ unsigned tree_sitter_typst_external_scanner_serialize(
 	buffer[written++] = self->line_start;
 	buffer[written++] = self->raw_level;
 	buffer[written++] = self->last_class;
+	buffer[written++] = self->quote_depth;
+	buffer[written++] = (uint8_t)( self->quote_kinds        & 0xff);
+	buffer[written++] = (uint8_t)((self->quote_kinds >>  8) & 0xff);
+	buffer[written++] = (uint8_t)((self->quote_kinds >> 16) & 0xff);
+	buffer[written++] = (uint8_t)((self->quote_kinds >> 24) & 0xff);
 	return written;
 }
 
@@ -429,6 +475,8 @@ void tree_sitter_typst_external_scanner_deserialize(
 	self->line_start = false;
 	self->raw_level = 0;
 	self->last_class = CLASS_NONE;
+	self->quote_depth = 0;
+	self->quote_kinds = 0;
 	if (length != 0) {
 		size_t read = 0;
 		read += vec_u32_deserialize(&self->indentation, buffer + read);
@@ -439,6 +487,15 @@ void tree_sitter_typst_external_scanner_deserialize(
 		self->raw_level = buffer[read++];
 		if (read < length) {
 			self->last_class = buffer[read++];
+		}
+		if (read < length) {
+			self->quote_depth = buffer[read++];
+		}
+		if (read + 4 <= length) {
+			self->quote_kinds  = (uint32_t)(uint8_t)buffer[read++];
+			self->quote_kinds |= (uint32_t)(uint8_t)buffer[read++] <<  8;
+			self->quote_kinds |= (uint32_t)(uint8_t)buffer[read++] << 16;
+			self->quote_kinds |= (uint32_t)(uint8_t)buffer[read++] << 24;
 		}
 	}
 	else {
@@ -665,6 +722,9 @@ bool tree_sitter_typst_external_scanner_scan(
 			}
 			case TERMINATION_EXCLUSIVE:
 			scanner_container_pop(self);
+			// Termination crosses arbitrary text we couldn't classify.
+			// Mark stale so the quote block consults the nesting bitfield.
+			self->last_class = CLASS_STALE;
 			lexer->result_symbol = TOKEN_TERMINATION;
 			return true;
 		}
@@ -1015,12 +1075,22 @@ bool tree_sitter_typst_external_scanner_scan(
 			return false;
 		}
 	}
-	// quote pairing: emit lquote vs rquote based on stored last_class plus
-	// one-char lookahead. Word-apostrophe (above) handles in-word `'` first,
-	// so by here the only quote-glyph candidates are real delimiters.
+	// quote pairing: hybrid of last_class lookbehind + nesting bitfield.
+	// Word-apostrophe (below) handles in-word `'` first, so by here the only
+	// quote-glyph candidates are real delimiters.
+	//
+	// Decision priority:
+	//   1. If last_class is a fresh non-stale signal, it dominates.
+	//   2. If last_class is STALE, prefer the bitfield: when current glyph
+	//      matches the top open kind, treat as close.
+	//   3. Otherwise look ahead one char: WORD/OPEN_PUNCT → open;
+	//      WS/CLOSE_PUNCT/EOF → close. Last resort: open.
+	// On open: push depth + record kind. On close: pop top if matched, or
+	// leave bitfield untouched if mismatched (self-heals on next reset).
 	if ((valid_symbols[TOKEN_LQUOTE] || valid_symbols[TOKEN_RQUOTE])
 	    && is_quote_glyph(lex_next)) {
 		uint8_t before = self->last_class;
+		bool is_double = is_double_quote(lex_next);
 		lex_advance();
 		uint8_t after = classify_char(lex_next);
 
@@ -1028,16 +1098,56 @@ bool tree_sitter_typst_external_scanner_scan(
 		if (before == CLASS_WORD || before == CLASS_CLOSE_PUNCT || before == CLASS_QUOTE) {
 			is_close = true;
 		}
-		else if (after == CLASS_WORD || after == CLASS_OPEN_PUNCT) {
+		else if (before == CLASS_WS || before == CLASS_NONE || before == CLASS_OPEN_PUNCT) {
+			// Fresh "before this is open-context" signal.
 			is_close = false;
+			// But if lookahead clearly says close (ws/close-punct after), trust it.
+			if (after == CLASS_WS || after == CLASS_CLOSE_PUNCT || after == CLASS_NONE) {
+				// Only flip to close if there's an open quote to close AND it matches.
+				if (self->quote_depth > 0) {
+					uint32_t top = (self->quote_kinds >> (self->quote_depth - 1)) & 1u;
+					if ((bool)top == is_double) is_close = true;
+				}
+			}
 		}
 		else {
-			is_close = (before != CLASS_WS && before != CLASS_NONE && before != CLASS_OPEN_PUNCT);
+			// CLASS_STALE: consult bitfield first.
+			if (self->quote_depth > 0) {
+				uint32_t top = (self->quote_kinds >> (self->quote_depth - 1)) & 1u;
+				if ((bool)top == is_double) {
+					// Top of stack matches; default to closing UNLESS lookahead
+					// clearly says open (word/open-punct after a quote glyph).
+					is_close = !(after == CLASS_WORD || after == CLASS_OPEN_PUNCT);
+				}
+				else {
+					is_close = false;  // mismatch with stack top; assume new open
+				}
+			}
+			else {
+				is_close = !(after == CLASS_WORD || after == CLASS_OPEN_PUNCT);
+				// No open quotes: prefer open.
+				if (self->quote_depth == 0 && (after == CLASS_WORD || after == CLASS_OPEN_PUNCT)) {
+					is_close = false;
+				}
+				else if (self->quote_depth == 0) {
+					// EOF / standalone. Default open since nothing to close.
+					is_close = false;
+				}
+			}
 		}
 
 		enum token_type which = is_close ? TOKEN_RQUOTE : TOKEN_LQUOTE;
 		if (!valid_symbols[which]) {
 			which = is_close ? TOKEN_LQUOTE : TOKEN_RQUOTE;
+			is_close = !is_close;
+		}
+
+		// Update bitfield to match emitted token.
+		if (is_close) {
+			quote_pair_close_top(self, is_double);  // ignore mismatch return
+		}
+		else {
+			quote_pair_open_depth(self, is_double);  // clamps at 32
 		}
 
 		self->last_class = CLASS_QUOTE;

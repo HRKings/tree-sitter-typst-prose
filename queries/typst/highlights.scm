@@ -42,6 +42,7 @@
 (raw_blck lang: (ident) @tag)
 (label) @tag
 (ref) @tag
+(ref_with_body) @tag
 (number) @constant.numeric
 (string) @string
 (content ["[" "]"] @operator)

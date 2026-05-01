@@ -208,7 +208,8 @@ positive/014
   (paragraph
     (code
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/015
@@ -299,7 +300,8 @@ positive/020
           item: (ident)
           (group))
         (content
-          (text))))))
+          (paragraph
+            (text)))))))
 
 =====================
 positive/021
@@ -331,8 +333,7 @@ elsa {}
     (code
       (branch
         condition: (ident)
-        (block))))
-  (paragraph
+        (block)))
     (text)))
 
 =====================
@@ -360,8 +361,7 @@ d e
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
+    (text)
     (text))
   (parbreak)
   (paragraph
@@ -663,8 +663,7 @@ World
   (paragraph
     (text)
     (code
-      (ident)))
-  (paragraph
+      (ident))
     (text)))
 
 =====================
@@ -748,7 +747,8 @@ positive/051
   (paragraph
     (code
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/052
@@ -782,7 +782,8 @@ b
     (code
       (content
         (parbreak)
-        (text)
+        (paragraph
+          (text))
         (parbreak)))
     (text)))
 
@@ -800,7 +801,8 @@ b
     (text)
     (code
       (content
-        (text)
+        (paragraph
+          (text))
         (parbreak)))
     (text)))
 
@@ -817,7 +819,8 @@ b
     (text)
     (code
       (content
-        (text)))
+        (paragraph
+          (text))))
     (text)))
 
 =====================
@@ -934,7 +937,8 @@ positive/063
             item: (ident)
             (group)))
         (content
-          (text))))))
+          (paragraph
+            (text)))))))
 
 =====================
 positive/064
@@ -1371,9 +1375,10 @@ positive/093
   (paragraph
     (code
       (content
-        (strong
-          (text))
-        (text)))))
+        (paragraph
+          (strong
+            (text))
+          (text))))))
 
 =====================
 positive/094
@@ -1393,8 +1398,7 @@ Sum is #add(2, 3).
             (ident)))
         value: (add
           (ident)
-          (ident)))))
-  (paragraph
+          (ident))))
     (text)
     (code
       (call
@@ -1554,10 +1558,8 @@ else {}
     (code
       (branch
         condition: (ident)
-        (block))))
-  (paragraph
-    (text))
-  (paragraph
+        (block)))
+    (text)
     (text)))
 
 =====================
@@ -1689,7 +1691,8 @@ Hey
       (heading
         (text))
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/114
@@ -1704,7 +1707,8 @@ Hey
       (heading
         (text))
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/115
@@ -1720,7 +1724,8 @@ World
         (text)
         (linebreak))
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/116
@@ -1970,8 +1975,7 @@ c, d
       (import
         (string)
         (binding
-          (ident)))))
-  (paragraph
+          (ident))))
     (text)))
 
 =====================
@@ -1985,8 +1989,7 @@ positive/134
   (paragraph
     (code
       (let
-        pattern: (ident))))
-  (paragraph
+        pattern: (ident)))
     (section
       (heading
         (text))
@@ -2019,8 +2022,7 @@ else if b {}
     (code
       (branch
         condition: (ident)
-        (block))))
-  (paragraph
+        (block)))
     (text)))
 
 =====================
@@ -2189,10 +2191,11 @@ positive/148
   (paragraph
     (code
       (content
-        (section
-          (heading
-            (text))
-          (content))))))
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content)))))))
 
 =====================
 positive/149
@@ -2207,8 +2210,7 @@ positive/149
       (branch
         condition: (bool)
         (block)))
-    (comment))
-  (paragraph
+    (comment)
     (text)))
 
 =====================
@@ -2251,12 +2253,10 @@ positive/152
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -2292,8 +2292,7 @@ f
       (text)
       (item
         (item_marker)
-        (text))))
-  (paragraph
+        (text)))
     (text)))
 
 =====================
@@ -2326,12 +2325,10 @@ positive/156
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (text)))
 
 =====================
@@ -2382,8 +2379,7 @@ positive/159
       (text)
       (item
         (item_marker)
-        (text))))
-  (paragraph
+        (text)))
     (item
       (item_marker)
       (text))))
@@ -2401,8 +2397,8 @@ positive/160
   (paragraph
     (code
       (content
-        (item
-          (item_marker)
+        (paragraph
+          (text)
           (item
             (item_marker)))))))
 
@@ -2418,8 +2414,8 @@ positive/161
   (paragraph
     (code
       (content
-        (item
-          (item_marker)
+        (paragraph
+          (text)
           (item
             (item_marker)))))))
 
@@ -2434,12 +2430,13 @@ positive/162
   (paragraph
     (code
       (content
-        (item
-          (item_marker)
-          (text))
-        (item
-          (item_marker)
-          (text))))))
+        (paragraph
+          (item
+            (item_marker)
+            (text))
+          (item
+            (item_marker)
+            (text)))))))
 
 =====================
 positive/163
@@ -2452,16 +2449,14 @@ Hello
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
+    (text)
     (code
       (content
-        (item
-          (item_marker)
-          (text))
-        (item
-          (item_marker)
-          (text))))))
+        (paragraph
+          (text)
+          (item
+            (item_marker)
+            (text)))))))
 
 =====================
 positive/164
@@ -2472,13 +2467,13 @@ Hello
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
+    (text)
     (code
       (content
-        (item
-          (item_marker)
-          (text))))))
+        (paragraph
+          (item
+            (item_marker)
+            (text)))))))
 
 =====================
 positive/165
@@ -2504,8 +2499,7 @@ positive/166
 (source_file
   (paragraph
     (item
-      (item_marker)))
-  (paragraph
+      (item_marker))
     (item
       (item_marker)
       (item
@@ -2521,9 +2515,10 @@ positive/167
   (paragraph
     (code
       (content
-        (item
-          (item_marker)
-          (text))))))
+        (paragraph
+          (item
+            (item_marker)
+            (text)))))))
 
 =====================
 positive/168
@@ -3339,8 +3334,7 @@ Hey*
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
+    (text)
     (text)
     (strong
       (text))))
@@ -3384,8 +3378,7 @@ World
       (item_marker)
       (text)
       (code
-        (ident))))
-  (paragraph
+        (ident)))
     (text)))
 
 =====================
@@ -3411,11 +3404,9 @@ World
 
 (source_file
   (paragraph
-    (text))
-  (paragraph
+    (text)
     (code
-      (ident)))
-  (paragraph
+      (ident))
     (text)))
 
 =====================
@@ -3852,9 +3843,11 @@ positive/257
                 field: (ident)
                 (number))))
           (content
-            (text)))
+            (paragraph
+              (text))))
         (content
-          (text))))))
+          (paragraph
+            (text)))))))
 
 =====================
 positive/258
@@ -3885,11 +3878,12 @@ positive/258
             (number
               (unit)))
           (content
-            (strong
-              (text)
-              (linebreak)
-              (code
-                (ident)))))))))
+            (paragraph
+              (strong
+                (text)
+                (linebreak)
+                (code
+                  (ident))))))))))
 
 =====================
 positive/259
@@ -3989,8 +3983,7 @@ positive/264
         value: (group
           (number)
           (number)
-          (number)))))
-  (paragraph
+          (number))))
     (code
       (call
         item: (field
@@ -4030,8 +4023,7 @@ positive/266
   (paragraph
     (code
       (ident))
-    (text))
-  (paragraph
+    (text)
     (code
       (ident))
     (text)))
@@ -4068,9 +4060,10 @@ positive/268
 (source_file
   (paragraph
     (text)
-    (code
-      (let
-        pattern: (ident)))
+    (paragraph
+      (code
+        (let
+          pattern: (ident))))
     (text)))
 
 =====================
@@ -4141,14 +4134,15 @@ positive/271
                   field: (ident)
                   (string)))))
           (content
-            (strong
-              (code
-                (ident)))
-            (linebreak)
-            (emph
-              (text)
-              (code
-                (ident)))))))))
+            (paragraph
+              (strong
+                (code
+                  (ident)))
+              (linebreak)
+              (emph
+                (text)
+                (code
+                  (ident))))))))))
 
 =====================
 positive/272
@@ -4232,8 +4226,7 @@ positive/277
         pattern: (ident)
         value: (lambda
           pattern: (ident)
-          value: (ident)))))
-  (paragraph
+          value: (ident))))
     (text)))
 
 =====================
@@ -4305,8 +4298,7 @@ if critical
         (call
           item: (ident)
           (group
-            (ident))))))
-  (paragraph
+            (ident)))))
     (text)))
 
 =====================
@@ -4343,18 +4335,20 @@ This list is affected: #[
     (text)
     (code
       (content
-        (code
-          (set
-            (call
-              item: (ident)
-              (group
-                (tagged
-                  field: (ident)
-                  (content
-                    (shorthand)))))))
-        (item
-          (item_marker)
-          (text))))))
+        (paragraph
+          (code
+            (set
+              (call
+                item: (ident)
+                (group
+                  (tagged
+                    field: (ident)
+                    (content
+                      (paragraph
+                        (shorthand))))))))
+          (item
+            (item_marker)
+            (text)))))))
 
 =====================
 positive/284
@@ -4377,40 +4371,41 @@ positive/284
           value: (call
             item: (ident)
             (content
-              (code
-                (set
-                  (call
-                    item: (ident)
-                    (group
-                      (ident)))))
-              (code
-                (set
-                  (call
-                    item: (ident)
-                    (group
-                      (tagged
-                        field: (ident)
-                        (string))))))
-              (text
-                (escape))
-              (code
-                (call
-                  item: (ident)
-                  (group
-                    (field
-                      (ident)
-                      field: (ident)))))
-              (code
-                (call
-                  item: (field
+              (paragraph
+                (code
+                  (set
                     (call
                       item: (ident)
                       (group
-                        (ident)))
-                    field: (ident))
-                  (group)))
-              (text
-                (escape)))))))))
+                        (ident)))))
+                (code
+                  (set
+                    (call
+                      item: (ident)
+                      (group
+                        (tagged
+                          field: (ident)
+                          (string))))))
+                (text
+                  (escape))
+                (code
+                  (call
+                    item: (ident)
+                    (group
+                      (field
+                        (ident)
+                        field: (ident)))))
+                (code
+                  (call
+                    item: (field
+                      (call
+                        item: (ident)
+                        (group
+                          (ident)))
+                      field: (ident))
+                    (group)))
+                (text
+                  (escape))))))))))
 
 =====================
 positive/285
@@ -4447,12 +4442,10 @@ positive/286
   (paragraph
     (code
       (number))
-    (linebreak))
-  (paragraph
+    (linebreak)
     (code
       (number))
-    (linebreak))
-  (paragraph
+    (linebreak)
     (code
       (number))))
 
@@ -4546,14 +4539,12 @@ positive/292
       (heading
         (text))
       (content
-        (section
-          (heading
-            (text))
-          (content
-            (section
-              (heading
-                (text))
-              (content))))))))
+        (paragraph
+          (text)
+          (section
+            (heading
+              (text))
+            (content)))))))
 
 =====================
 positive/293
@@ -5019,12 +5010,10 @@ positive/318
         (text))
       (item
         (item_marker)
-        (text))))
-  (paragraph
+        (text)))
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (item
       (item_marker)
       (text))))
@@ -5053,8 +5042,7 @@ positive/319
         (comment))
       (item
         (item_marker)
-        (text))))
-  (paragraph
+        (text)))
     (item
       (item_marker)
       (text))))
@@ -5071,11 +5059,9 @@ positive/320
   (paragraph
     (item
       (item_marker))
-    (comment))
-  (paragraph
+    (comment)
     (item
-      (item_marker)))
-  (paragraph
+      (item_marker))
     (item
       (item_marker))))
 
@@ -5090,8 +5076,7 @@ positive/321
   (comment)
   (paragraph
     (item
-      (item_marker)))
-  (paragraph
+      (item_marker))
     (item
       (item_marker))))
 
@@ -5363,9 +5348,10 @@ positive/340
 
 (source_file
   (paragraph
-    (ref
+    (ref_with_body
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/341
@@ -5527,7 +5513,8 @@ positive/348
                         value: (call
                           item: (ident)
                           (content
-                            (text))))
+                            (paragraph
+                              (text)))))
                       (branch
                         condition: (cmp
                           (ident)
@@ -6144,7 +6131,7 @@ positive/387
 
 (source_file
   (paragraph
-    (ref
+    (ref_with_body
       (content))))
 
 =====================
@@ -6181,11 +6168,9 @@ positive/390
   (paragraph
     (section
       (heading)
-      (content)))
-  (paragraph
-    (section
-      (heading)
-      (content))))
+      (content
+        (paragraph
+          (text))))))
 
 =====================
 positive/391
@@ -6197,7 +6182,8 @@ positive/391
   (paragraph
     (code
       (content
-        (text)))))
+        (paragraph
+          (text))))))
 
 =====================
 positive/392
@@ -6273,8 +6259,9 @@ positive/397
   (paragraph
     (code
       (content
-        (text)
-        (text)))))
+        (paragraph
+          (text)
+          (text))))))
 
 =====================
 positive/398
@@ -6304,7 +6291,8 @@ a]
         (text)
         (text))
       (content
-        (text)))
+        (paragraph
+          (text))))
     (text)))
 
 =====================
@@ -6331,8 +6319,7 @@ positive/401
   (paragraph
     (item
       (item_marker)
-      (text)))
-  (paragraph
+      (text))
     (text)))
 
 =====================
@@ -6346,7 +6333,8 @@ positive/402
     (item
       (item_marker)
       (text)
-      (text)
+      (paragraph
+        (text))
       (text)
       (text))))
 
@@ -6362,9 +6350,9 @@ a]
     (item
       (item_marker)
       (text)
-      (text)
-      (text)))
-  (paragraph
+      (paragraph
+        (text))
+      (text))
     (text)))
 
 =====================
@@ -6378,7 +6366,8 @@ positive/404
     (item
       (item_marker)
       (text)
-      (text)
+      (paragraph
+        (text))
       (text)
       (text
         (escape)))))
@@ -6431,14 +6420,13 @@ positive/408
   (paragraph
     (section
       (heading)
-      (content)))
+      (content
+        (paragraph
+          (text)))))
   (paragraph
     (section
       (heading)
-      (content
-        (section
-          (heading)
-          (content))))))
+      (content))))
 
 =====================
 positive/409
@@ -6466,8 +6454,7 @@ positive/410
 (source_file
   (paragraph
     (text)
-    (text))
-  (paragraph
+    (text)
     (item
       (item_marker))))
 
@@ -6588,8 +6575,7 @@ vais
 (source_file
   (paragraph
     (text)
-    (comment))
-  (paragraph
+    (comment)
     (text)))
 
 =====================

@@ -8,21 +8,32 @@ const WS = /([\f\n\t\v\x20\x85\xa0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3
 const NOT_WS = /[^\f\r\n\t\v\x20\x85\xa0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000]/;
 const SP = /[\t\x20\xa0\u1680\u2000-\u200a\u202f\u205f\u3000]/;
 
-// document as a whole, or what is inside content delimiter — kept
-// flat: bracket bodies (`#foo[body]`, `#[body]`, `@ref[body]`) are
-// usually inline-scoped, so paragraph wrapping there adds noise. The
-// top-level source_file rule applies its own paragraph wrap.
+// Block-context body: wraps consecutive line_content into paragraphs.
+// Used for content delimiter (`#[…]`, `#foo[…]`, `@ref[…]`) and section
+// bodies — these can hold multi-paragraph prose.
 function content($) {
   return seq(
     $._line_start_check,
-    repeat(choice($._content_lb, $._line_content)),
+    repeat(choice(
+      $.paragraph,
+      $._parbreak_separator,
+    )),
   );
 }
 
-// content inside emph or strong delimiters — kept flat (no paragraph
-// wrap) since Typst doesn't allow parbreaks inside emphasis / indent
-// blocks; paragraph wrapping there would just add noise.
-function inside($) {
+// Block-context body without leading line_start_check (caller already
+// emitted one). Used for sections (the heading itself fires the check).
+function inside_block($) {
+  return repeat(choice(
+    $.paragraph,
+    $._parbreak_separator,
+  ));
+}
+
+// Inline-context body: stays flat. Used for emph / strong / _indented
+// continuation blocks. Typst forbids parbreaks here — paragraph wrap
+// would only add noise.
+function inside_inline($) {
   return repeat(choice($._content_lb, $._line_content));
 }
 
@@ -113,7 +124,8 @@ module.exports = grammar({
 
     paragraph: $ => prec.right(seq(
       $._line_content,
-      repeat(seq($._paragraph_lb, optional($._line_content))),
+      repeat(prec.right(seq($._paragraph_lb, $._line_content))),
+      optional($._paragraph_lb),
     )),
 
     _line_content: $ => prec.right(choice(
@@ -163,6 +175,7 @@ module.exports = grammar({
       $.url,
       $.label,
       $.ref,
+      $.ref_with_body,
       $.shorthand,
       $.ellipsis,
       $.lquote,
@@ -177,7 +190,7 @@ module.exports = grammar({
       /./,
     ))),
 
-    _indented: $ => seq($._indent, inside($), $._dedent),
+    _indented: $ => seq($._indent, inside_inline($), $._dedent),
     item: $ => seq(
       alias($._token_item, $.item_marker),
       $._barrier,
@@ -197,7 +210,7 @@ module.exports = grammar({
 
     _section: $ => seq(
       $._token_section,
-      inside($),
+      inside_block($),
       $._termination,
     ),
     section: $ => seq(
@@ -217,8 +230,8 @@ module.exports = grammar({
       repeat($._markup),
       $._termination,
     ),
-    strong: $ => seq(alias($._token_strong, '*'), inside($), alias($._termination, '*')),
-    emph: $ => seq(alias($._token_emph, '_'), inside($), alias($._termination, '_')),
+    strong: $ => seq(alias($._token_strong, '*'), inside_inline($), alias($._termination, '*')),
+    emph: $ => seq(alias($._token_emph, '_'), inside_inline($), alias($._termination, '_')),
     raw_blck: $ => seq(
       alias($._token_raw_blck_ldlm, '```'),
       optional(field('lang', alias($._token_raw_lang, $.ident))),
@@ -461,7 +474,8 @@ module.exports = grammar({
     call:   $ =>      prec( 13, seq(field('item', $._expr), choice( seq($._immediate_brack, $.content), seq($._immediate_paren, $.group) ))),
     field:  $ => prec(13, seq($._expr, '.', field('field', $.ident))),
     label: $ => seq('<', $._token_label, '>'),
-    ref: $ => seq('@', $._token_label, optional(seq($._immediate_brack, $.content))),
+    ref: $ => seq('@', $._token_label),
+    ref_with_body: $ => seq('@', $._token_label, $._immediate_brack, $.content),
     content: $ => seq(
       alias($._token_content, '['),
       content($),

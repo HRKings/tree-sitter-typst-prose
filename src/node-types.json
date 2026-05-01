@@ -1897,83 +1897,11 @@
       "required": false,
       "types": [
         {
-          "type": "code",
-          "named": true
-        },
-        {
-          "type": "ellipsis",
-          "named": true
-        },
-        {
-          "type": "emph",
-          "named": true
-        },
-        {
-          "type": "item",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "linebreak",
-          "named": true
-        },
-        {
-          "type": "lquote",
-          "named": true
-        },
-        {
-          "type": "math",
+          "type": "paragraph",
           "named": true
         },
         {
           "type": "parbreak",
-          "named": true
-        },
-        {
-          "type": "prose_marker",
-          "named": true
-        },
-        {
-          "type": "raw_blck",
-          "named": true
-        },
-        {
-          "type": "raw_span",
-          "named": true
-        },
-        {
-          "type": "ref",
-          "named": true
-        },
-        {
-          "type": "rquote",
-          "named": true
-        },
-        {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "shorthand",
-          "named": true
-        },
-        {
-          "type": "strong",
-          "named": true
-        },
-        {
-          "type": "term",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "url",
           "named": true
         }
       ]
@@ -2533,6 +2461,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -2550,6 +2482,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {
@@ -3444,10 +3380,6 @@
           "named": true
         },
         {
-          "type": "item",
-          "named": true
-        },
-        {
           "type": "label",
           "named": true
         },
@@ -3464,11 +3396,11 @@
           "named": true
         },
         {
-          "type": "parbreak",
+          "type": "paragraph",
           "named": true
         },
         {
-          "type": "prose_marker",
+          "type": "parbreak",
           "named": true
         },
         {
@@ -3484,11 +3416,11 @@
           "named": true
         },
         {
-          "type": "rquote",
+          "type": "ref_with_body",
           "named": true
         },
         {
-          "type": "section",
+          "type": "rquote",
           "named": true
         },
         {
@@ -3497,10 +3429,6 @@
         },
         {
           "type": "strong",
-          "named": true
-        },
-        {
-          "type": "term",
           "named": true
         },
         {
@@ -4096,6 +4024,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -4113,6 +4045,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {
@@ -5416,6 +5352,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -5433,6 +5373,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {
@@ -5602,6 +5546,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -5619,6 +5567,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {
@@ -5696,10 +5648,15 @@
   {
     "type": "ref",
     "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ref_with_body",
+    "named": true,
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "content",
@@ -6770,6 +6727,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -6787,6 +6748,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {
@@ -7359,10 +7324,6 @@
             "named": true
           },
           {
-            "type": "item",
-            "named": true
-          },
-          {
             "type": "label",
             "named": true
           },
@@ -7379,11 +7340,11 @@
             "named": true
           },
           {
-            "type": "parbreak",
+            "type": "paragraph",
             "named": true
           },
           {
-            "type": "prose_marker",
+            "type": "parbreak",
             "named": true
           },
           {
@@ -7399,11 +7360,11 @@
             "named": true
           },
           {
-            "type": "rquote",
+            "type": "ref_with_body",
             "named": true
           },
           {
-            "type": "section",
+            "type": "rquote",
             "named": true
           },
           {
@@ -7412,10 +7373,6 @@
           },
           {
             "type": "strong",
-            "named": true
-          },
-          {
-            "type": "term",
             "named": true
           },
           {
@@ -7466,6 +7423,10 @@
           "named": true
         },
         {
+          "type": "paragraph",
+          "named": true
+        },
+        {
           "type": "parbreak",
           "named": true
         },
@@ -7483,6 +7444,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "ref_with_body",
           "named": true
         },
         {

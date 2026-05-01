@@ -42,18 +42,26 @@ This branch diverges from upstream to better support prose-oriented tooling
 - **Multilingual quote glyphs.** Quote tokens cover German low-9 (`„ ‚`),
   French guillemets (`« » ‹ ›`), Japanese corner brackets (`「 」 『 』`) and
   ASCII / curly English quotes.
-- **Quote pairing as `lquote` / `rquote`.** Quote nodes are split into
-  typed open / close variants by an external scanner that tracks the
-  previous character class plus one-char lookahead. The flat `quote` node
-  is gone.
+- **Quote pairing as `lquote` / `rquote`** with nested-depth bookkeeping.
+  Scanner tracks both a `last_class` byte (previous character class) and
+  a quote-nesting bitfield (`quote_depth` + `quote_kinds`, mirroring
+  Typst's `SmartQuoter`). When `last_class` goes stale across
+  termination boundaries, the bitfield decides; nested quotes pair
+  correctly to arbitrary depth (clamped at 32 levels). The flat `quote`
+  node is gone.
 - **`ellipsis` is its own node.** Typst's `...` shorthand is a dedicated
   `ellipsis` node (in both prose and math) instead of being lumped with
   `--`/`---`/`-?`/`~` under `shorthand`. Prose linters can interpret it
   as `…` for LanguageTool's ELLIPSIS rule.
-- **`paragraph` wraps top-level markup runs.** Top-level (and bracket-body)
-  markup runs between `parbreak`s parse as `(paragraph …)` nodes. Bracket
-  bodies (`#foo[…]`), emphasis, strong, headings stay flat — paragraph
-  wrapping only fires where a parbreak can occur.
+- **`paragraph` wraps any block context.** Top-level, bracket bodies
+  (`#[…]`, `#foo[…]`, `#footnote[…]`, `@ref[…]` via `ref_with_body`),
+  and section bodies wrap their markup runs into `paragraph` nodes
+  separated by `parbreak`. Inline contexts (emph, strong, `_indented`
+  continuation blocks) stay flat — Typst forbids parbreaks there.
+- **`ref` split into `ref` and `ref_with_body`.** Bare `@key` → `(ref)`.
+  Citation with content `@key[explanation]` → `(ref_with_body
+  (content …))`. Lets downstream tooling distinguish inline pointer
+  refs from prose-bearing refs.
 - **`prose_marker` supports indented continuation.** Em-dash / unicode-bullet
   markers can span multiple lines as a single bullet, mirroring `item`'s
   shape.

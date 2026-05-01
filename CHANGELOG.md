@@ -5,6 +5,59 @@ tooling (LanguageTool integration, grammar/style linters). It diverges from
 upstream's typesetting-faithful AST in service of cleaner prose structure and
 more useful named nodes for excluded-content detection.
 
+## [0.14-prose-4] — phase 4
+
+### Changed
+- **Quote pairing**: scanner now uses a hybrid of `last_class` (existing
+  one-byte lookbehind) and a nesting bitfield (`quote_depth` +
+  `quote_kinds`, 5 extra serialize bytes) mirroring Typst's
+  `SmartQuoter` design. When `last_class` is fresh, it dominates;
+  when stale (after `_termination` accept and similar arbitrary-text
+  boundaries), the scanner consults the bitfield first, then falls
+  back to lookahead. Nested quotes (e.g. `"He said 'hi'"`) now pair
+  correctly to arbitrary depth (clamped at 32 levels).
+- **Paragraph wrap extended** into block contexts beyond `source_file`:
+  - Bracket bodies (`#[…]`, `#foo[…]`, `@ref[…]` via `ref_with_body`)
+    wrap their multi-paragraph content into `paragraph` nodes.
+  - Section bodies (under `=` headings) wrap into `paragraph` nodes.
+  - Single-paragraph contents like `#emph[hi]` look slightly noisier
+    (`(emph (paragraph (text)))` would, but emph stays flat — see
+    below).
+  - Emph / strong / `_indented` continuation blocks stay flat (they
+    are inline contexts; Typst forbids parbreaks there).
+- **`ref` split into `ref` and `ref_with_body`**: previously
+  `optional(content)`. Now two distinct named nodes so downstream
+  tooling can route them differently. Bare `@key` → `(ref)`. Body
+  form `@key[explanation]` → `(ref_with_body (content …))`.
+
+### Added
+- `CLASS_STALE` sentinel in `enum char_class`. Set after
+  `_termination` accept (where arbitrary text was just consumed)
+  and read by the quote block to switch to bitfield-driven
+  pairing.
+- `is_double_quote()` helper distinguishing double-family quotes
+  (including guillemets and CJK corner brackets) from single-family
+  for nesting bookkeeping.
+- `quote_pair_open_depth()` / `quote_pair_close_top()` bitfield
+  helpers. Clamp at 32 levels.
+- `inside_block($)` and `inside_inline($)` helper functions in
+  `grammar.js`, replacing the single `inside($)`. Sections use
+  block, emph/strong/indented use inline.
+- `paragraph` rule now allows trailing `_paragraph_lb` (covers
+  trailing-newline edge cases without spawning ERROR nodes).
+- Scanner `line_start = true` set on `TOKEN_SECTION` and
+  `TOKEN_CONTENT` opens so the new `_line_start_check` at the
+  start of each paragraph-wrapping body fires correctly.
+
+### Notes
+- Test corpus: 81 failures (unchanged from phase 3 — same single
+  improvement over pre-fork baseline).
+- Linter consumers: `paragraph` nodes now appear inside `content`
+  (bracket bodies) and `section` content. `RECURSE_TYPES` set
+  needs `paragraph` already; `content` also already in the
+  recurse set. New visitor cases: handling
+  `ref` vs `ref_with_body` if differential exclusion is desired.
+
 ## [0.14-prose-3] — phase 3
 
 ### Changed

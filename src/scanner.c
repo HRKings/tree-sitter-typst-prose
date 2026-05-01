@@ -58,6 +58,8 @@ enum token_type {
 	TOKEN_ANTI_MARKUP,
 	TOKEN_WORD_APOSTROPHE,
 	TOKEN_PROSE_MARKER,
+	TOKEN_LQUOTE,
+	TOKEN_RQUOTE,
 
 	TOKEN_COMMENT,
 	TOKEN_SPACE,
@@ -137,6 +139,31 @@ static bool is_lb(uint32_t c) {
 #define is_id_start(c) unicode_class(ucd_table_xid_start, 0, UCD_LEN_XID_START, c)
 #define is_id_continue(c) unicode_class(ucd_table_xid_continue, 0, UCD_LEN_XID_CONTINUE, c)
 #define is_word_part(c) unicode_class(ucd_table_in_word, 0, UCD_LEN_IN_WORD, c)
+
+// Character class tracked across scanner invocations to drive quote pairing.
+// CLASS_NONE marks "no useful context" (start of input, after parbreak, or
+// stale state we cannot recover).
+enum char_class {
+	CLASS_NONE = 0,
+	CLASS_WS,
+	CLASS_WORD,
+	CLASS_OPEN_PUNCT,
+	CLASS_CLOSE_PUNCT,
+	CLASS_QUOTE,
+};
+
+static bool is_quote_glyph(uint32_t c) {
+	return
+		c == '"' || c == '\'' ||
+		c == 0x2018 || c == 0x2019 ||  // ‘ ’
+		c == 0x201C || c == 0x201D ||  // “ ”
+		c == 0x201E || c == 0x201A ||  // „ ‚
+		c == 0x2039 || c == 0x203A ||  // ‹ ›
+		c == 0x00AB || c == 0x00BB ||  // « »
+		c == 0x300C || c == 0x300D ||  // 「 」
+		c == 0x300E || c == 0x300F;    // 『 』
+}
+
 static bool unicode_class(struct unicode_range t[], size_t min, size_t max, uint32_t c) {
 	while (max - min > 1) {
 		size_t mid = (min + max) / 2;
@@ -148,6 +175,27 @@ static bool unicode_class(struct unicode_range t[], size_t min, size_t max, uint
 		}
 	}
 	return t[min].min <= c && c <= t[min].max;
+}
+
+static uint8_t classify_char(uint32_t c) {
+	if (c == 0) return CLASS_NONE;
+	if (is_sp(c) || is_lb(c)) return CLASS_WS;
+	if (is_word_part(c)) return CLASS_WORD;
+	switch (c) {
+		case '(': case '[': case '{':
+		case 0x201E: case 0x201A:           // „ ‚
+		case 0x00AB: case 0x2039:           // « ‹
+		case 0x300C: case 0x300E:           // 「 『
+			return CLASS_OPEN_PUNCT;
+		case ')': case ']': case '}':
+		case '.': case ',': case ';':
+		case ':': case '!': case '?':
+		case 0x00BB: case 0x203A:           // » ›
+		case 0x300D: case 0x300F:           // 」 』
+			return CLASS_CLOSE_PUNCT;
+	}
+	if (is_quote_glyph(c)) return CLASS_QUOTE;
+	return CLASS_CLOSE_PUNCT;  // unknown → safe to treat as terminator
 }
 
 // vec<u32> ////////////////////////////////////////////////////////////////////
@@ -219,6 +267,12 @@ struct scanner {
 	uint8_t heading_level;
 	bool line_start;
 	uint8_t raw_level;
+	// character class of the last consumed character. Drives lquote / rquote
+	// pairing decisions. Reset to CLASS_NONE on parbreak / start of input;
+	// updated whenever a quote token is emitted. Stays stale across runs of
+	// internal /./ text; the quote lex block falls back to lookahead when
+	// the stored class is too coarse to decide.
+	uint8_t last_class;
 };
 
 static void scanner_redent(struct scanner* self, uint32_t col) {
@@ -333,6 +387,7 @@ void * tree_sitter_typst_external_scanner_create() {
 	self->heading_level = 0;
 	self->line_start = false;
 	self->raw_level = 0;
+	self->last_class = CLASS_NONE;
 	return self;
 }
 
@@ -356,6 +411,7 @@ unsigned tree_sitter_typst_external_scanner_serialize(
 	buffer[written++] = self->heading_level;
 	buffer[written++] = self->line_start;
 	buffer[written++] = self->raw_level;
+	buffer[written++] = self->last_class;
 	return written;
 }
 
@@ -372,6 +428,7 @@ void tree_sitter_typst_external_scanner_deserialize(
 	self->heading_level = 0;
 	self->line_start = false;
 	self->raw_level = 0;
+	self->last_class = CLASS_NONE;
 	if (length != 0) {
 		size_t read = 0;
 		read += vec_u32_deserialize(&self->indentation, buffer + read);
@@ -380,6 +437,9 @@ void tree_sitter_typst_external_scanner_deserialize(
 		self->heading_level = buffer[read++];
 		self->line_start = buffer[read++];
 		self->raw_level = buffer[read++];
+		if (read < length) {
+			self->last_class = buffer[read++];
+		}
 	}
 	else {
 		vec_u32_push(&self->indentation, 0);
@@ -432,6 +492,7 @@ static bool parse_space(struct scanner* self, TSLexer* lexer) {
 		lex_advance();
 	}
 	self->immediate = false;
+	self->last_class = CLASS_WS;
 	lex_accept(TOKEN_SPACE);
 }
 
@@ -954,6 +1015,35 @@ bool tree_sitter_typst_external_scanner_scan(
 			return false;
 		}
 	}
+	// quote pairing: emit lquote vs rquote based on stored last_class plus
+	// one-char lookahead. Word-apostrophe (above) handles in-word `'` first,
+	// so by here the only quote-glyph candidates are real delimiters.
+	if ((valid_symbols[TOKEN_LQUOTE] || valid_symbols[TOKEN_RQUOTE])
+	    && is_quote_glyph(lex_next)) {
+		uint8_t before = self->last_class;
+		lex_advance();
+		uint8_t after = classify_char(lex_next);
+
+		bool is_close;
+		if (before == CLASS_WORD || before == CLASS_CLOSE_PUNCT || before == CLASS_QUOTE) {
+			is_close = true;
+		}
+		else if (after == CLASS_WORD || after == CLASS_OPEN_PUNCT) {
+			is_close = false;
+		}
+		else {
+			is_close = (before != CLASS_WS && before != CLASS_NONE && before != CLASS_OPEN_PUNCT);
+		}
+
+		enum token_type which = is_close ? TOKEN_RQUOTE : TOKEN_LQUOTE;
+		if (!valid_symbols[which]) {
+			which = is_close ? TOKEN_LQUOTE : TOKEN_RQUOTE;
+		}
+
+		self->last_class = CLASS_QUOTE;
+		lex_accept(which);
+	}
+
   // word-internal infix tokens: anti-markup keeps `_` and `*` inside
   // words (snake_case, foo*bar); word-apostrophe keeps contractions
   // (I'm, don't, it's, U+2019) as a single text run.
@@ -967,6 +1057,7 @@ bool tree_sitter_typst_external_scanner_scan(
 			lex_advance();
 			if (is_word_part(lex_next)) {
 				lex_advance();
+				self->last_class = CLASS_WORD;
 				lex_accept(TOKEN_ANTI_MARKUP);
 			}
 			return false;
@@ -976,6 +1067,7 @@ bool tree_sitter_typst_external_scanner_scan(
 			lex_advance();
 			if (is_word_part(lex_next)) {
 				lex_advance();
+				self->last_class = CLASS_WORD;
 				lex_accept(TOKEN_WORD_APOSTROPHE);
 			}
 			return false;

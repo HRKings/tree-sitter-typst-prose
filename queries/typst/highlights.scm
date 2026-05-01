@@ -51,7 +51,8 @@
 (ident) @variable
 
 ; MARKUP
-(item "-" @markup.list)
+(item (item_marker) @markup.list)
+(prose_marker (item_marker) @markup.list)
 (term ["/" ":"] @markup.list)
 (heading "=" @markup.heading.marker) @markup.heading.1
 (heading "==" @markup.heading.marker) @markup.heading.2
@@ -65,7 +66,8 @@
 (symbol) @constant.character
 (shorthand) @constant.builtin
 (ellipsis) @constant.builtin
-(quote) @markup.quote
+(lquote) @punctuation.delimiter
+(rquote) @punctuation.delimiter
 (align) @operator
 (letter) @constant.character
 (linebreak) @constant.builtin

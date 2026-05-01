@@ -39,17 +39,26 @@ This branch diverges from upstream to better support prose-oriented tooling
   em/en-dashes (`— – ‐ ―`) followed by whitespace at line start now parse as
   a dedicated `prose_marker` node, ahead of the prose body on that line.
   This lets prose linters exclude them as structural without text-slicing.
-- **Multilingual quote glyphs.** `quote` matches German low-9 (`„ ‚`), French
-  guillemets (`« » ‹ ›`) and Japanese corner brackets (`「 」 『 』`) in
-  addition to ASCII and curly English quotes. Pairing (open/close) is not
-  yet typed — all are flat `quote` nodes.
-- **`ellipsis` is its own node.** Typst's `...` shorthand is now a dedicated
+- **Multilingual quote glyphs.** Quote tokens cover German low-9 (`„ ‚`),
+  French guillemets (`« » ‹ ›`), Japanese corner brackets (`「 」 『 』`) and
+  ASCII / curly English quotes.
+- **Quote pairing as `lquote` / `rquote`.** Quote nodes are split into
+  typed open / close variants by an external scanner that tracks the
+  previous character class plus one-char lookahead. The flat `quote` node
+  is gone.
+- **`ellipsis` is its own node.** Typst's `...` shorthand is a dedicated
   `ellipsis` node (in both prose and math) instead of being lumped with
-  `--`/`---`/`-?`/`~` under `shorthand`. Lets prose linters interpret it as
-  `…` for LanguageTool's ELLIPSIS rule.
+  `--`/`---`/`-?`/`~` under `shorthand`. Prose linters can interpret it
+  as `…` for LanguageTool's ELLIPSIS rule.
+- **`paragraph` wraps top-level markup runs.** Top-level (and bracket-body)
+  markup runs between `parbreak`s parse as `(paragraph …)` nodes. Bracket
+  bodies (`#foo[…]`), emphasis, strong, headings stay flat — paragraph
+  wrapping only fires where a parbreak can occur.
+- **`prose_marker` supports indented continuation.** Em-dash / unicode-bullet
+  markers can span multiple lines as a single bullet, mirroring `item`'s
+  shape.
 
-These changes only affect markup and math contexts; code, raw, and string
-contexts are unchanged.
+See `CHANGELOG.md` for per-phase divergence detail.
 
 ## TODO
 

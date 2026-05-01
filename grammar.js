@@ -8,7 +8,10 @@ const WS = /([\f\n\t\v\x20\x85\xa0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3
 const NOT_WS = /[^\f\r\n\t\v\x20\x85\xa0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000]/;
 const SP = /[\t\x20\xa0\u1680\u2000-\u200a\u202f\u205f\u3000]/;
 
-// document as a whole, or what is inside content delimiter
+// document as a whole, or what is inside content delimiter — kept
+// flat: bracket bodies (`#foo[body]`, `#[body]`, `@ref[body]`) are
+// usually inline-scoped, so paragraph wrapping there adds noise. The
+// top-level source_file rule applies its own paragraph wrap.
 function content($) {
   return seq(
     $._line_start_check,
@@ -16,7 +19,9 @@ function content($) {
   );
 }
 
-// content inside emph or strong delimiters
+// content inside emph or strong delimiters — kept flat (no paragraph
+// wrap) since Typst doesn't allow parbreaks inside emphasis / indent
+// blocks; paragraph wrapping there would just add noise.
 function inside($) {
   return repeat(choice($._content_lb, $._line_content));
 }
@@ -73,6 +78,8 @@ module.exports = grammar({
     $._token_anti_markup,
     $._token_word_apostrophe,
     $._token_prose_marker,
+    $._token_lquote,
+    $._token_rquote,
 
     $.comment,
     $._sp,
@@ -96,17 +103,31 @@ module.exports = grammar({
     source_file: $ => seq(
       $._line_start_check,
       optional($.shebang),
-      repeat(choice($._content_lb, $._line_content)),
+      repeat(choice(
+        $.paragraph,
+        $._parbreak_separator,
+      )),
     ),
 
     shebang: $ => token(prec(20, seq('#!', /[^\r\n]*/))),
+
+    paragraph: $ => prec.right(seq(
+      $._line_content,
+      repeat(seq($._paragraph_lb, optional($._line_content))),
+    )),
 
     _line_content: $ => prec.right(choice(
       seq(choice($.section, $.item, $.term, $.prose_marker), repeat($._markup)),
       repeat1($._markup),
     )),
 
-    prose_marker: $ => $._token_prose_marker,
+    prose_marker: $ => seq(
+      alias($._token_prose_marker, $.item_marker),
+      $._barrier,
+      repeat($._markup),
+      $._termination,
+      optional($._indented),
+    ),
 
     parbreak: $ => token(seq(LB, repeat1(seq(repeat(SP), LB)))),
     escape: $ => seq(token(choice(
@@ -116,11 +137,18 @@ module.exports = grammar({
     url: $ => seq(/http(s?):\/\//, $._token_url),
 
     _lb: $ => LB,
-    // a line break in a content context
+    // line break in a content context (inside containers, sections, emph etc).
+    // Matches both blank-line parbreaks and single line breaks.
     _content_lb: $ => seq(optional($._redent), choice($.parbreak, $._lb), $._line_start_check),
+    // paragraph separator: parbreak (blank line) only; used at top-level
+    // and inside brackets to delimit paragraph nodes.
+    _parbreak_separator: $ => seq(optional($._redent), $.parbreak, $._line_start_check),
+    // line continuation inside a paragraph: single line break, no blank line.
+    _paragraph_lb: $ => seq(optional($._redent), $._lb, $._line_start_check),
 
     linebreak: $ => /\\/,
-    quote: $ => /"|'|“|”|‘|’|„|‚|‹|›|«|»|「|」|『|』/,
+    lquote: $ => $._token_lquote,
+    rquote: $ => $._token_rquote,
     _brackets: $ => seq(alias($._token_bracket, $.text), content($), alias($._termination, $.text)),
 
     _markup: $ => choice(
@@ -137,7 +165,8 @@ module.exports = grammar({
       $.ref,
       $.shorthand,
       $.ellipsis,
-      $.quote,
+      $.lquote,
+      $.rquote,
       $.linebreak,
     ),
 

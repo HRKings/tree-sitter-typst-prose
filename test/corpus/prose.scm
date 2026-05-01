@@ -5,7 +5,8 @@ I'm fine
 ------------------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 ==============================
 prose/apostrophe-multi
@@ -14,7 +15,8 @@ I'm fine, don't worry, it's ok
 ------------------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 ==============================
 prose/apostrophe-smart-u2019
@@ -23,7 +25,8 @@ don’t worry
 ------------------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 ==============================
 prose/quote-real-delimiters
@@ -32,11 +35,12 @@ He said "hi" today
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/quote-smart-double
@@ -45,11 +49,12 @@ He said “hi” today
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/quote-smart-single
@@ -58,11 +63,12 @@ He said ‘hi’ today
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/quote-mixed-with-contraction
@@ -71,11 +77,12 @@ It's "quoted" today
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/apostrophe-leading-standalone
@@ -84,8 +91,9 @@ prose/apostrophe-leading-standalone
 ------------------------------
 
 (source_file
-  (quote)
-  (text))
+  (paragraph
+    (lquote)
+    (text)))
 
 ==============================
 prose/item-plus
@@ -95,12 +103,14 @@ prose/item-plus
 ------------------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 ==============================
 prose/item-numbered
@@ -110,12 +120,14 @@ prose/item-numbered
 ------------------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 ==============================
 prose/item-dash
@@ -125,12 +137,14 @@ prose/item-dash
 ------------------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 ==============================
 prose/prose-marker-bullet
@@ -139,8 +153,10 @@ prose/prose-marker-bullet
 ------------------------------
 
 (source_file
-  (prose_marker)
-  (text))
+  (paragraph
+    (prose_marker
+      (item_marker)
+      (text))))
 
 ==============================
 prose/prose-marker-emdash
@@ -149,8 +165,10 @@ prose/prose-marker-emdash
 ------------------------------
 
 (source_file
-  (prose_marker)
-  (text))
+  (paragraph
+    (prose_marker
+      (item_marker)
+      (text))))
 
 ==============================
 prose/prose-marker-endash
@@ -159,8 +177,10 @@ prose/prose-marker-endash
 ------------------------------
 
 (source_file
-  (prose_marker)
-  (text))
+  (paragraph
+    (prose_marker
+      (item_marker)
+      (text))))
 
 ==============================
 prose/code-string-apostrophe-untouched
@@ -169,10 +189,11 @@ prose/code-string-apostrophe-untouched
 ------------------------------
 
 (source_file
-  (code
-    (let
-      (ident)
-      (string))))
+  (paragraph
+    (code
+      (let
+        (ident)
+        (string)))))
 
 ==============================
 prose/quote-german-low9
@@ -181,11 +202,12 @@ Er sagte „hallo" heute
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/quote-french-guillemets
@@ -194,11 +216,12 @@ Il dit «bonjour» today
 ------------------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote)
-  (text))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
 
 ==============================
 prose/quote-japanese-corner
@@ -207,9 +230,10 @@ prose/quote-japanese-corner
 ------------------------------
 
 (source_file
-  (quote)
-  (text)
-  (quote))
+  (paragraph
+    (lquote)
+    (text)
+    (rquote)))
 
 ==============================
 prose/ellipsis-prose
@@ -218,9 +242,10 @@ Wait...what?
 ------------------------------
 
 (source_file
-  (text)
-  (ellipsis)
-  (text))
+  (paragraph
+    (text)
+    (ellipsis)
+    (text)))
 
 ==============================
 prose/ellipsis-standalone
@@ -229,8 +254,9 @@ And then...
 ------------------------------
 
 (source_file
-  (text)
-  (ellipsis))
+  (paragraph
+    (text)
+    (ellipsis)))
 
 ==============================
 prose/shorthand-emdash-still-works
@@ -239,9 +265,10 @@ Long --- dash
 ------------------------------
 
 (source_file
-  (text)
-  (shorthand)
-  (text))
+  (paragraph
+    (text)
+    (shorthand)
+    (text)))
 
 ==============================
 prose/shorthand-endash-still-works
@@ -250,6 +277,141 @@ Range -- value
 ------------------------------
 
 (source_file
-  (text)
-  (shorthand)
-  (text))
+  (paragraph
+    (text)
+    (shorthand)
+    (text)))
+
+==============================
+prose/quote-pair-after-comma
+==============================
+He said, "hi"
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)))
+
+==============================
+prose/quote-pair-nested-mixed
+==============================
+'inner' content
+------------------------------
+
+(source_file
+  (paragraph
+    (lquote)
+    (text)
+    (rquote)
+    (text)))
+
+==============================
+prose/quote-pair-em-dash-context
+==============================
+She said---"hello"---loudly
+------------------------------
+
+(source_file
+  (paragraph
+    (text)
+    (shorthand)
+    (lquote)
+    (text)
+    (rquote)
+    (shorthand)
+    (text)))
+
+==============================
+prose/contraction-stays-text
+==============================
+it's fine
+------------------------------
+
+(source_file
+  (paragraph
+    (text)))
+
+==============================
+prose/prose-marker-continuation
+==============================
+— first line
+  indented continuation
+------------------------------
+
+(source_file
+  (paragraph
+    (prose_marker
+      (item_marker)
+      (text)
+      (text))))
+
+==============================
+prose/prose-marker-then-item
+==============================
+— em-dash bullet
+- regular item
+------------------------------
+
+(source_file
+  (paragraph
+    (prose_marker
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
+
+==============================
+prose/two-paragraphs
+==============================
+First paragraph here.
+
+Second paragraph here.
+------------------------------
+
+(source_file
+  (paragraph
+    (text))
+  (parbreak)
+  (paragraph
+    (text)))
+
+==============================
+prose/three-paragraphs
+==============================
+One.
+
+Two.
+
+Three.
+------------------------------
+
+(source_file
+  (paragraph
+    (text))
+  (parbreak)
+  (paragraph
+    (text))
+  (parbreak)
+  (paragraph
+    (text)))
+
+==============================
+prose/paragraph-multi-line
+==============================
+First line of paragraph.
+Second line of same paragraph.
+Third line of same paragraph.
+------------------------------
+
+(source_file
+  (paragraph
+    (text))
+  (paragraph
+    (text))
+  (paragraph
+    (text)))

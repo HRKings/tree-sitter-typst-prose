@@ -29,11 +29,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_content_lb"
+                "name": "paragraph"
               },
               {
                 "type": "SYMBOL",
-                "name": "_line_content"
+                "name": "_parbreak_separator"
               }
             ]
           }
@@ -58,6 +58,43 @@
             }
           ]
         }
+      }
+    },
+    "paragraph": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_line_content"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_paragraph_lb"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_line_content"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "_line_content": {
@@ -110,8 +147,45 @@
       }
     },
     "prose_marker": {
-      "type": "SYMBOL",
-      "name": "_token_prose_marker"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_token_prose_marker"
+          },
+          "named": true,
+          "value": "item_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_barrier"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_markup"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_termination"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_indented"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "parbreak": {
       "type": "TOKEN",
@@ -238,13 +312,67 @@
         }
       ]
     },
+    "_parbreak_separator": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_redent"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parbreak"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_start_check"
+        }
+      ]
+    },
+    "_paragraph_lb": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_redent"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_lb"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_start_check"
+        }
+      ]
+    },
     "linebreak": {
       "type": "PATTERN",
       "value": "\\\\"
     },
-    "quote": {
-      "type": "PATTERN",
-      "value": "\"|'|“|”|‘|’|„|‚|‹|›|«|»|「|」|『|』"
+    "lquote": {
+      "type": "SYMBOL",
+      "name": "_token_lquote"
+    },
+    "rquote": {
+      "type": "SYMBOL",
+      "name": "_token_rquote"
     },
     "_brackets": {
       "type": "SEQ",
@@ -351,7 +479,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "quote"
+          "name": "lquote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "rquote"
         },
         {
           "type": "SYMBOL",
@@ -3692,6 +3824,14 @@
     {
       "type": "SYMBOL",
       "name": "_token_prose_marker"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_token_lquote"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_token_rquote"
     },
     {
       "type": "SYMBOL",

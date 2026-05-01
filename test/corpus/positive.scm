@@ -5,7 +5,8 @@ a b
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/001
@@ -14,10 +15,11 @@ a b#a b
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/002
@@ -26,11 +28,12 @@ positive/002
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)
-      (block))))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block)
+        (block)))))
 
 =====================
 positive/003
@@ -39,11 +42,12 @@ positive/003
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block)))
+    (text)))
 
 =====================
 positive/004
@@ -52,13 +56,14 @@ Hello #(a + b) World!
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (group
-      (add
-        (ident)
-        (ident))))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (group
+        (add
+          (ident)
+          (ident))))
+    (text)))
 
 =====================
 positive/005
@@ -67,13 +72,14 @@ positive/005
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
+  (paragraph
+    (code
+      (group
         (add
-          (ident)
-          (ident))
-        (ident)))))
+          (add
+            (ident)
+            (ident))
+          (ident))))))
 
 =====================
 positive/006
@@ -82,13 +88,14 @@ positive/006
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (ident)
-        (mul
+  (paragraph
+    (code
+      (group
+        (add
           (ident)
-          (ident))))))
+          (mul
+            (ident)
+            (ident)))))))
 
 =====================
 positive/007
@@ -97,10 +104,11 @@ Hello #a + b World!
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/008
@@ -109,13 +117,14 @@ positive/008
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (mul
-          (ident)
-          (ident))
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (add
+          (mul
+            (ident)
+            (ident))
+          (ident))))))
 
 =====================
 positive/009
@@ -124,13 +133,14 @@ positive/009
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (call
-          item: (ident)
-          (group))
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (add
+          (call
+            item: (ident)
+            (group))
+          (ident))))))
 
 =====================
 positive/010
@@ -139,11 +149,12 @@ positive/010
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (ident)
-      (group)))
-  (text))
+  (paragraph
+    (code
+      (call
+        item: (ident)
+        (group)))
+    (text)))
 
 =====================
 positive/011
@@ -152,11 +163,12 @@ positive/011
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (ident)
-      (group)))
-  (text))
+  (paragraph
+    (code
+      (call
+        item: (ident)
+        (group)))
+    (text)))
 
 =====================
 positive/012
@@ -165,9 +177,10 @@ positive/012
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/013
@@ -176,13 +189,14 @@ positive/013
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (call
-        item: (ident)
-        (group))
-      (group)))
-  (text))
+  (paragraph
+    (code
+      (call
+        item: (call
+          item: (ident)
+          (group))
+        (group)))
+    (text)))
 
 =====================
 positive/014
@@ -191,9 +205,10 @@ positive/014
 ---------------------
 
 (source_file
-  (code
-    (content
-      (text))))
+  (paragraph
+    (code
+      (content
+        (text)))))
 
 =====================
 positive/015
@@ -202,9 +217,10 @@ positive/015
 ---------------------
 
 (source_file
-  (code
-    (block
-      (ident))))
+  (paragraph
+    (code
+      (block
+        (ident)))))
 
 =====================
 positive/016
@@ -213,10 +229,11 @@ positive/016
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (ident))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (ident)))))
 
 =====================
 positive/017
@@ -225,12 +242,13 @@ positive/017
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (tagged
-        field: (ident)
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (tagged
+          field: (ident)
+          (ident))))))
 
 =====================
 positive/018
@@ -239,14 +257,15 @@ positive/018
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (ident)
-      (group
-        (ident)
-        (tagged
-          field: (ident)
-          (ident))))))
+  (paragraph
+    (code
+      (call
+        item: (ident)
+        (group
+          (ident)
+          (tagged
+            field: (ident)
+            (ident)))))))
 
 =====================
 positive/019
@@ -255,15 +274,16 @@ positive/019
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (ident)
-      (group
-        (ident)
-        (tagged
-          field: (ident)
-          (ident)))))
-  (text))
+  (paragraph
+    (code
+      (call
+        item: (ident)
+        (group
+          (ident)
+          (tagged
+            field: (ident)
+            (ident)))))
+    (text)))
 
 =====================
 positive/020
@@ -272,13 +292,14 @@ positive/020
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (call
-        item: (ident)
-        (group))
-      (content
-        (text)))))
+  (paragraph
+    (code
+      (call
+        item: (call
+          item: (ident)
+          (group))
+        (content
+          (text))))))
 
 =====================
 positive/021
@@ -289,12 +310,14 @@ else {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block))))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/022
@@ -304,11 +327,13 @@ elsa {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block))))
+  (paragraph
+    (text)))
 
 =====================
 positive/023
@@ -317,11 +342,12 @@ positive/023
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block)))
+    (text)))
 
 =====================
 positive/024
@@ -333,10 +359,13 @@ d e
 ---------------------
 
 (source_file
-  (text)
-  (text)
+  (paragraph
+    (text))
+  (paragraph
+    (text))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/025
@@ -348,14 +377,16 @@ else[]
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block))))
   (parbreak)
-  (text)
-  (text)
-  (text))
+  (paragraph
+    (text)
+    (text)
+    (text)))
 
 =====================
 positive/026
@@ -364,12 +395,13 @@ positive/026
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (call
-        item: (ident)
-        (content))
-      (block))))
+  (paragraph
+    (code
+      (branch
+        condition: (call
+          item: (ident)
+          (content))
+        (block)))))
 
 =====================
 positive/027
@@ -378,11 +410,12 @@ positive/027
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (content)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (content)))
+    (text)))
 
 =====================
 positive/028
@@ -391,13 +424,14 @@ positive/028
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (call
-        item: (group
-          (ident))
-        (content))
-      (block))))
+  (paragraph
+    (code
+      (branch
+        condition: (call
+          item: (group
+            (ident))
+          (content))
+        (block)))))
 
 =====================
 positive/029
@@ -406,15 +440,16 @@ positive/029
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (add
-        (group
-          (ident))
-        (call
-          item: (ident)
-          (content)))
-      (block))))
+  (paragraph
+    (code
+      (branch
+        condition: (add
+          (group
+            (ident))
+          (call
+            item: (ident)
+            (content)))
+        (block)))))
 
 =====================
 positive/030
@@ -423,9 +458,10 @@ positive/030
 ---------------------
 
 (source_file
-  (strong
-    (text))
-  (text))
+  (paragraph
+    (strong
+      (text))
+    (text)))
 
 =====================
 positive/031
@@ -434,9 +470,10 @@ _hello_ world
 ---------------------
 
 (source_file
-  (emph
-    (text))
-  (text))
+  (paragraph
+    (emph
+      (text))
+    (text)))
 
 =====================
 positive/032
@@ -445,10 +482,11 @@ positive/032
 ---------------------
 
 (source_file
-  (strong
-    (text)
-    (emph
-      (text))))
+  (paragraph
+    (strong
+      (text)
+      (emph
+        (text)))))
 
 =====================
 positive/033
@@ -457,9 +495,10 @@ positive/033
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/034
@@ -468,13 +507,14 @@ positive/034
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (branch
-        condition: (ident)
-        (block)
-        (block))
-      (group))))
+  (paragraph
+    (code
+      (call
+        item: (branch
+          condition: (ident)
+          (block)
+          (block))
+        (group)))))
 
 =====================
 positive/035
@@ -483,10 +523,11 @@ positive/035
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (ident))))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        value: (ident)))))
 
 =====================
 positive/036
@@ -495,11 +536,12 @@ positive/036
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (ident)))
-  (text))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        value: (ident)))
+    (text)))
 
 =====================
 positive/037
@@ -508,9 +550,10 @@ positive/037
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/038
@@ -522,14 +565,15 @@ positive/038
 ---------------------
 
 (source_file
-  (code
-    (block
-      (let
-        pattern: (ident)
-        value: (ident))
-      (add
-        (ident)
-        (ident)))))
+  (paragraph
+    (code
+      (block
+        (let
+          pattern: (ident)
+          value: (ident))
+        (add
+          (ident)
+          (ident))))))
 
 =====================
 positive/039
@@ -538,9 +582,10 @@ positive/039
 ---------------------
 
 (source_file
-  (code
-    (group
-      (number))))
+  (paragraph
+    (code
+      (group
+        (number)))))
 
 =====================
 positive/040
@@ -549,10 +594,11 @@ positive/040
 ---------------------
 
 (source_file
-  (code
-    (group
-      (number
-        (unit)))))
+  (paragraph
+    (code
+      (group
+        (number
+          (unit))))))
 
 =====================
 positive/041
@@ -561,8 +607,9 @@ positive/041
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/042
@@ -571,8 +618,9 @@ positive/042
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/043
@@ -581,10 +629,11 @@ positive/043
 ---------------------
 
 (source_file
-  (code
-    (field
-      (ident)
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (ident)
+        field: (ident)))))
 
 =====================
 positive/044
@@ -595,11 +644,13 @@ W
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
+  (paragraph
+    (text)
+    (code
+      (ident)))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/045
@@ -609,10 +660,12 @@ World
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (ident)))
+  (paragraph
+    (text)))
 
 =====================
 positive/046
@@ -626,11 +679,13 @@ World
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
+  (paragraph
+    (text)
+    (code
+      (ident)))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/047
@@ -639,10 +694,11 @@ positive/047
 ---------------------
 
 (source_file
-  (strong
-    (emph
-      (text))
-    (text)))
+  (paragraph
+    (strong
+      (emph
+        (text))
+      (text))))
 
 =====================
 positive/048
@@ -651,11 +707,12 @@ positive/048
 ---------------------
 
 (source_file
-  (strong
-    (emph
-      (strong
-        (text)))
-    (text)))
+  (paragraph
+    (strong
+      (emph
+        (strong
+          (text)))
+      (text))))
 
 =====================
 positive/049
@@ -664,8 +721,9 @@ Hello\nWorld
 ---------------------
 
 (source_file
-  (text
-    (escape)))
+  (paragraph
+    (text
+      (escape))))
 
 =====================
 positive/050
@@ -674,8 +732,9 @@ Hello\#World
 ---------------------
 
 (source_file
-  (text
-    (escape)))
+  (paragraph
+    (text
+      (escape))))
 
 =====================
 positive/051
@@ -686,9 +745,10 @@ positive/051
 ---------------------
 
 (source_file
-  (code
-    (content
-      (text))))
+  (paragraph
+    (code
+      (content
+        (text)))))
 
 =====================
 positive/052
@@ -702,7 +762,8 @@ a b
 
 (source_file
   (parbreak)
-  (text)
+  (paragraph
+    (text))
   (parbreak))
 
 =====================
@@ -716,13 +777,14 @@ b
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (parbreak)
-      (text)
-      (parbreak)))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (content
+        (parbreak)
+        (text)
+        (parbreak)))
+    (text)))
 
 =====================
 positive/054
@@ -734,12 +796,13 @@ b
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (text)
-      (parbreak)))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (content
+        (text)
+        (parbreak)))
+    (text)))
 
 =====================
 positive/055
@@ -750,11 +813,12 @@ b
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (text)))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (content
+        (text)))
+    (text)))
 
 =====================
 positive/056
@@ -764,7 +828,8 @@ a
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/057
@@ -794,11 +859,12 @@ positive/059
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      (comment)
-      value: (number))))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        (comment)
+        value: (number)))))
 
 =====================
 positive/060
@@ -807,11 +873,12 @@ positive/060
 ---------------------
 
 (source_file
-  (code
-    (let
-      (comment)
-      pattern: (ident)
-      value: (number))))
+  (paragraph
+    (code
+      (let
+        (comment)
+        pattern: (ident)
+        value: (number)))))
 
 =====================
 positive/061
@@ -820,14 +887,15 @@ positive/061
 ---------------------
 
 (source_file
-  (code
-    (set
-      (call
-        item: (ident)
-        (group
-          (tagged
-            field: (ident)
-            (number)))))))
+  (paragraph
+    (code
+      (set
+        (call
+          item: (ident)
+          (group
+            (tagged
+              field: (ident)
+              (number))))))))
 
 =====================
 positive/062
@@ -838,12 +906,13 @@ positive/062
 ---------------------
 
 (source_file
-  (code
-    (block
-      (set
-        (call
-          item: (ident)
-          (group))))))
+  (paragraph
+    (code
+      (block
+        (set
+          (call
+            item: (ident)
+            (group)))))))
 
 =====================
 positive/063
@@ -857,14 +926,15 @@ positive/063
 ---------------------
 
 (source_file
-  (code
-    (block
-      (set
-        (call
-          item: (ident)
-          (group)))
-      (content
-        (text)))))
+  (paragraph
+    (code
+      (block
+        (set
+          (call
+            item: (ident)
+            (group)))
+        (content
+          (text))))))
 
 =====================
 positive/064
@@ -873,9 +943,10 @@ positive/064
 ---------------------
 
 (source_file
-  (code
-    (string))
-  (text))
+  (paragraph
+    (code
+      (string))
+    (text)))
 
 =====================
 positive/065
@@ -884,10 +955,11 @@ positive/065
 ---------------------
 
 (source_file
-  (code
-    (string
-      (escape)))
-  (text))
+  (paragraph
+    (code
+      (string
+        (escape)))
+    (text)))
 
 =====================
 positive/066
@@ -896,9 +968,10 @@ positive/066
 ---------------------
 
 (source_file
-  (code
-    (import
-      (string))))
+  (paragraph
+    (code
+      (import
+        (string)))))
 
 =====================
 positive/067
@@ -907,13 +980,14 @@ positive/067
 ---------------------
 
 (source_file
-  (code
-    (import
-      (string)
-      (binding
-        (ident))
-      (binding
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        (string)
+        (binding
+          (ident))
+        (binding
+          (ident))))))
 
 =====================
 positive/068
@@ -924,9 +998,10 @@ positive/068
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident))))
+  (paragraph
+    (code
+      (group
+        (ident)))))
 
 =====================
 positive/069
@@ -937,9 +1012,10 @@ positive/069
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident))))
+  (paragraph
+    (code
+      (group
+        (ident)))))
 
 =====================
 positive/070
@@ -953,10 +1029,11 @@ positive/070
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (ident))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (ident)))))
 
 =====================
 positive/071
@@ -968,12 +1045,13 @@ positive/071
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (tagged
-        field: (ident)
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (tagged
+          field: (ident)
+          (ident))))))
 
 =====================
 positive/072
@@ -982,9 +1060,10 @@ positive/072
 ---------------------
 
 (source_file
-  (code
-    (include
-      (string))))
+  (paragraph
+    (code
+      (include
+        (string)))))
 
 =====================
 positive/073
@@ -993,10 +1072,11 @@ positive/073
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (number))))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        value: (number)))))
 
 =====================
 positive/074
@@ -1005,10 +1085,11 @@ positive/074
 ---------------------
 
 (source_file
-  (code
-    (import
-      (string)))
-  (text))
+  (paragraph
+    (code
+      (import
+        (string)))
+    (text)))
 
 =====================
 positive/075
@@ -1017,10 +1098,11 @@ positive/075
 ---------------------
 
 (source_file
-  (code
-    (import
-      (string)))
-  (text))
+  (paragraph
+    (code
+      (import
+        (string)))
+    (text)))
 
 =====================
 positive/076
@@ -1029,13 +1111,14 @@ positive/076
 ---------------------
 
 (source_file
-  (code
-    (group
-      (mul
-        (div
-          (number)
-          (number))
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (mul
+          (div
+            (number)
+            (number))
+          (number))))))
 
 =====================
 positive/077
@@ -1044,13 +1127,14 @@ positive/077
 ---------------------
 
 (source_file
-  (code
-    (group
-      (sub
-        (number)
-        (mul
+  (paragraph
+    (code
+      (group
+        (sub
           (number)
-          (number))))))
+          (mul
+            (number)
+            (number)))))))
 
 =====================
 positive/078
@@ -1059,12 +1143,13 @@ positive/078
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (number)
-        (sign
-          (number))))))
+  (paragraph
+    (code
+      (group
+        (add
+          (number)
+          (sign
+            (number)))))))
 
 =====================
 positive/079
@@ -1073,12 +1158,13 @@ positive/079
 ---------------------
 
 (source_file
-  (code
-    (group
-      (sub
-        (number)
-        (sign
-          (number))))))
+  (paragraph
+    (code
+      (group
+        (sub
+          (number)
+          (sign
+            (number)))))))
 
 =====================
 positive/080
@@ -1087,13 +1173,14 @@ positive/080
 ---------------------
 
 (source_file
-  (code
-    (group
-      (in
+  (paragraph
+    (code
+      (group
         (in
-          (number)
-          (string))
-        (ident)))))
+          (in
+            (number)
+            (string))
+          (ident))))))
 
 =====================
 positive/081
@@ -1102,12 +1189,13 @@ positive/081
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (cmp
-        (number)
-        (number))
-      (content))))
+  (paragraph
+    (code
+      (branch
+        condition: (cmp
+          (number)
+          (number))
+        (content)))))
 
 =====================
 positive/082
@@ -1122,11 +1210,12 @@ positive/082
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (number)
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (add
+          (number)
+          (number))))))
 
 =====================
 positive/083
@@ -1144,13 +1233,14 @@ a
 ---------------------
 
 (source_file
-  (code
-    (group
-      (let
-        pattern: (ident)
-        value: (add
-          (number)
-          (number))))))
+  (paragraph
+    (code
+      (group
+        (let
+          pattern: (ident)
+          value: (add
+            (number)
+            (number)))))))
 
 =====================
 positive/084
@@ -1159,11 +1249,12 @@ positive/084
 ---------------------
 
 (source_file
-  (code
-    (group
-      (lambda
-        pattern: (ident)
-        value: (ident)))))
+  (paragraph
+    (code
+      (group
+        (lambda
+          pattern: (ident)
+          value: (ident))))))
 
 =====================
 positive/085
@@ -1172,12 +1263,13 @@ positive/085
 ---------------------
 
 (source_file
-  (code
-    (field
-      (call
-        item: (ident)
-        (group))
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (call
+          item: (ident)
+          (group))
+        field: (ident)))))
 
 =====================
 positive/086
@@ -1187,10 +1279,11 @@ positive/086
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block))))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block)))))
 
 =====================
 positive/087
@@ -1200,8 +1293,9 @@ positive/087
 ---------------------
 
 (source_file
-  (code
-    (block)))
+  (paragraph
+    (code
+      (block))))
 
 =====================
 positive/088
@@ -1210,8 +1304,9 @@ positive/088
 ---------------------
 
 (source_file
-  (code
-    (string)))
+  (paragraph
+    (code
+      (string))))
 
 =====================
 positive/089
@@ -1220,8 +1315,9 @@ positive/089
 ---------------------
 
 (source_file
-  (code
-    (string)))
+  (paragraph
+    (code
+      (string))))
 
 =====================
 positive/090
@@ -1230,8 +1326,9 @@ positive/090
 ---------------------
 
 (source_file
-  (code
-    (ident)))
+  (paragraph
+    (code
+      (ident))))
 
 =====================
 positive/091
@@ -1240,11 +1337,12 @@ positive/091
 ---------------------
 
 (source_file
-  (code
-    (for
-      pattern: (ident)
-      value: (ident)
-      (block))))
+  (paragraph
+    (code
+      (for
+        pattern: (ident)
+        value: (ident)
+        (block)))))
 
 =====================
 positive/092
@@ -1253,14 +1351,15 @@ positive/092
 ---------------------
 
 (source_file
-  (code
-    (block
-      (let
-        pattern: (ident)
-        value: (number))
-      (add
-        (ident)
-        (number)))))
+  (paragraph
+    (code
+      (block
+        (let
+          pattern: (ident)
+          value: (number))
+        (add
+          (ident)
+          (number))))))
 
 =====================
 positive/093
@@ -1269,11 +1368,12 @@ positive/093
 ---------------------
 
 (source_file
-  (code
-    (content
-      (strong
-        (text))
-      (text))))
+  (paragraph
+    (code
+      (content
+        (strong
+          (text))
+        (text)))))
 
 =====================
 positive/094
@@ -1283,24 +1383,26 @@ Sum is #add(2, 3).
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (call
+  (paragraph
+    (code
+      (let
+        pattern: (call
+          item: (ident)
+          (group
+            (ident)
+            (ident)))
+        value: (add
+          (ident)
+          (ident)))))
+  (paragraph
+    (text)
+    (code
+      (call
         item: (ident)
         (group
-          (ident)
-          (ident)))
-      value: (add
-        (ident)
-        (ident))))
-  (text)
-  (code
-    (call
-      item: (ident)
-      (group
-        (number)
-        (number))))
-  (text))
+          (number)
+          (number))))
+    (text)))
 
 =====================
 positive/095
@@ -1309,9 +1411,10 @@ positive/095
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/096
@@ -1320,10 +1423,11 @@ positive/096
 ---------------------
 
 (source_file
-  (code
-    (field
-      (ident)
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (ident)
+        field: (ident)))))
 
 =====================
 positive/097
@@ -1332,11 +1436,12 @@ positive/097
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text)
-  (emph
-    (text)))
+  (paragraph
+    (code
+      (ident))
+    (text)
+    (emph
+      (text))))
 
 =====================
 positive/098
@@ -1345,14 +1450,15 @@ positive/098
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (group
-        (ident)
-        (ident))
-      value: (group
-        (number)
-        (number)))))
+  (paragraph
+    (code
+      (let
+        pattern: (group
+          (ident)
+          (ident))
+        value: (group
+          (number)
+          (number))))))
 
 =====================
 positive/099
@@ -1361,17 +1467,18 @@ positive/099
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (group
-        (ident)
-        (elude)
-        (ident))
-      value: (group
-        (number)
-        (number)
-        (number)
-        (number)))))
+  (paragraph
+    (code
+      (let
+        pattern: (group
+          (ident)
+          (elude)
+          (ident))
+        value: (group
+          (number)
+          (number)
+          (number)
+          (number))))))
 
 =====================
 positive/100
@@ -1380,13 +1487,14 @@ positive/100
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (group
-        (ident)
-        (elude
-          (ident)))
-      value: (ident))))
+  (paragraph
+    (code
+      (let
+        pattern: (group
+          (ident)
+          (elude
+            (ident)))
+        value: (ident)))))
 
 =====================
 positive/101
@@ -1397,25 +1505,26 @@ positive/101
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (field
-        (call
-          item: (field
-            (ident)
-            field: (ident))
-          (group
-            (ident)))
-        field: (ident))
-      (group
-        (lambda
-          pattern: (group
-            (group
+  (paragraph
+    (code
+      (call
+        item: (field
+          (call
+            item: (field
               (ident)
+              field: (ident))
+            (group
               (ident)))
-          value: (add
-            (ident)
-            (ident)))))))
+          field: (ident))
+        (group
+          (lambda
+            pattern: (group
+              (group
+                (ident)
+                (ident)))
+            value: (add
+              (ident)
+              (ident))))))))
 
 =====================
 positive/102
@@ -1424,12 +1533,13 @@ positive/102
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (lambda
-        pattern: (ident)
-        value: (ident)))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (lambda
+          pattern: (ident)
+          value: (ident))))))
 
 =====================
 positive/103
@@ -1440,12 +1550,15 @@ else {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
-  (text)
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block))))
+  (paragraph
+    (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/104
@@ -1456,14 +1569,15 @@ positive/104
 ---------------------
 
 (source_file
-  (code
-    (while
-      condition: (cmp
-        (ident)
-        (number))
-      (block
-        (group
-          (ident))))))
+  (paragraph
+    (code
+      (while
+        condition: (cmp
+          (ident)
+          (number))
+        (block
+          (group
+            (ident)))))))
 
 =====================
 positive/105
@@ -1474,9 +1588,10 @@ fn main() {}
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/106
@@ -1485,7 +1600,8 @@ Hello_World
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/107
@@ -1494,7 +1610,8 @@ Hello*World
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/108
@@ -1503,9 +1620,10 @@ _UNIX_.
 ---------------------
 
 (source_file
-  (emph
-    (text))
-  (text))
+  (paragraph
+    (emph
+      (text))
+    (text)))
 
 =====================
 positive/109
@@ -1514,10 +1632,11 @@ positive/109
 ---------------------
 
 (source_file
-  (text)
-  (emph
-    (text
-      (escape))))
+  (paragraph
+    (text)
+    (emph
+      (text
+        (escape)))))
 
 =====================
 positive/110
@@ -1526,9 +1645,10 @@ $a$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (letter)))))
 
 =====================
 positive/111
@@ -1537,8 +1657,9 @@ positive/111
 ---------------------
 
 (source_file
-  (code
-    (bool)))
+  (paragraph
+    (code
+      (bool))))
 
 =====================
 positive/112
@@ -1548,11 +1669,12 @@ positive/112
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (ident)
-        (string)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (ident)
+          (string))))))
 
 =====================
 positive/113
@@ -1562,11 +1684,12 @@ Hey
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text))
-    (content
-      (text))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (text)))))
 
 =====================
 positive/114
@@ -1576,11 +1699,12 @@ Hey
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text))
-    (content
-      (text))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (text)))))
 
 =====================
 positive/115
@@ -1590,12 +1714,13 @@ World
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text)
-      (linebreak))
-    (content
-      (text))))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (linebreak))
+      (content
+        (text)))))
 
 =====================
 positive/116
@@ -1606,13 +1731,14 @@ _
 ---------------------
 
 (source_file
-  (emph
-    (section
-      (heading
-        (text)
-        (emph
-          (text)))
-      (content))))
+  (paragraph
+    (emph
+      (section
+        (heading
+          (text)
+          (emph
+            (text)))
+        (content)))))
 
 =====================
 positive/117
@@ -1623,14 +1749,15 @@ positive/117
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (call
-        item: (ident)
-        (group))
-      value: (block
-        (return
-          (number))))))
+  (paragraph
+    (code
+      (let
+        pattern: (call
+          item: (ident)
+          (group))
+        value: (block
+          (return
+            (number)))))))
 
 =====================
 positive/118
@@ -1639,17 +1766,18 @@ positive/118
 ---------------------
 
 (source_file
-  (code
-    (show
-      pattern: (ident)
-      value: (set
-        (call
-          item: (ident)
-          (group
-            (tagged
-              field: (ident)
-              (number
-                (unit)))))))))
+  (paragraph
+    (code
+      (show
+        pattern: (ident)
+        value: (set
+          (call
+            item: (ident)
+            (group
+              (tagged
+                field: (ident)
+                (number
+                  (unit))))))))))
 
 =====================
 positive/119
@@ -1658,8 +1786,9 @@ positive/119
 ---------------------
 
 (source_file
-  (text
-    (escape)))
+  (paragraph
+    (text
+      (escape))))
 
 =====================
 positive/120
@@ -1668,8 +1797,9 @@ positive/120
 ---------------------
 
 (source_file
-  (text
-    (escape)))
+  (paragraph
+    (text
+      (escape))))
 
 =====================
 positive/121
@@ -1687,14 +1817,15 @@ positive/122
 ---------------------
 
 (source_file
-  (code
-    (show
-      value: (call
-        item: (field
-          (ident)
-          field: (ident))
-        (group
-          (number))))))
+  (paragraph
+    (code
+      (show
+        value: (call
+          item: (field
+            (ident)
+            field: (ident))
+          (group
+            (number)))))))
 
 =====================
 positive/123
@@ -1703,14 +1834,15 @@ positive/123
 ---------------------
 
 (source_file
-  (code
-    (group
-      (or
-        (and
-          (ident)
-          (ident))
-        (not
-          (ident))))))
+  (paragraph
+    (code
+      (group
+        (or
+          (and
+            (ident)
+            (ident))
+          (not
+            (ident)))))))
 
 =====================
 positive/124
@@ -1719,8 +1851,9 @@ positive/124
 ---------------------
 
 (source_file
-  (code
-    (label)))
+  (paragraph
+    (code
+      (label))))
 
 =====================
 positive/125
@@ -1729,8 +1862,9 @@ positive/125
 ---------------------
 
 (source_file
-  (code
-    (label)))
+  (paragraph
+    (code
+      (label))))
 
 =====================
 positive/126
@@ -1739,10 +1873,11 @@ positive/126
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (number))))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        value: (number)))))
 
 =====================
 positive/127
@@ -1751,9 +1886,10 @@ positive/127
 ---------------------
 
 (source_file
-  (code
-    (string
-      (escape))))
+  (paragraph
+    (code
+      (string
+        (escape)))))
 
 =====================
 positive/128
@@ -1762,9 +1898,10 @@ positive/128
 ---------------------
 
 (source_file
-  (strong
-    (code
-      (ident))))
+  (paragraph
+    (strong
+      (code
+        (ident)))))
 
 =====================
 positive/129
@@ -1773,10 +1910,11 @@ positive/129
 ---------------------
 
 (source_file
-  (strong)
-  (text)
-  (strong)
-  (text))
+  (paragraph
+    (strong)
+    (text)
+    (strong)
+    (text)))
 
 =====================
 positive/130
@@ -1785,10 +1923,11 @@ __ Hello ** World
 ---------------------
 
 (source_file
-  (emph)
-  (text)
-  (strong)
-  (text))
+  (paragraph
+    (emph)
+    (text)
+    (strong)
+    (text)))
 
 =====================
 positive/131
@@ -1797,10 +1936,11 @@ __ Hello $$ World
 ---------------------
 
 (source_file
-  (emph)
-  (text)
-  (math)
-  (text))
+  (paragraph
+    (emph)
+    (text)
+    (math)
+    (text)))
 
 =====================
 positive/132
@@ -1809,12 +1949,13 @@ __** Hello $$$$ World
 ---------------------
 
 (source_file
-  (emph)
-  (strong)
-  (text)
-  (math)
-  (math)
-  (text))
+  (paragraph
+    (emph)
+    (strong)
+    (text)
+    (math)
+    (math)
+    (text)))
 
 =====================
 positive/133
@@ -1824,12 +1965,14 @@ c, d
 ---------------------
 
 (source_file
-  (code
-    (import
-      (string)
-      (binding
-        (ident))))
-  (text))
+  (paragraph
+    (code
+      (import
+        (string)
+        (binding
+          (ident)))))
+  (paragraph
+    (text)))
 
 =====================
 positive/134
@@ -1839,13 +1982,15 @@ positive/134
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)))
-  (section
-    (heading
-      (text))
-    (content)))
+  (paragraph
+    (code
+      (let
+        pattern: (ident))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content))))
 
 =====================
 positive/135
@@ -1855,11 +2000,12 @@ positive/135
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (ident)
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (ident)
+          (ident))))))
 
 =====================
 positive/136
@@ -1869,11 +2015,13 @@ else if b {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (block)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (block))))
+  (paragraph
+    (text)))
 
 =====================
 positive/137
@@ -1882,12 +2030,13 @@ positive/137
 ---------------------
 
 (source_file
-  (code
-    (group
-      (add
-        (number)
-        (comment)
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (add
+          (number)
+          (comment)
+          (number))))))
 
 =====================
 positive/138
@@ -1899,11 +2048,12 @@ positive/138
 ---------------------
 
 (source_file
-  (code
-    (block
-      (number)
-      (sign
-        (number)))))
+  (paragraph
+    (code
+      (block
+        (number)
+        (sign
+          (number))))))
 
 =====================
 positive/139
@@ -1913,11 +2063,12 @@ positive/139
 ---------------------
 
 (source_file
-  (code
-    (group
-      (lambda
-        pattern: (ident)
-        value: (ident)))))
+  (paragraph
+    (code
+      (group
+        (lambda
+          pattern: (ident)
+          value: (ident))))))
 
 =====================
 positive/140
@@ -1927,10 +2078,11 @@ positive/140
 ---------------------
 
 (source_file
-  (code
-    (group
-      (elude
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (elude
+          (ident))))))
 
 =====================
 positive/141
@@ -1940,10 +2092,11 @@ positive/141
 ---------------------
 
 (source_file
-  (code
-    (group
-      (not
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (not
+          (ident))))))
 
 =====================
 positive/142
@@ -1952,11 +2105,12 @@ positive/142
 ---------------------
 
 (source_file
-  (code
-    (group
-      (assign
-        pattern: (ident)
-        value: (ident)))))
+  (paragraph
+    (code
+      (group
+        (assign
+          pattern: (ident)
+          value: (ident))))))
 
 =====================
 positive/143
@@ -1966,11 +2120,12 @@ positive/143
 ---------------------
 
 (source_file
-  (code
-    (group
-      (assign
-        pattern: (ident)
-        value: (ident)))))
+  (paragraph
+    (code
+      (group
+        (assign
+          pattern: (ident)
+          value: (ident))))))
 
 =====================
 positive/144
@@ -1981,13 +2136,14 @@ positive/144
 ---------------------
 
 (source_file
-  (code
-    (group
-      (let
-        pattern: (ident)
-        value: (assign
+  (paragraph
+    (code
+      (group
+        (let
           pattern: (ident)
-          value: (ident))))))
+          value: (assign
+            pattern: (ident)
+            value: (ident)))))))
 
 =====================
 positive/145
@@ -1996,7 +2152,8 @@ https://example.com
 ---------------------
 
 (source_file
-  (url))
+  (paragraph
+    (url)))
 
 =====================
 positive/146
@@ -2005,9 +2162,10 @@ https://hello\ world.com
 ---------------------
 
 (source_file
-  (url)
-  (linebreak)
-  (text))
+  (paragraph
+    (url)
+    (linebreak)
+    (text)))
 
 =====================
 positive/147
@@ -2016,9 +2174,10 @@ https://hello\ world.com Hey
 ---------------------
 
 (source_file
-  (url)
-  (linebreak)
-  (text))
+  (paragraph
+    (url)
+    (linebreak)
+    (text)))
 
 =====================
 positive/148
@@ -2027,12 +2186,13 @@ positive/148
 ---------------------
 
 (source_file
-  (code
-    (content
-      (section
-        (heading
-          (text))
-        (content)))))
+  (paragraph
+    (code
+      (content
+        (section
+          (heading
+            (text))
+          (content))))))
 
 =====================
 positive/149
@@ -2042,12 +2202,14 @@ positive/149
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (bool)
-      (block)))
-  (comment)
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (bool)
+        (block)))
+    (comment))
+  (paragraph
+    (text)))
 
 =====================
 positive/150
@@ -2056,13 +2218,14 @@ positive/150
 ---------------------
 
 (source_file
-  (code
-    (group
-      (call
-        item: (field
-          (ident)
-          field: (ident))
-        (group)))))
+  (paragraph
+    (code
+      (group
+        (call
+          item: (field
+            (ident)
+            field: (ident))
+          (group))))))
 
 =====================
 positive/151
@@ -2071,9 +2234,10 @@ positive/151
 ---------------------
 
 (source_file
-  (code
-    (return))
-  (text))
+  (paragraph
+    (code
+      (return))
+    (text)))
 
 =====================
 positive/152
@@ -2084,15 +2248,18 @@ positive/152
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 =====================
 positive/153
@@ -2102,12 +2269,13 @@ positive/153
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
-      (text))))
+      (text)
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/154
@@ -2118,13 +2286,15 @@ f
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
-      (text)))
-  (text))
+      (text)
+      (item
+        (item_marker)
+        (text))))
+  (paragraph
+    (text)))
 
 =====================
 positive/155
@@ -2135,13 +2305,14 @@ positive/155
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
-      (text))
-    (text)))
+      (text)
+      (item
+        (item_marker)
+        (text))
+      (text))))
 
 =====================
 positive/156
@@ -2152,13 +2323,16 @@ positive/156
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text))
-  (text))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (text)))
 
 =====================
 positive/157
@@ -2169,11 +2343,12 @@ positive/157
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (parbreak)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (parbreak)
+      (text))))
 
 =====================
 positive/158
@@ -2184,12 +2359,13 @@ positive/158
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
+  (paragraph
     (item
       (item_marker)
       (item
-        (item_marker)))))
+        (item_marker)
+        (item
+          (item_marker))))))
 
 =====================
 positive/159
@@ -2200,15 +2376,17 @@ positive/159
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
-      (text)))
-  (item
-    (item_marker)
-    (text)))
+      (text)
+      (item
+        (item_marker)
+        (text))))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 =====================
 positive/160
@@ -2220,12 +2398,13 @@ positive/160
 ---------------------
 
 (source_file
-  (code
-    (content
-      (item
-        (item_marker)
+  (paragraph
+    (code
+      (content
         (item
-          (item_marker))))))
+          (item_marker)
+          (item
+            (item_marker)))))))
 
 =====================
 positive/161
@@ -2236,12 +2415,13 @@ positive/161
 ---------------------
 
 (source_file
-  (code
-    (content
-      (item
-        (item_marker)
+  (paragraph
+    (code
+      (content
         (item
-          (item_marker))))))
+          (item_marker)
+          (item
+            (item_marker)))))))
 
 =====================
 positive/162
@@ -2251,14 +2431,15 @@ positive/162
 ---------------------
 
 (source_file
-  (code
-    (content
-      (item
-        (item_marker)
-        (text))
-      (item
-        (item_marker)
-        (text)))))
+  (paragraph
+    (code
+      (content
+        (item
+          (item_marker)
+          (text))
+        (item
+          (item_marker)
+          (text))))))
 
 =====================
 positive/163
@@ -2270,15 +2451,17 @@ Hello
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (item
-        (item_marker)
-        (text))
-      (item
-        (item_marker)
-        (text)))))
+  (paragraph
+    (text))
+  (paragraph
+    (code
+      (content
+        (item
+          (item_marker)
+          (text))
+        (item
+          (item_marker)
+          (text))))))
 
 =====================
 positive/164
@@ -2288,12 +2471,14 @@ Hello
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (item
-        (item_marker)
-        (text)))))
+  (paragraph
+    (text))
+  (paragraph
+    (code
+      (content
+        (item
+          (item_marker)
+          (text))))))
 
 =====================
 positive/165
@@ -2303,9 +2488,10 @@ positive/165
 ---------------------
 
 (source_file
-  (code
-    (content))
-  (text))
+  (paragraph
+    (code
+      (content))
+    (text)))
 
 =====================
 positive/166
@@ -2316,12 +2502,14 @@ positive/166
 ---------------------
 
 (source_file
-  (item
-    (item_marker))
-  (item
-    (item_marker)
+  (paragraph
     (item
-      (item_marker))))
+      (item_marker)))
+  (paragraph
+    (item
+      (item_marker)
+      (item
+        (item_marker)))))
 
 =====================
 positive/167
@@ -2330,11 +2518,12 @@ positive/167
 ---------------------
 
 (source_file
-  (code
-    (content
-      (item
-        (item_marker)
-        (text)))))
+  (paragraph
+    (code
+      (content
+        (item
+          (item_marker)
+          (text))))))
 
 =====================
 positive/168
@@ -2345,10 +2534,11 @@ positive/168
 ---------------------
 
 (source_file
-  (strong
-    (item
-      (item_marker)
-      (text))))
+  (paragraph
+    (strong
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/169
@@ -2359,10 +2549,11 @@ positive/169
 ---------------------
 
 (source_file
-  (strong
-    (item
-      (item_marker)
-      (text))))
+  (paragraph
+    (strong
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/170
@@ -2373,11 +2564,12 @@ positive/170
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
+  (paragraph
     (item
-      (item_marker))
-    (strong)))
+      (item_marker)
+      (item
+        (item_marker))
+      (strong))))
 
 =====================
 positive/171
@@ -2386,7 +2578,8 @@ positive/171
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/172
@@ -2395,9 +2588,10 @@ positive/172
 ---------------------
 
 (source_file
-  (term
-    term: (text)
-    (text)))
+  (paragraph
+    (term
+      term: (text)
+      (text))))
 
 =====================
 positive/173
@@ -2406,7 +2600,8 @@ positive/173
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/174
@@ -2415,7 +2610,8 @@ positive/174
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/175
@@ -2424,7 +2620,8 @@ positive/175
 ---------------------
 
 (source_file
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/176
@@ -2433,7 +2630,8 @@ positive/176
 ---------------------
 
 (source_file
-  (label))
+  (paragraph
+    (label)))
 
 =====================
 positive/177
@@ -2442,7 +2640,8 @@ positive/177
 ---------------------
 
 (source_file
-  (ref))
+  (paragraph
+    (ref)))
 
 =====================
 positive/178
@@ -2451,9 +2650,10 @@ Hello-?World
 ---------------------
 
 (source_file
-  (text)
-  (shorthand)
-  (text))
+  (paragraph
+    (text)
+    (shorthand)
+    (text)))
 
 =====================
 positive/179
@@ -2462,13 +2662,14 @@ $2 ^ 4 * 8$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (number))
-      (symbol)
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (number))
+        (symbol)
+        (number)))))
 
 =====================
 positive/180
@@ -2477,12 +2678,13 @@ $2 ^ 4 _ 8$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (number)
-        sub: (number)))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (number)
+          sub: (number))))))
 
 =====================
 positive/181
@@ -2491,13 +2693,14 @@ $1_2_3$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sub: (attach
+  (paragraph
+    (math
+      (formula
+        (attach
           (number)
-          sub: (number))))))
+          sub: (attach
+            (number)
+            sub: (number)))))))
 
 =====================
 positive/182
@@ -2506,11 +2709,12 @@ $(3  )$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (group
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (group
+          (formula
+            (number)))))))
 
 =====================
 positive/183
@@ -2519,9 +2723,10 @@ $3  $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (number)))))
 
 =====================
 positive/184
@@ -2530,9 +2735,10 @@ $lim  $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (ident))))
+  (paragraph
+    (math
+      (formula
+        (ident)))))
 
 =====================
 positive/185
@@ -2541,11 +2747,12 @@ $x + 2$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter)
-      (symbol)
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (letter)
+        (symbol)
+        (number)))))
 
 =====================
 positive/186
@@ -2554,11 +2761,12 @@ $x + ($
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter)
-      (symbol)
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (letter)
+        (symbol)
+        (group)))))
 
 =====================
 positive/187
@@ -2567,11 +2775,12 @@ $x + (  $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter)
-      (symbol)
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (letter)
+        (symbol)
+        (group)))))
 
 =====================
 positive/188
@@ -2580,15 +2789,16 @@ $2^[4 * 2$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (group
-          (formula
-            (number)
-            (symbol)
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (group
+            (formula
+              (number)
+              (symbol)
+              (number))))))))
 
 =====================
 positive/189
@@ -2597,12 +2807,13 @@ $2^+2$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (number)))))
 
 =====================
 positive/190
@@ -2611,11 +2822,12 @@ $eq.not$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (field
-        (ident)
-        (ident)))))
+  (paragraph
+    (math
+      (formula
+        (field
+          (ident)
+          (ident))))))
 
 =====================
 positive/191
@@ -2624,14 +2836,15 @@ $eq.not(0)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (field
-          (ident)
-          field: (ident))
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (field
+            (ident)
+            field: (ident))
+          (formula
+            (number)))))))
 
 =====================
 positive/192
@@ -2640,12 +2853,13 @@ $y[5)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (apply
-        item: (letter)
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (apply
+          item: (letter)
+          (formula
+            (number)))))))
 
 =====================
 positive/193
@@ -2654,12 +2868,13 @@ $3[5)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number)
-      (group
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (number)
+        (group
+          (formula
+            (number)))))))
 
 =====================
 positive/194
@@ -2668,12 +2883,13 @@ $1^\=()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (apply
-          item: (escape))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (apply
+            item: (escape)))))))
 
 =====================
 positive/195
@@ -2682,12 +2898,13 @@ $1^"hello"()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (apply
-          item: (string))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (apply
+            item: (string)))))))
 
 =====================
 positive/196
@@ -2699,14 +2916,15 @@ $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (let
-          pattern: (ident)
-          value: (number)))
-      (code
-        (ident)))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (let
+            pattern: (ident)
+            value: (number)))
+        (code
+          (ident))))))
 
 =====================
 positive/197
@@ -2715,9 +2933,10 @@ $ x $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (letter)))))
 
 =====================
 positive/198
@@ -2727,21 +2946,22 @@ $ cal(A) :=
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (letter)))
-      (shorthand)
-      (group
-        (formula
-          (letter)
-          (ident)
-          (ident)
-          (symbol)
-          (letter)
-          (string))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (letter)))
+        (shorthand)
+        (group
+          (formula
+            (letter)
+            (ident)
+            (ident)
+            (symbol)
+            (letter)
+            (string)))))))
 
 =====================
 positive/199
@@ -2751,8 +2971,9 @@ positive/199
 ---------------------
 
 (source_file
-  (code
-    (group)))
+  (paragraph
+    (code
+      (group))))
 
 =====================
 positive/200
@@ -2761,11 +2982,12 @@ positive/200
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (string)
-        (group)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (string)
+          (group))))))
 
 =====================
 positive/201
@@ -2774,10 +2996,11 @@ Hello "World"
 ---------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)))
 
 =====================
 positive/202
@@ -2786,10 +3009,11 @@ Hello"World"
 ---------------------
 
 (source_file
-  (text)
-  (quote)
-  (text)
-  (quote))
+  (paragraph
+    (text)
+    (lquote)
+    (text)
+    (rquote)))
 
 =====================
 positive/203
@@ -2798,12 +3022,13 @@ $||a|b$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol)
-      (letter)
-      (symbol)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (symbol)
+        (letter)
+        (symbol)
+        (letter)))))
 
 =====================
 positive/204
@@ -2812,11 +3037,12 @@ $||a b$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol)
-      (letter)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (symbol)
+        (letter)
+        (letter)))))
 
 =====================
 positive/205
@@ -2825,13 +3051,14 @@ $2^3!a$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (fac
-          (number)))
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (fac
+            (number)))
+        (letter)))))
 
 =====================
 positive/206
@@ -2840,15 +3067,16 @@ positive/206
 ---------------------
 
 (source_file
-  (code
-    (import
-      (add
-        (string)
-        (string))
-      (binding
-        (ident))
-      (binding
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        (add
+          (string)
+          (string))
+        (binding
+          (ident))
+        (binding
+          (ident))))))
 
 =====================
 positive/207
@@ -2857,12 +3085,13 @@ positive/207
 ---------------------
 
 (source_file
-  (code
-    (group
-      (in
-        (ident)
-        (comment)
-        (ident)))))
+  (paragraph
+    (code
+      (group
+        (in
+          (ident)
+          (comment)
+          (ident))))))
 
 =====================
 positive/208
@@ -2871,12 +3100,13 @@ $1 + n n$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number)
-      (symbol)
-      (letter)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (number)
+        (symbol)
+        (letter)
+        (letter)))))
 
 =====================
 positive/209
@@ -2885,12 +3115,13 @@ $ := { | } $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (shorthand)
-      (group
-        (formula
-          (symbol))))))
+  (paragraph
+    (math
+      (formula
+        (shorthand)
+        (group
+          (formula
+            (symbol)))))))
 
 =====================
 positive/210
@@ -2902,12 +3133,13 @@ b)
 ---------------------
 
 (source_file
-  (code
-    (group
-      (import
-        (string)
-        (binding
-          (ident))))))
+  (paragraph
+    (code
+      (group
+        (import
+          (string)
+          (binding
+            (ident)))))))
 
 =====================
 positive/211
@@ -2916,11 +3148,12 @@ $lim_3$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (ident)
-        sub: (number)))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (ident)
+          sub: (number))))))
 
 =====================
 positive/212
@@ -2929,7 +3162,8 @@ https://typst.app/
 ---------------------
 
 (source_file
-  (url))
+  (paragraph
+    (url)))
 
 =====================
 positive/213
@@ -2938,7 +3172,8 @@ https://www.youtube.com/watch?v=sWmlbMh3ol8
 ---------------------
 
 (source_file
-  (url))
+  (paragraph
+    (url)))
 
 =====================
 positive/214
@@ -2947,8 +3182,9 @@ https://www.youtube.com/watch?v=sWmlbMh3ol8 Hello
 ---------------------
 
 (source_file
-  (url)
-  (text))
+  (paragraph
+    (url)
+    (text)))
 
 =====================
 positive/215
@@ -2957,9 +3193,10 @@ positive/215
 ---------------------
 
 (source_file
-  (strong
-    (url)
-    (text)))
+  (paragraph
+    (strong
+      (url)
+      (text))))
 
 =====================
 positive/216
@@ -2968,8 +3205,9 @@ https://[)
 ---------------------
 
 (source_file
-  (url)
-  (text))
+  (paragraph
+    (url)
+    (text)))
 
 =====================
 positive/217
@@ -2980,10 +3218,11 @@ positive/217
 ---------------------
 
 (source_file
-  (strong
-    (text)
-    (url)
-    (text)))
+  (paragraph
+    (strong
+      (text)
+      (url)
+      (text))))
 
 =====================
 positive/218
@@ -2994,13 +3233,14 @@ positive/218
 ---------------------
 
 (source_file
-  (strong
-    (code
-      (ident))
-    (section
-      (heading
-        (text))
-      (content))))
+  (paragraph
+    (strong
+      (code
+        (ident))
+      (section
+        (heading
+          (text))
+        (content)))))
 
 =====================
 positive/219
@@ -3011,12 +3251,13 @@ _
 ---------------------
 
 (source_file
-  (emph
-    (item
-      (item_marker)
-      (text)
-      (emph
-        (text)))))
+  (paragraph
+    (emph
+      (item
+        (item_marker)
+        (text)
+        (emph
+          (text))))))
 
 =====================
 positive/220
@@ -3025,8 +3266,9 @@ _ + e _
 ---------------------
 
 (source_file
-  (emph
-    (text)))
+  (paragraph
+    (emph
+      (text))))
 
 =====================
 positive/221
@@ -3035,10 +3277,11 @@ _ #e + Hello _
 ---------------------
 
 (source_file
-  (emph
-    (code
-      (ident))
-    (text)))
+  (paragraph
+    (emph
+      (code
+        (ident))
+      (text))))
 
 =====================
 positive/222
@@ -3048,10 +3291,11 @@ positive/222
 
 (source_file
   (comment)
-  (section
-    (heading
-      (text))
-    (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content))))
 
 =====================
 positive/223
@@ -3061,11 +3305,12 @@ positive/223
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (comment)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (comment)
+      (text))))
 
 =====================
 positive/224
@@ -3075,13 +3320,14 @@ positive/224
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (comment)
+  (paragraph
     (item
       (item_marker)
-      (text))))
+      (text)
+      (comment)
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/225
@@ -3092,10 +3338,12 @@ Hey*
 ---------------------
 
 (source_file
-  (text)
-  (text)
-  (strong
-    (text)))
+  (paragraph
+    (text))
+  (paragraph
+    (text)
+    (strong
+      (text))))
 
 =====================
 positive/226
@@ -3105,11 +3353,12 @@ World*
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (strong
-      (text))))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (strong
+        (text)))))
 
 =====================
 positive/227
@@ -3119,7 +3368,8 @@ positive/227
 ---------------------
 
 (source_file
-  (strong))
+  (paragraph
+    (strong)))
 
 =====================
 positive/228
@@ -3129,12 +3379,14 @@ World
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (code
-      (ident)))
-  (text))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (code
+        (ident))))
+  (paragraph
+    (text)))
 
 =====================
 positive/229
@@ -3143,10 +3395,11 @@ positive/229
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (comment)
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (comment)
+    (text)))
 
 =====================
 positive/230
@@ -3157,10 +3410,13 @@ World
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (text))
+  (paragraph
+    (code
+      (ident)))
+  (paragraph
+    (text)))
 
 =====================
 positive/231
@@ -3169,13 +3425,14 @@ $e^1»2$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (letter)
-        sup: (number))
-      (symbol)
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (letter)
+          sup: (number))
+        (symbol)
+        (number)))))
 
 =====================
 positive/232
@@ -3186,8 +3443,9 @@ positive/232
 ---------------------
 
 (source_file
-  (strong
-    (text)))
+  (paragraph
+    (strong
+      (text))))
 
 =====================
 positive/233
@@ -3198,9 +3456,10 @@ positive/233
 ---------------------
 
 (source_file
-  (strong
-    (item
-      (item_marker))))
+  (paragraph
+    (strong
+      (item
+        (item_marker)))))
 
 =====================
 positive/234
@@ -3209,14 +3468,15 @@ $lim(1, 3)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (number))
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (number))
+          (formula
+            (number)))))))
 
 =====================
 positive/235
@@ -3225,18 +3485,19 @@ $lim(1, 3; 5, 9)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (number))
-        (formula
-          (number))
-        (formula
-          (number))
-        (formula
-          (number))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (number))
+          (formula
+            (number))
+          (formula
+            (number))
+          (formula
+            (number)))))))
 
 =====================
 positive/236
@@ -3245,13 +3506,14 @@ $(3^))$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (group
-        (formula
-          (attach
-            (number)
-            sup: (symbol)))))))
+  (paragraph
+    (math
+      (formula
+        (group
+          (formula
+            (attach
+              (number)
+              sup: (symbol))))))))
 
 =====================
 positive/237
@@ -3260,10 +3522,11 @@ $2a$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (number)
+        (letter)))))
 
 =====================
 positive/238
@@ -3272,13 +3535,14 @@ $2^√4!$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (root
-          (fac
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (root
+            (fac
+              (number))))))))
 
 =====================
 positive/239
@@ -3287,13 +3551,14 @@ $√2^2!$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (root
-        (attach
-          (number)
-          sup: (fac
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (root
+          (attach
+            (number)
+            sup: (fac
+              (number))))))))
 
 =====================
 positive/240
@@ -3302,14 +3567,15 @@ $√( 3 dot 4)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (root
-        (group
-          (formula
-            (number)
-            (ident)
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (root
+          (group
+            (formula
+              (number)
+              (ident)
+              (number))))))))
 
 =====================
 positive/241
@@ -3318,12 +3584,13 @@ $√ 3 dot 4$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (root
-        (number))
-      (ident)
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (root
+          (number))
+        (ident)
+        (number)))))
 
 =====================
 positive/242
@@ -3332,14 +3599,15 @@ $mt( dl: 0)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (tagged
-          field: (ident)
-          (formula
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (tagged
+            field: (ident)
+            (formula
+              (number))))))))
 
 =====================
 positive/243
@@ -3348,18 +3616,19 @@ $mat(2, 2, delim: "[")$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (number))
-        (formula
-          (number))
-        (tagged
-          field: (ident)
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
           (formula
-            (string)))))))
+            (number))
+          (formula
+            (number))
+          (tagged
+            field: (ident)
+            (formula
+              (string))))))))
 
 =====================
 positive/244
@@ -3368,14 +3637,15 @@ $ap(av:0)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (tagged
-          field: (ident)
-          (formula
-            (number)))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (tagged
+            field: (ident)
+            (formula
+              (number))))))))
 
 =====================
 positive/245
@@ -3384,11 +3654,12 @@ $e^2.0$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (letter)
-        sup: (number)))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (letter)
+          sup: (number))))))
 
 =====================
 positive/246
@@ -3397,11 +3668,12 @@ $ mat.a $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (field
-        (ident)
-        field: (ident)))))
+  (paragraph
+    (math
+      (formula
+        (field
+          (ident)
+          field: (ident))))))
 
 =====================
 positive/247
@@ -3412,14 +3684,15 @@ $ mat(
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (field
-            (ident)
-            field: (ident)))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (field
+              (ident)
+              field: (ident))))))))
 
 =====================
 positive/248
@@ -3428,12 +3701,13 @@ $mat(a)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (letter))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (letter)))))))
 
 =====================
 positive/249
@@ -3442,12 +3716,13 @@ $mat(avvv)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (ident))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (ident)))))))
 
 =====================
 positive/250
@@ -3456,13 +3731,14 @@ $mat(/* hello */ avvv)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (comment)
-        (formula
-          (ident))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (comment)
+          (formula
+            (ident)))))))
 
 =====================
 positive/251
@@ -3471,15 +3747,16 @@ $mat(/* hello */ delim: "[")$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (comment)
-        (tagged
-          field: (ident)
-          (formula
-            (string)))))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (comment)
+          (tagged
+            field: (ident)
+            (formula
+              (string))))))))
 
 =====================
 positive/252
@@ -3488,9 +3765,10 @@ positive/252
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (ref)))
+  (paragraph
+    (item
+      (item_marker)
+      (ref))))
 
 =====================
 positive/253
@@ -3499,10 +3777,11 @@ $a'''$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (prime
-        (letter)))))
+  (paragraph
+    (math
+      (formula
+        (prime
+          (letter))))))
 
 =====================
 positive/254
@@ -3511,10 +3790,11 @@ $a&$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter)
-      (align))))
+  (paragraph
+    (math
+      (formula
+        (letter)
+        (align)))))
 
 =====================
 positive/255
@@ -3523,12 +3803,13 @@ $#let a = 0;$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (let
-          pattern: (ident)
-          value: (number))))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (let
+            pattern: (ident)
+            value: (number)))))))
 
 =====================
 positive/256
@@ -3537,15 +3818,16 @@ $2^(#ab')$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (group
-          (formula
-            (prime
-              (code
-                (ident)))))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (group
+            (formula
+              (prime
+                (code
+                  (ident))))))))))
 
 =====================
 positive/257
@@ -3559,19 +3841,20 @@ positive/257
 (source_file
   (comment)
   (comment)
-  (code
-    (call
-      item: (call
+  (paragraph
+    (code
+      (call
         item: (call
-          item: (ident)
-          (group
-            (tagged
-              field: (ident)
-              (number))))
+          item: (call
+            item: (ident)
+            (group
+              (tagged
+                field: (ident)
+                (number))))
+          (content
+            (text)))
         (content
-          (text)))
-      (content
-        (text)))))
+          (text))))))
 
 =====================
 positive/258
@@ -3585,27 +3868,28 @@ positive/258
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (ident)
-      (group
-        (tagged
-          field: (ident)
-          (ident))
-        (tagged
-          field: (ident)
-          (number
-            (unit)))
-        (tagged
-          field: (ident)
-          (number
-            (unit)))
-        (content
-          (strong
-            (text)
-            (linebreak)
-            (code
-              (ident))))))))
+  (paragraph
+    (code
+      (call
+        item: (ident)
+        (group
+          (tagged
+            field: (ident)
+            (ident))
+          (tagged
+            field: (ident)
+            (number
+              (unit)))
+          (tagged
+            field: (ident)
+            (number
+              (unit)))
+          (content
+            (strong
+              (text)
+              (linebreak)
+              (code
+                (ident)))))))))
 
 =====================
 positive/259
@@ -3614,13 +3898,14 @@ $e^mat()'$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (letter)
-        sup: (prime
-          (call
-            item: (ident)))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (letter)
+          sup: (prime
+            (call
+              item: (ident))))))))
 
 =====================
 positive/260
@@ -3629,12 +3914,13 @@ $2^e '$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (letter))
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (letter))
+        (symbol)))))
 
 =====================
 positive/261
@@ -3643,12 +3929,13 @@ $2^e'$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (prime
-          (letter))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (prime
+            (letter)))))))
 
 =====================
 positive/262
@@ -3658,14 +3945,15 @@ $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (let
-          pattern: (ident)
-          value: (number)))
-      (code
-        (ident)))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (let
+            pattern: (ident)
+            value: (number)))
+        (code
+          (ident))))))
 
 =====================
 positive/263
@@ -3676,14 +3964,15 @@ $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (let
-          pattern: (ident)
-          value: (number)))
-      (letter)
-      (ident))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (let
+            pattern: (ident)
+            value: (number)))
+        (letter)
+        (ident)))))
 
 =====================
 positive/264
@@ -3693,21 +3982,23 @@ positive/264
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (group
-        (number)
-        (number)
-        (number))))
-  (code
-    (call
-      item: (field
-        (ident)
-        field: (ident))
-      (group
-        (elude
-          (ident))))))
+  (paragraph
+    (code
+      (let
+        pattern: (ident)
+        value: (group
+          (number)
+          (number)
+          (number)))))
+  (paragraph
+    (code
+      (call
+        item: (field
+          (ident)
+          field: (ident))
+        (group
+          (elude
+            (ident)))))))
 
 =====================
 positive/265
@@ -3720,12 +4011,13 @@ positive/265
 ---------------------
 
 (source_file
-  (code
-    (group
-      (field
-        (ident)
-        (comment)
-        field: (ident)))))
+  (paragraph
+    (code
+      (group
+        (field
+          (ident)
+          (comment)
+          field: (ident))))))
 
 =====================
 positive/266
@@ -3735,12 +4027,14 @@ positive/266
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text)
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/267
@@ -3756,13 +4050,14 @@ positive/267
 ---------------------
 
 (source_file
-  (code
-    (group
-      (field
-        (ident)
-        (comment)
-        (comment)
-        field: (ident)))))
+  (paragraph
+    (code
+      (group
+        (field
+          (ident)
+          (comment)
+          (comment)
+          field: (ident))))))
 
 =====================
 positive/268
@@ -3771,11 +4066,12 @@ positive/268
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (let
-      pattern: (ident)))
-  (text))
+  (paragraph
+    (text)
+    (code
+      (let
+        pattern: (ident)))
+    (text)))
 
 =====================
 positive/269
@@ -3785,11 +4081,12 @@ positive/269
 ---------------------
 
 (source_file
-  (code
-    (block
-      (field
-        (ident)
-        field: (ident)))))
+  (paragraph
+    (code
+      (block
+        (field
+          (ident)
+          field: (ident))))))
 
 =====================
 positive/270
@@ -3799,10 +4096,11 @@ positive/270
 ---------------------
 
 (source_file
-  (code
-    (block
-      (ident)
-      (ident))))
+  (paragraph
+    (code
+      (block
+        (ident)
+        (ident)))))
 
 =====================
 positive/271
@@ -3817,39 +4115,40 @@ positive/271
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (call
-        item: (ident)
-        (group
-          (ident)
-          (elude
-            (ident))))
-      value: (block
-        (let
-          pattern: (ident)
-          value: (call
-            item: (field
-              (call
-                item: (field
-                  (ident)
-                  field: (ident))
-                (group))
-              field: (ident))
-            (group
-              (string)
-              (tagged
-                field: (ident)
-                (string)))))
-        (content
-          (strong
-            (code
-              (ident)))
-          (linebreak)
-          (emph
-            (text)
-            (code
-              (ident))))))))
+  (paragraph
+    (code
+      (let
+        pattern: (call
+          item: (ident)
+          (group
+            (ident)
+            (elude
+              (ident))))
+        value: (block
+          (let
+            pattern: (ident)
+            value: (call
+              item: (field
+                (call
+                  item: (field
+                    (ident)
+                    field: (ident))
+                  (group))
+                field: (ident))
+              (group
+                (string)
+                (tagged
+                  field: (ident)
+                  (string)))))
+          (content
+            (strong
+              (code
+                (ident)))
+            (linebreak)
+            (emph
+              (text)
+              (code
+                (ident)))))))))
 
 =====================
 positive/272
@@ -3858,11 +4157,12 @@ positive/272
 ---------------------
 
 (source_file
-  (code
-    (group
-      (branch
-        condition: (bool)
-        (content)))))
+  (paragraph
+    (code
+      (group
+        (branch
+          condition: (bool)
+          (content))))))
 
 =====================
 positive/273
@@ -3871,10 +4171,11 @@ positive/273
 ---------------------
 
 (source_file
-  (code
-    (group
-      (raw_span
-        (blob)))))
+  (paragraph
+    (code
+      (group
+        (raw_span
+          (blob))))))
 
 =====================
 positive/274
@@ -3883,11 +4184,12 @@ positive/274
 ---------------------
 
 (source_file
-  (code
-    (group
-      (raw_blck
-        lang: (ident)
-        (blob)))))
+  (paragraph
+    (code
+      (group
+        (raw_blck
+          lang: (ident)
+          (blob))))))
 
 =====================
 positive/275
@@ -3896,13 +4198,14 @@ positive/275
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (field
-        (raw_span
-          (blob))
-        field: (ident))
-      (group))))
+  (paragraph
+    (code
+      (call
+        item: (field
+          (raw_span
+            (blob))
+          field: (ident))
+        (group)))))
 
 =====================
 positive/276
@@ -3911,8 +4214,9 @@ positive/276
 ---------------------
 
 (source_file
-  (code
-    (ident)))
+  (paragraph
+    (code
+      (ident))))
 
 =====================
 positive/277
@@ -3922,13 +4226,15 @@ positive/277
 ---------------------
 
 (source_file
-  (code
-    (let
-      pattern: (ident)
-      value: (lambda
+  (paragraph
+    (code
+      (let
         pattern: (ident)
-        value: (ident))))
-  (text))
+        value: (lambda
+          pattern: (ident)
+          value: (ident)))))
+  (paragraph
+    (text)))
 
 =====================
 positive/278
@@ -3941,13 +4247,14 @@ positive/278
 ---------------------
 
 (source_file
-  (code
-    (block
-      (branch
-        condition: (bool)
-        (content)
-        (comment)
-        (content)))))
+  (paragraph
+    (code
+      (block
+        (branch
+          condition: (bool)
+          (content)
+          (comment)
+          (content))))))
 
 =====================
 positive/279
@@ -3958,13 +4265,15 @@ else {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (bool)
-      (content)
-      (comment)))
+  (paragraph
+    (code
+      (branch
+        condition: (bool)
+        (content)
+        (comment))))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/280
@@ -3973,13 +4282,14 @@ positive/280
 ---------------------
 
 (source_file
-  (code
-    (set
-      (call
-        item: (ident)
-        (group
-          (ident)))
-      condition: (ident))))
+  (paragraph
+    (code
+      (set
+        (call
+          item: (ident)
+          (group
+            (ident)))
+        condition: (ident)))))
 
 =====================
 positive/281
@@ -3989,13 +4299,15 @@ if critical
 ---------------------
 
 (source_file
-  (code
-    (set
-      (call
-        item: (ident)
-        (group
-          (ident)))))
-  (text))
+  (paragraph
+    (code
+      (set
+        (call
+          item: (ident)
+          (group
+            (ident))))))
+  (paragraph
+    (text)))
 
 =====================
 positive/282
@@ -4007,14 +4319,15 @@ b, c)
 ---------------------
 
 (source_file
-  (code
-    (group
-      (import
-        (string)
-        (binding
-          (ident))
-        (binding
-          (ident))))))
+  (paragraph
+    (code
+      (group
+        (import
+          (string)
+          (binding
+            (ident))
+          (binding
+            (ident)))))))
 
 =====================
 positive/283
@@ -4026,21 +4339,22 @@ This list is affected: #[
 ---------------------
 
 (source_file
-  (text)
-  (code
-    (content
-      (code
-        (set
-          (call
-            item: (ident)
-            (group
-              (tagged
-                field: (ident)
-                (content
-                  (shorthand)))))))
-      (item
-        (item_marker)
-        (text)))))
+  (paragraph
+    (text)
+    (code
+      (content
+        (code
+          (set
+            (call
+              item: (ident)
+              (group
+                (tagged
+                  field: (ident)
+                  (content
+                    (shorthand)))))))
+        (item
+          (item_marker)
+          (text))))))
 
 =====================
 positive/284
@@ -4054,48 +4368,49 @@ positive/284
 ---------------------
 
 (source_file
-  (code
-    (show
-      pattern: (ident)
-      value: (lambda
+  (paragraph
+    (code
+      (show
         pattern: (ident)
-        value: (call
-          item: (ident)
-          (content
-            (code
-              (set
-                (call
-                  item: (ident)
-                  (group
-                    (ident)))))
-            (code
-              (set
-                (call
-                  item: (ident)
-                  (group
-                    (tagged
-                      field: (ident)
-                      (string))))))
-            (text
-              (escape))
-            (code
-              (call
-                item: (ident)
-                (group
-                  (field
-                    (ident)
-                    field: (ident)))))
-            (code
-              (call
-                item: (field
+        value: (lambda
+          pattern: (ident)
+          value: (call
+            item: (ident)
+            (content
+              (code
+                (set
                   (call
                     item: (ident)
                     (group
-                      (ident)))
-                  field: (ident))
-                (group)))
-            (text
-              (escape))))))))
+                      (ident)))))
+              (code
+                (set
+                  (call
+                    item: (ident)
+                    (group
+                      (tagged
+                        field: (ident)
+                        (string))))))
+              (text
+                (escape))
+              (code
+                (call
+                  item: (ident)
+                  (group
+                    (field
+                      (ident)
+                      field: (ident)))))
+              (code
+                (call
+                  item: (field
+                    (call
+                      item: (ident)
+                      (group
+                        (ident)))
+                    field: (ident))
+                  (group)))
+              (text
+                (escape)))))))))
 
 =====================
 positive/285
@@ -4110,14 +4425,15 @@ else []
 ---------------------
 
 (source_file
-  (code
-    (group
-      (branch
-        condition: (bool)
-        (content)
-        (comment)
-        (comment)
-        (content)))))
+  (paragraph
+    (code
+      (group
+        (branch
+          condition: (bool)
+          (content)
+          (comment)
+          (comment)
+          (content))))))
 
 =====================
 positive/286
@@ -4128,14 +4444,17 @@ positive/286
 ---------------------
 
 (source_file
-  (code
-    (number))
-  (linebreak)
-  (code
-    (number))
-  (linebreak)
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))
+    (linebreak))
+  (paragraph
+    (code
+      (number))
+    (linebreak))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/287
@@ -4144,9 +4463,10 @@ positive/287
 ---------------------
 
 (source_file
-  (code
-    (number
-      (unit))))
+  (paragraph
+    (code
+      (number
+        (unit)))))
 
 =====================
 positive/288
@@ -4155,15 +4475,16 @@ $#if true [] /* Hello */ else /* World */ []$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (branch
-          condition: (bool)
-          (content)
-          (comment)
-          (comment)
-          (content))))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (branch
+            condition: (bool)
+            (content)
+            (comment)
+            (comment)
+            (content)))))))
 
 =====================
 positive/289
@@ -4175,16 +4496,17 @@ else /* World */ []$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (code
-        (branch
-          condition: (bool)
-          (content)
-          (comment)))
-      (ident)
-      (comment)
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (code
+          (branch
+            condition: (bool)
+            (content)
+            (comment)))
+        (ident)
+        (comment)
+        (group)))))
 
 =====================
 positive/290
@@ -4193,9 +4515,10 @@ positive/290
 ---------------------
 
 (source_file
-  (code
-    (number
-      (unit))))
+  (paragraph
+    (code
+      (number
+        (unit)))))
 
 =====================
 positive/291
@@ -4204,9 +4527,10 @@ positive/291
 ---------------------
 
 (source_file
-  (code
-    (number
-      (unit))))
+  (paragraph
+    (code
+      (number
+        (unit)))))
 
 =====================
 positive/292
@@ -4217,18 +4541,19 @@ positive/292
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text))
-    (content
-      (section
-        (heading
-          (text))
-        (content
-          (section
-            (heading
-              (text))
-            (content)))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (section
+          (heading
+            (text))
+          (content
+            (section
+              (heading
+                (text))
+              (content))))))))
 
 =====================
 positive/293
@@ -4238,23 +4563,24 @@ $ lim_x =
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (ident)
-        sub: (letter))
-      (symbol)
-      (attach
-        (call
-          item: (ident)
-          (formula
-            (string))
-          (tagged
-            field: (ident)
+  (paragraph
+    (math
+      (formula
+        (attach
+          (ident)
+          sub: (letter))
+        (symbol)
+        (attach
+          (call
+            item: (ident)
             (formula
-              (code
-                (bool)))))
-        sub: (letter)))))
+              (string))
+            (tagged
+              field: (ident)
+              (formula
+                (code
+                  (bool)))))
+          sub: (letter))))))
 
 =====================
 positive/294
@@ -4264,24 +4590,25 @@ $ op("custom",
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (call
-          item: (ident)
-          (formula
-            (string))
-          (tagged
-            field: (ident)
+  (paragraph
+    (math
+      (formula
+        (attach
+          (call
+            item: (ident)
             (formula
-              (code
-                (bool)))))
-        sub: (group
-          (formula
-            (letter)
-            (shorthand)
-            (ident))))
-      (letter))))
+              (string))
+            (tagged
+              field: (ident)
+              (formula
+                (code
+                  (bool)))))
+          sub: (group
+            (formula
+              (letter)
+              (shorthand)
+              (ident))))
+        (letter)))))
 
 =====================
 positive/295
@@ -4291,33 +4618,34 @@ $ vec(a, b, c) dot vec(1, 2, 3)
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (call
-        item: (ident)
-        (formula
-          (letter))
-        (formula
-          (letter))
-        (formula
-          (letter)))
-      (ident)
-      (call
-        item: (ident)
-        (formula
-          (number))
-        (formula
-          (number))
-        (formula
-          (number)))
-      (symbol)
-      (letter)
-      (symbol)
-      (number)
-      (letter)
-      (symbol)
-      (number)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (call
+          item: (ident)
+          (formula
+            (letter))
+          (formula
+            (letter))
+          (formula
+            (letter)))
+        (ident)
+        (call
+          item: (ident)
+          (formula
+            (number))
+          (formula
+            (number))
+          (formula
+            (number)))
+        (symbol)
+        (letter)
+        (symbol)
+        (number)
+        (letter)
+        (symbol)
+        (number)
+        (letter)))))
 
 =====================
 positive/296
@@ -4326,12 +4654,13 @@ $1^2.0e3$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (number))
-      (ident))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (number))
+        (ident)))))
 
 =====================
 positive/297
@@ -4340,11 +4669,12 @@ $1 / 3$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (fraction
-        (number)
-        (number)))))
+  (paragraph
+    (math
+      (formula
+        (fraction
+          (number)
+          (number))))))
 
 =====================
 positive/298
@@ -4353,9 +4683,10 @@ $|]$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (symbol)))))
 
 =====================
 positive/299
@@ -4364,10 +4695,11 @@ $|)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol)
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (symbol)
+        (symbol)))))
 
 =====================
 positive/300
@@ -4376,13 +4708,14 @@ $|) / )|$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol)
-      (fraction
+  (paragraph
+    (math
+      (formula
         (symbol)
-        (symbol))
-      (symbol))))
+        (fraction
+          (symbol)
+          (symbol))
+        (symbol)))))
 
 =====================
 positive/301
@@ -4391,13 +4724,14 @@ $|) + )|$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (symbol)
-      (symbol)
-      (symbol)
-      (symbol)
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (symbol)
+        (symbol)
+        (symbol)
+        (symbol)
+        (symbol)))))
 
 =====================
 positive/302
@@ -4406,15 +4740,16 @@ $2^|) + )|$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (symbol)
-      (symbol)
-      (symbol)
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (symbol)
+        (symbol)
+        (symbol)
+        (symbol)))))
 
 =====================
 positive/303
@@ -4423,12 +4758,13 @@ $ { | x } $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (group
-        (formula
-          (symbol)
-          (letter))))))
+  (paragraph
+    (math
+      (formula
+        (group
+          (formula
+            (symbol)
+            (letter)))))))
 
 =====================
 positive/304
@@ -4437,15 +4773,16 @@ $2^|) / )|$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (fraction
-        (symbol)
-        (symbol))
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (fraction
+          (symbol)
+          (symbol))
+        (symbol)))))
 
 =====================
 positive/305
@@ -4454,12 +4791,13 @@ $2^||]$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (symbol)))))
 
 =====================
 positive/306
@@ -4468,12 +4806,13 @@ $2^|||]$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (symbol)))))
 
 =====================
 positive/307
@@ -4482,15 +4821,16 @@ $2^|a b c)$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (letter)
-      (letter)
-      (letter)
-      (symbol))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (letter)
+        (letter)
+        (letter)
+        (symbol)))))
 
 =====================
 positive/308
@@ -4499,14 +4839,15 @@ $a^b|h]$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
+  (paragraph
+    (math
+      (formula
+        (attach
+          (letter)
+          sup: (letter))
+        (symbol)
         (letter)
-        sup: (letter))
-      (symbol)
-      (letter)
-      (symbol))))
+        (symbol)))))
 
 =====================
 positive/309
@@ -4515,13 +4856,14 @@ $a^)^0$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (letter)
-        sup: (attach
-          (symbol)
-          sup: (number))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (letter)
+          sup: (attach
+            (symbol)
+            sup: (number)))))))
 
 =====================
 positive/310
@@ -4530,17 +4872,18 @@ $1 + (a+b)/5$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number)
-      (symbol)
-      (fraction
-        (group
-          (formula
-            (letter)
-            (symbol)
-            (letter)))
-        (number)))))
+  (paragraph
+    (math
+      (formula
+        (number)
+        (symbol)
+        (fraction
+          (group
+            (formula
+              (letter)
+              (symbol)
+              (letter)))
+          (number))))))
 
 =====================
 positive/311
@@ -4549,11 +4892,12 @@ positive/311
 ---------------------
 
 (source_file
-  (text)
-  (math
-    (formula
-      (code
-        (ident)))))
+  (paragraph
+    (text)
+    (math
+      (formula
+        (code
+          (ident))))))
 
 =====================
 positive/312
@@ -4562,12 +4906,13 @@ $x\^2   /*hello  /* world*/*/$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (letter)
-      (escape)
-      (number))
-    (comment)))
+  (paragraph
+    (math
+      (formula
+        (letter)
+        (escape)
+        (number))
+      (comment))))
 
 =====================
 positive/313
@@ -4579,17 +4924,19 @@ else /*Hello*/ if true [] /* World */ Hello
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (bool)
-      (content)))
+  (paragraph
+    (code
+      (branch
+        condition: (bool)
+        (content))))
   (parbreak)
-  (text
-    (comment))
-  (text)
-  (text)
-  (comment)
-  (text))
+  (paragraph
+    (text
+      (comment))
+    (text)
+    (text)
+    (comment)
+    (text)))
 
 =====================
 positive/314
@@ -4600,10 +4947,12 @@ World
 ---------------------
 
 (source_file
-  (text)
+  (paragraph
+    (text))
   (comment)
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/315
@@ -4612,16 +4961,17 @@ positive/315
 ---------------------
 
 (source_file
-  (code
-    (group
-      (ident)
-      (ident)
-      (import
-        import: (string)
-        (binding
-          (ident))
-        (binding
-          (ident))))))
+  (paragraph
+    (code
+      (group
+        (ident)
+        (ident)
+        (import
+          import: (string)
+          (binding
+            (ident))
+          (binding
+            (ident)))))))
 
 =====================
 positive/316
@@ -4641,12 +4991,13 @@ $   0.000007e+3$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (number)
-      (letter)
-      (symbol)
-      (number))))
+  (paragraph
+    (math
+      (formula
+        (number)
+        (letter)
+        (symbol)
+        (number)))))
 
 =====================
 positive/318
@@ -4659,21 +5010,24 @@ positive/318
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
-      (text))
+      (text)
+      (item
+        (item_marker)
+        (text))
+      (item
+        (item_marker)
+        (text))))
+  (paragraph
     (item
       (item_marker)
       (text)))
-  (item
-    (item_marker)
-    (text))
-  (item
-    (item_marker)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text))))
 
 =====================
 positive/319
@@ -4685,23 +5039,25 @@ positive/319
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (code
-      (let
-        pattern: (ident)))
-    (comment)
+  (paragraph
     (item
       (item_marker)
       (text)
-      (comment))
+      (code
+        (let
+          pattern: (ident)))
+      (comment)
+      (item
+        (item_marker)
+        (text)
+        (comment))
+      (item
+        (item_marker)
+        (text))))
+  (paragraph
     (item
       (item_marker)
-      (text)))
-  (item
-    (item_marker)
-    (text)))
+      (text))))
 
 =====================
 positive/320
@@ -4712,13 +5068,16 @@ positive/320
 ---------------------
 
 (source_file
-  (item
-    (item_marker))
-  (comment)
-  (item
-    (item_marker))
-  (item
-    (item_marker)))
+  (paragraph
+    (item
+      (item_marker))
+    (comment))
+  (paragraph
+    (item
+      (item_marker)))
+  (paragraph
+    (item
+      (item_marker))))
 
 =====================
 positive/321
@@ -4729,10 +5088,12 @@ positive/321
 
 (source_file
   (comment)
-  (item
-    (item_marker))
-  (item
-    (item_marker)))
+  (paragraph
+    (item
+      (item_marker)))
+  (paragraph
+    (item
+      (item_marker))))
 
 =====================
 positive/322
@@ -4741,11 +5102,12 @@ positive/322
 ---------------------
 
 (source_file
-  (code
-    (return
-      (add
-        (number)
-        (ident)))))
+  (paragraph
+    (code
+      (return
+        (add
+          (number)
+          (ident))))))
 
 =====================
 positive/323
@@ -4754,7 +5116,8 @@ positive/323
 ---------------------
 
 (source_file
-  (label))
+  (paragraph
+    (label)))
 
 =====================
 positive/324
@@ -4766,14 +5129,16 @@ else/* World */ {}
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (bool)
-      (block)
-      (comment)))
+  (paragraph
+    (code
+      (branch
+        condition: (bool)
+        (block)
+        (comment))))
   (parbreak)
-  (text
-    (comment)))
+  (paragraph
+    (text
+      (comment))))
 
 =====================
 positive/325
@@ -4782,12 +5147,13 @@ $2^:=()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (apply
-          item: (shorthand))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (apply
+            item: (shorthand)))))))
 
 =====================
 positive/326
@@ -4796,12 +5162,13 @@ $2^:= ()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (shorthand))
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (shorthand))
+        (group)))))
 
 =====================
 positive/327
@@ -4810,12 +5177,13 @@ $2^Ⅷ()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (apply
-          item: (letter))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (apply
+            item: (letter)))))))
 
 =====================
 positive/328
@@ -4824,12 +5192,13 @@ $2^〇()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (apply
-          item: (letter))))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (apply
+            item: (letter)))))))
 
 =====================
 positive/329
@@ -4838,12 +5207,13 @@ $2^∆()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (group)))))
 
 =====================
 positive/330
@@ -4861,16 +5231,17 @@ $=>a->a|->a>a$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (shorthand)
-      (letter)
-      (shorthand)
-      (letter)
-      (shorthand)
-      (letter)
-      (symbol)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (shorthand)
+        (letter)
+        (shorthand)
+        (letter)
+        (shorthand)
+        (letter)
+        (symbol)
+        (letter)))))
 
 =====================
 positive/332
@@ -4879,18 +5250,19 @@ $~~>>a:=a=:a>==a$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (shorthand)
-      (symbol)
-      (letter)
-      (shorthand)
-      (letter)
-      (shorthand)
-      (letter)
-      (shorthand)
-      (symbol)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (shorthand)
+        (symbol)
+        (letter)
+        (shorthand)
+        (letter)
+        (shorthand)
+        (letter)
+        (shorthand)
+        (symbol)
+        (letter)))))
 
 =====================
 positive/333
@@ -4899,9 +5271,10 @@ positive/333
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/334
@@ -4910,9 +5283,10 @@ positive/334
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/335
@@ -4921,8 +5295,9 @@ positive/335
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/336
@@ -4932,10 +5307,11 @@ positive/336
 
 (source_file
   (comment)
-  (section
-    (heading
-      (text))
-    (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content))))
 
 =====================
 positive/337
@@ -4944,9 +5320,10 @@ positive/337
 ---------------------
 
 (source_file
-  (term
-    (comment)
-    (text)))
+  (paragraph
+    (term
+      (comment)
+      (text))))
 
 =====================
 positive/338
@@ -4955,12 +5332,13 @@ positive/338
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (code
-    (ident))
-  (code
-    (ident)))
+  (paragraph
+    (code
+      (ident))
+    (code
+      (ident))
+    (code
+      (ident))))
 
 =====================
 positive/339
@@ -4969,12 +5347,13 @@ positive/339
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (code
-    (ident))
-  (code
-    (ident)))
+  (paragraph
+    (code
+      (ident))
+    (code
+      (ident))
+    (code
+      (ident))))
 
 =====================
 positive/340
@@ -4983,9 +5362,10 @@ positive/340
 ---------------------
 
 (source_file
-  (ref
-    (content
-      (text))))
+  (paragraph
+    (ref
+      (content
+        (text)))))
 
 =====================
 positive/341
@@ -4994,8 +5374,9 @@ positive/341
 ---------------------
 
 (source_file
-  (ref)
-  (text))
+  (paragraph
+    (ref)
+    (text)))
 
 =====================
 positive/342
@@ -5004,11 +5385,12 @@ positive/342
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (string)
-      (as
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        import: (string)
+        (as
+          (ident))))))
 
 =====================
 positive/343
@@ -5017,21 +5399,22 @@ positive/343
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (add
-        (string)
-        (string))
-      (as
-        (ident))
-      (binding
-        (ident)
+  (paragraph
+    (code
+      (import
+        import: (add
+          (string)
+          (string))
         (as
-          (ident)))
-      (binding
-        (ident)
-        (as
-          (ident))))))
+          (ident))
+        (binding
+          (ident)
+          (as
+            (ident)))
+        (binding
+          (ident)
+          (as
+            (ident)))))))
 
 =====================
 positive/344
@@ -5040,12 +5423,13 @@ $2^|()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (group)))))
 
 =====================
 positive/345
@@ -5054,12 +5438,13 @@ $2^||()$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (number)
-        sup: (symbol))
-      (group))))
+  (paragraph
+    (math
+      (formula
+        (attach
+          (number)
+          sup: (symbol))
+        (group)))))
 
 =====================
 positive/346
@@ -5068,9 +5453,10 @@ positive/346
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/347
@@ -5079,11 +5465,12 @@ $ab .c$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (ident)
-      (symbol)
-      (letter))))
+  (paragraph
+    (math
+      (formula
+        (ident)
+        (symbol)
+        (letter)))))
 
 =====================
 positive/348
@@ -5106,72 +5493,73 @@ positive/348
 ---------------------
 
 (source_file
-  (code
-    (set
-      (call
-        item: (ident)
-        (group
-          (tagged
-            field: (ident)
-            (call
-              item: (ident)
-              (group
-                (lambda
-                  pattern: (ident)
-                  value: (block
-                    (let
-                      pattern: (ident)
-                      value: (call
-                        item: (ident)
-                        (group
-                          (call
-                            item: (field
-                              (call
-                                item: (ident)
-                                (group
-                                  (ident)))
-                              field: (ident))
-                            (group
-                              (ident)))
-                          (ident))))
-                    (let
-                      pattern: (ident)
-                      value: (call
-                        item: (ident)
-                        (content
-                          (text))))
-                    (branch
-                      condition: (cmp
-                        (ident)
-                        (group))
-                      (block
-                        (call
+  (paragraph
+    (code
+      (set
+        (call
+          item: (ident)
+          (group
+            (tagged
+              field: (ident)
+              (call
+                item: (ident)
+                (group
+                  (lambda
+                    pattern: (ident)
+                    value: (block
+                      (let
+                        pattern: (ident)
+                        value: (call
                           item: (ident)
                           (group
-                            (ident)
-                            (ident))))
-                      (block
-                        (let
-                          pattern: (ident)
-                          value: (field
                             (call
                               item: (field
-                                (ident)
+                                (call
+                                  item: (ident)
+                                  (group
+                                    (ident)))
                                 field: (ident))
-                              (group))
-                            field: (ident)))
-                        (add
-                          (add
-                            (ident)
-                            (call
-                              item: (ident)
                               (group
-                                (number
-                                  (unit)))))
+                                (ident)))
+                            (ident))))
+                      (let
+                        pattern: (ident)
+                        value: (call
+                          item: (ident)
+                          (content
+                            (text))))
+                      (branch
+                        condition: (cmp
+                          (ident)
+                          (group))
+                        (block
                           (call
                             item: (ident)
                             (group
-                              (ident))))))))))))))))
+                              (ident)
+                              (ident))))
+                        (block
+                          (let
+                            pattern: (ident)
+                            value: (field
+                              (call
+                                item: (field
+                                  (ident)
+                                  field: (ident))
+                                (group))
+                              field: (ident)))
+                          (add
+                            (add
+                              (ident)
+                              (call
+                                item: (ident)
+                                (group
+                                  (number
+                                    (unit)))))
+                            (call
+                              item: (ident)
+                              (group
+                                (ident)))))))))))))))))
 
 =====================
 positive/349
@@ -5185,43 +5573,44 @@ $ f(x, y) := cases(
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (apply
-        item: (letter)
-        (formula
-          (letter)
-          (symbol)
-          (letter)))
-      (shorthand)
-      (call
-        item: (ident)
-        (formula
-          (number)
-          (string)
-          (fraction
-            (group
-              (formula
-                (letter)
-                (ident)
-                (letter)))
+  (paragraph
+    (math
+      (formula
+        (apply
+          item: (letter)
+          (formula
+            (letter)
+            (symbol)
+            (letter)))
+        (shorthand)
+        (call
+          item: (ident)
+          (formula
+            (number)
+            (string)
+            (fraction
+              (group
+                (formula
+                  (letter)
+                  (ident)
+                  (letter)))
+              (number))
+            (shorthand)
             (number))
-          (shorthand)
-          (number))
-        (formula
-          (number)
-          (string)
-          (letter)
-          (string))
-        (formula
-          (number)
-          (string)
-          (letter)
-          (ident)
-          (ident))
-        (formula
-          (number)
-          (string))))))
+          (formula
+            (number)
+            (string)
+            (letter)
+            (string))
+          (formula
+            (number)
+            (string)
+            (letter)
+            (ident)
+            (ident))
+          (formula
+            (number)
+            (string)))))))
 
 =====================
 positive/350
@@ -5234,19 +5623,20 @@ positive/350
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
       (item_marker)
       (text)
-      (strong
-        (item
-          (item_marker)
-          (text))))
-    (item
-      (item_marker)
-      (text))))
+      (item
+        (item_marker)
+        (text)
+        (strong
+          (item
+            (item_marker)
+            (text))))
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/351
@@ -5258,12 +5648,13 @@ positive/351
 ---------------------
 
 (source_file
-  (code
-    (block
-      (branch
-        condition: (bool)
-        (block))
-      (ident))))
+  (paragraph
+    (code
+      (block
+        (branch
+          condition: (bool)
+          (block))
+        (ident)))))
 
 =====================
 positive/352
@@ -5272,10 +5663,11 @@ positive/352
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (string)
-      (wildcard))))
+  (paragraph
+    (code
+      (import
+        import: (string)
+        (wildcard)))))
 
 =====================
 positive/353
@@ -5284,11 +5676,12 @@ $1/x$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (fraction
-        (number)
-        (letter)))))
+  (paragraph
+    (math
+      (formula
+        (fraction
+          (number)
+          (letter))))))
 
 =====================
 positive/354
@@ -5297,23 +5690,24 @@ $1/(x+y) = 1/x + 1/y$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (fraction
-        (number)
-        (group
-          (formula
-            (letter)
-            (symbol)
-            (letter))))
-      (symbol)
-      (fraction
-        (number)
-        (letter))
-      (symbol)
-      (fraction
-        (number)
-        (letter)))))
+  (paragraph
+    (math
+      (formula
+        (fraction
+          (number)
+          (group
+            (formula
+              (letter)
+              (symbol)
+              (letter))))
+        (symbol)
+        (fraction
+          (number)
+          (letter))
+        (symbol)
+        (fraction
+          (number)
+          (letter))))))
 
 =====================
 positive/355
@@ -5322,41 +5716,42 @@ $ (x+y)^n=sum_(k=0)^n binom(n, k) x^k y^(n-k). $
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (attach
-        (group
+  (paragraph
+    (math
+      (formula
+        (attach
+          (group
+            (formula
+              (letter)
+              (symbol)
+              (letter)))
+          sup: (letter))
+        (symbol)
+        (attach
+          (ident)
+          sub: (group
+            (formula
+              (letter)
+              (symbol)
+              (number)))
+          sup: (letter))
+        (call
+          item: (ident)
           (formula
-            (letter)
-            (symbol)
+            (letter))
+          (formula
             (letter)))
-        sup: (letter))
-      (symbol)
-      (attach
-        (ident)
-        sub: (group
-          (formula
-            (letter)
-            (symbol)
-            (number)))
-        sup: (letter))
-      (call
-        item: (ident)
-        (formula
-          (letter))
-        (formula
-          (letter)))
-      (attach
-        (letter)
-        sup: (letter))
-      (attach
-        (letter)
-        sup: (group
-          (formula
-            (letter)
-            (symbol)
-            (letter))))
-      (symbol))))
+        (attach
+          (letter)
+          sup: (letter))
+        (attach
+          (letter)
+          sup: (group
+            (formula
+              (letter)
+              (symbol)
+              (letter))))
+        (symbol)))))
 
 =====================
 positive/356
@@ -5365,11 +5760,12 @@ positive/356
 ---------------------
 
 (source_file
-  (code
-    (group
-      (math
-        (formula
-          (letter))))))
+  (paragraph
+    (code
+      (group
+        (math
+          (formula
+            (letter)))))))
 
 =====================
 positive/357
@@ -5378,16 +5774,17 @@ positive/357
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (field
-        (math
-          (formula
-            (attach
-              (letter)
-              sup: (letter))))
-        field: (ident))
-      (group))))
+  (paragraph
+    (code
+      (call
+        item: (field
+          (math
+            (formula
+              (attach
+                (letter)
+                sup: (letter))))
+          field: (ident))
+        (group)))))
 
 =====================
 positive/358
@@ -5396,10 +5793,11 @@ positive/358
 ---------------------
 
 (source_file
-  (code
-    (call
-      item: (math)
-      (group))))
+  (paragraph
+    (code
+      (call
+        item: (math)
+        (group)))))
 
 =====================
 positive/359
@@ -5408,8 +5806,9 @@ https:// hello
 ---------------------
 
 (source_file
-  (url)
-  (text))
+  (paragraph
+    (url)
+    (text)))
 
 =====================
 positive/360
@@ -5418,7 +5817,8 @@ https:////hello
 ---------------------
 
 (source_file
-  (url))
+  (paragraph
+    (url)))
 
 =====================
 positive/361
@@ -5427,10 +5827,11 @@ positive/361
 ---------------------
 
 (source_file
-  (code
-    (field
-      (ident)
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (ident)
+        field: (ident)))))
 
 =====================
 positive/362
@@ -5439,10 +5840,11 @@ positive/362
 ---------------------
 
 (source_file
-  (code
-    (field
-      (ident)
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (ident)
+        field: (ident)))))
 
 =====================
 positive/363
@@ -5451,9 +5853,10 @@ positive/363
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/364
@@ -5462,9 +5865,10 @@ positive/364
 ---------------------
 
 (source_file
-  (code
-    (ident))
-  (text))
+  (paragraph
+    (code
+      (ident))
+    (text)))
 
 =====================
 positive/365
@@ -5473,8 +5877,9 @@ positive/365
 ---------------------
 
 (source_file
-  (code
-    (group)))
+  (paragraph
+    (code
+      (group))))
 
 =====================
 positive/366
@@ -5483,11 +5888,12 @@ positive/366
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (ident)
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (ident)
+          (number))))))
 
 =====================
 positive/367
@@ -5496,9 +5902,10 @@ positive/367
 ---------------------
 
 (source_file
-  (code
-    (group
-      (elude))))
+  (paragraph
+    (code
+      (group
+        (elude)))))
 
 =====================
 positive/368
@@ -5507,8 +5914,9 @@ positive/368
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/369
@@ -5517,8 +5925,9 @@ positive/369
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/370
@@ -5527,8 +5936,9 @@ positive/370
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/371
@@ -5537,8 +5947,9 @@ positive/371
 ---------------------
 
 (source_file
-  (code
-    (number)))
+  (paragraph
+    (code
+      (number))))
 
 =====================
 positive/372
@@ -5547,8 +5958,9 @@ positive/372
 ---------------------
 
 (source_file
-  (raw_span
-    (blob)))
+  (paragraph
+    (raw_span
+      (blob))))
 
 =====================
 positive/373
@@ -5557,8 +5969,9 @@ positive/373
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/374
@@ -5567,8 +5980,9 @@ positive/374
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/375
@@ -5577,9 +5991,10 @@ positive/375
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/376
@@ -5588,8 +6003,9 @@ positive/376
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/377
@@ -5598,8 +6014,9 @@ positive/377
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/378
@@ -5610,8 +6027,9 @@ positive/378
 ---------------------
 
 (source_file
-  (raw_blck
-    (blob)))
+  (paragraph
+    (raw_blck
+      (blob))))
 
 =====================
 positive/379
@@ -5642,10 +6060,11 @@ positive/381
 
 (source_file
   (comment)
-  (raw_blck
-    (blob))
-  (text
-    (escape)))
+  (paragraph
+    (raw_blck
+      (blob))
+    (text
+      (escape))))
 
 =====================
 positive/382
@@ -5655,13 +6074,14 @@ positive/382
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text
-      (escape))
-    (code
-      (ident))
-    (linebreak)))
+  (paragraph
+    (item
+      (item_marker)
+      (text
+        (escape))
+      (code
+        (ident))
+      (linebreak))))
 
 =====================
 positive/383
@@ -5672,14 +6092,15 @@ positive/383
 ---------------------
 
 (source_file
-  (strong
-    (code
-      (call
-        item: (ident)
-        (group)))
-    (item
-      (item_marker)
-      (text))))
+  (paragraph
+    (strong
+      (code
+        (call
+          item: (ident)
+          (group)))
+      (item
+        (item_marker)
+        (text)))))
 
 =====================
 positive/384
@@ -5688,11 +6109,12 @@ positive/384
 ---------------------
 
 (source_file
-  (strong
+  (paragraph
+    (strong
+      (text
+        (escape)))
     (text
-      (escape)))
-  (text
-    (escape)))
+      (escape))))
 
 =====================
 positive/385
@@ -5701,7 +6123,8 @@ positive/385
 ---------------------
 
 (source_file
-  (label))
+  (paragraph
+    (label)))
 
 =====================
 positive/386
@@ -5710,7 +6133,8 @@ positive/386
 ---------------------
 
 (source_file
-  (ref))
+  (paragraph
+    (ref)))
 
 =====================
 positive/387
@@ -5719,8 +6143,9 @@ positive/387
 ---------------------
 
 (source_file
-  (ref
-    (content)))
+  (paragraph
+    (ref
+      (content))))
 
 =====================
 positive/388
@@ -5729,9 +6154,10 @@ positive/388
 ---------------------
 
 (source_file
-  (section
-    (heading)
-    (content)))
+  (paragraph
+    (section
+      (heading)
+      (content))))
 
 =====================
 positive/389
@@ -5741,9 +6167,8 @@ positive/389
 ---------------------
 
 (source_file
-  (section
-    (heading)
-    (content)))
+  (paragraph
+    (text)))
 
 =====================
 positive/390
@@ -5753,12 +6178,14 @@ positive/390
 ---------------------
 
 (source_file
-  (section
-    (heading)
-    (content))
-  (section
-    (heading)
-    (content)))
+  (paragraph
+    (section
+      (heading)
+      (content)))
+  (paragraph
+    (section
+      (heading)
+      (content))))
 
 =====================
 positive/391
@@ -5767,9 +6194,10 @@ positive/391
 ---------------------
 
 (source_file
-  (code
-    (content
-      (text))))
+  (paragraph
+    (code
+      (content
+        (text)))))
 
 =====================
 positive/392
@@ -5779,11 +6207,12 @@ positive/392
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (section
-      (heading)
-      (content))))
+  (paragraph
+    (item
+      (item_marker)
+      (section
+        (heading)
+        (content)))))
 
 =====================
 positive/393
@@ -5793,12 +6222,13 @@ positive/393
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (section
-      (heading)
-      (content))))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (section
+        (heading)
+        (content)))))
 
 =====================
 positive/394
@@ -5807,7 +6237,8 @@ positive/394
 ---------------------
 
 (source_file
-  (label))
+  (paragraph
+    (label)))
 
 =====================
 positive/395
@@ -5816,9 +6247,10 @@ positive/395
 ---------------------
 
 (source_file
-  (text)
-  (emph
-    (text)))
+  (paragraph
+    (text)
+    (emph
+      (text))))
 
 =====================
 positive/396
@@ -5827,8 +6259,9 @@ _e_e_
 ---------------------
 
 (source_file
-  (emph
-    (text)))
+  (paragraph
+    (emph
+      (text))))
 
 =====================
 positive/397
@@ -5837,10 +6270,11 @@ positive/397
 ---------------------
 
 (source_file
-  (code
-    (content
-      (text)
-      (text))))
+  (paragraph
+    (code
+      (content
+        (text)
+        (text)))))
 
 =====================
 positive/398
@@ -5849,11 +6283,12 @@ positive/398
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text))
-    (content))
-  (text))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content))
+    (text)))
 
 =====================
 positive/399
@@ -5863,13 +6298,14 @@ a]
 ---------------------
 
 (source_file
-  (section
-    (heading
-      (text)
-      (text))
-    (content
-      (text)))
-  (text))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (text))
+      (content
+        (text)))
+    (text)))
 
 =====================
 positive/400
@@ -5878,10 +6314,11 @@ positive/400
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (text))
+  (paragraph
+    (item
+      (item_marker)
+      (text))
+    (text)))
 
 =====================
 positive/401
@@ -5891,10 +6328,12 @@ positive/401
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text))
-  (text))
+  (paragraph
+    (item
+      (item_marker)
+      (text)))
+  (paragraph
+    (text)))
 
 =====================
 positive/402
@@ -5903,12 +6342,13 @@ positive/402
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (text)
-    (text)
-    (text)))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (text)
+      (text)
+      (text))))
 
 =====================
 positive/403
@@ -5918,12 +6358,14 @@ a]
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (text)
-    (text))
-  (text))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (text)
+      (text)))
+  (paragraph
+    (text)))
 
 =====================
 positive/404
@@ -5932,13 +6374,14 @@ positive/404
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
-    (text)
-    (text)
-    (text
-      (escape))))
+  (paragraph
+    (item
+      (item_marker)
+      (text)
+      (text)
+      (text)
+      (text
+        (escape)))))
 
 =====================
 positive/405
@@ -5947,8 +6390,9 @@ positive/405
 ---------------------
 
 (source_file
-  (ref)
-  (text))
+  (paragraph
+    (ref)
+    (text)))
 
 =====================
 positive/406
@@ -5957,7 +6401,8 @@ positive/406
 ---------------------
 
 (source_file
-  (ref))
+  (paragraph
+    (ref)))
 
 =====================
 positive/407
@@ -5968,9 +6413,11 @@ h
 ---------------------
 
 (source_file
-  (text)
+  (paragraph
+    (text))
   (parbreak)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/408
@@ -5981,15 +6428,17 @@ positive/408
 ---------------------
 
 (source_file
-  (section
-    (heading)
-    (content))
-  (section
-    (heading)
-    (content
-      (section
-        (heading)
-        (content)))))
+  (paragraph
+    (section
+      (heading)
+      (content)))
+  (paragraph
+    (section
+      (heading)
+      (content
+        (section
+          (heading)
+          (content))))))
 
 =====================
 positive/409
@@ -5999,12 +6448,13 @@ positive/409
 ---------------------
 
 (source_file
-  (item
-    (item_marker)
-    (text)
+  (paragraph
     (item
-      (item_marker)))
-  (text))
+      (item_marker)
+      (text)
+      (item
+        (item_marker)))
+    (text)))
 
 =====================
 positive/410
@@ -6014,10 +6464,12 @@ positive/410
 ---------------------
 
 (source_file
-  (text)
-  (text)
-  (item
-    (item_marker)))
+  (paragraph
+    (text)
+    (text))
+  (paragraph
+    (item
+      (item_marker))))
 
 =====================
 positive/411
@@ -6026,10 +6478,11 @@ positive/411
 ---------------------
 
 (source_file
-  (code
-    (branch
-      (bool)
-      (content))))
+  (paragraph
+    (code
+      (branch
+        (bool)
+        (content)))))
 
 =====================
 positive/412
@@ -6038,11 +6491,12 @@ positive/412
 ---------------------
 
 (source_file
-  (code
-    (branch
-      condition: (ident)
-      (content)))
-  (text))
+  (paragraph
+    (code
+      (branch
+        condition: (ident)
+        (content)))
+    (text)))
 
 =====================
 positive/413
@@ -6051,11 +6505,12 @@ positive/413
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (ident)
-        (string)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (ident)
+          (string))))))
 
 =====================
 positive/414
@@ -6064,10 +6519,11 @@ positive/414
 ---------------------
 
 (source_file
-  (code
-    (field
-      (ident)
-      field: (ident))))
+  (paragraph
+    (code
+      (field
+        (ident)
+        field: (ident)))))
 
 =====================
 positive/415
@@ -6076,13 +6532,14 @@ positive/415
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (add
-          (string)
-          (string))
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (add
+            (string)
+            (string))
+          (number))))))
 
 =====================
 positive/416
@@ -6091,13 +6548,14 @@ positive/416
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (add
-          (ident)
-          (ident))
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (add
+            (ident)
+            (ident))
+          (number))))))
 
 =====================
 positive/417
@@ -6106,13 +6564,14 @@ positive/417
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (add
-          (ident)
-          (ident))
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (add
+            (ident)
+            (ident))
+          (number))))))
 
 =====================
 positive/418
@@ -6127,9 +6586,11 @@ vais
 ---------------------
 
 (source_file
-  (text)
-  (comment)
-  (text))
+  (paragraph
+    (text)
+    (comment))
+  (paragraph
+    (text)))
 
 =====================
 positive/419
@@ -6138,9 +6599,10 @@ positive/419
 ---------------------
 
 (source_file
-  (code
-    (context
-      (ident))))
+  (paragraph
+    (code
+      (context
+        (ident)))))
 
 =====================
 positive/420
@@ -6150,7 +6612,8 @@ positive/420
 
 (source_file
   (comment)
-  (text))
+  (paragraph
+    (text)))
 
 =====================
 positive/421
@@ -6159,12 +6622,13 @@ positive/421
 ---------------------
 
 (source_file
-  (code
-    (group
-      (tagged
-        field: (context
-          (ident))
-        (number)))))
+  (paragraph
+    (code
+      (group
+        (tagged
+          field: (context
+            (ident))
+          (number))))))
 
 =====================
 positive/422
@@ -6173,9 +6637,10 @@ positive/422
 ---------------------
 
 (source_file
-  (text)
-  (emph
-    (text)))
+  (paragraph
+    (text)
+    (emph
+      (text))))
 
 =====================
 positive/423
@@ -6184,11 +6649,12 @@ positive/423
 ---------------------
 
 (source_file
-  (text)
-  (emph
+  (paragraph
     (text)
-    (strong
-      (text))))
+    (emph
+      (text)
+      (strong
+        (text)))))
 
 =====================
 positive/424
@@ -6197,11 +6663,12 @@ positive/424
 ---------------------
 
 (source_file
-  (text)
-  (emph
+  (paragraph
     (text)
-    (strong
-      (text))))
+    (emph
+      (text)
+      (strong
+        (text)))))
 
 =====================
 positive/425
@@ -6213,16 +6680,17 @@ positive/425
 ---------------------
 
 (source_file
-  (code
-    (block
-      (context
-        (add
-          (field
-            (ident)
-            field: (ident))
-          (number)))
-      (show
-        value: (ident)))))
+  (paragraph
+    (code
+      (block
+        (context
+          (add
+            (field
+              (ident)
+              field: (ident))
+            (number)))
+        (show
+          value: (ident))))))
 
 =====================
 positive/426
@@ -6237,16 +6705,17 @@ positive/426
 ---------------------
 
 (source_file
-  (code
-    (block
-      (comment)
-      (context
-        (add
-          (field
-            (ident)
-            field: (ident))
-          (number)))
-      (comment))))
+  (paragraph
+    (code
+      (block
+        (comment)
+        (context
+          (add
+            (field
+              (ident)
+              field: (ident))
+            (number)))
+        (comment)))))
 
 =====================
 positive/427
@@ -6255,9 +6724,10 @@ $==>$
 ---------------------
 
 (source_file
-  (math
-    (formula
-      (shorthand))))
+  (paragraph
+    (math
+      (formula
+        (shorthand)))))
 
 =====================
 positive/428
@@ -6266,9 +6736,10 @@ positive/428
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/429
@@ -6283,9 +6754,10 @@ void f() {}
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/430
@@ -6297,9 +6769,10 @@ positive/430
 ---------------------
 
 (source_file
-  (raw_blck
-    lang: (ident)
-    (blob)))
+  (paragraph
+    (raw_blck
+      lang: (ident)
+      (blob))))
 
 =====================
 positive/431
@@ -6308,12 +6781,13 @@ positive/431
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (string)
-      (binding
-        (ident)
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        import: (string)
+        (binding
+          (ident)
+          (ident))))))
 
 =====================
 positive/432
@@ -6322,16 +6796,17 @@ positive/432
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (string)
-      (binding
-        (ident)
-        (ident)
-        (as
-          (ident)))
-      (binding
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        import: (string)
+        (binding
+          (ident)
+          (ident)
+          (as
+            (ident)))
+        (binding
+          (ident))))))
 
 =====================
 positive/433
@@ -6340,14 +6815,15 @@ positive/433
 ---------------------
 
 (source_file
-  (code
-    (import
-      import: (string)
-      (binding
-        (ident)
-        (ident)
-        (ident)
-        (as
-          (ident)))
-      (binding
-        (ident)))))
+  (paragraph
+    (code
+      (import
+        import: (string)
+        (binding
+          (ident)
+          (ident)
+          (ident)
+          (as
+            (ident)))
+        (binding
+          (ident))))))

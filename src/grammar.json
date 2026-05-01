@@ -244,7 +244,7 @@
     },
     "quote": {
       "type": "PATTERN",
-      "value": "\"|'|“|”|‘|’"
+      "value": "\"|'|“|”|‘|’|„|‚|‹|›|«|»|「|」|『|』"
     },
     "_brackets": {
       "type": "SEQ",
@@ -344,6 +344,10 @@
         {
           "type": "SYMBOL",
           "name": "shorthand"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ellipsis"
         },
         {
           "type": "SYMBOL",
@@ -819,12 +823,19 @@
             {
               "type": "STRING",
               "value": "~"
-            },
-            {
-              "type": "STRING",
-              "value": "..."
             }
           ]
+        }
+      }
+    },
+    "ellipsis": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "STRING",
+          "value": "..."
         }
       }
     },
@@ -951,6 +962,10 @@
           },
           "named": true,
           "value": "shorthand"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ellipsis"
         },
         {
           "type": "SYMBOL",
@@ -1729,10 +1744,6 @@
                 {
                   "type": "STRING",
                   "value": ">>>"
-                },
-                {
-                  "type": "STRING",
-                  "value": "..."
                 }
               ]
             }

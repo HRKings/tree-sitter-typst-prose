@@ -64,6 +64,7 @@
 (strong) @markup.bold
 (symbol) @constant.character
 (shorthand) @constant.builtin
+(ellipsis) @constant.builtin
 (quote) @markup.quote
 (align) @operator
 (letter) @constant.character

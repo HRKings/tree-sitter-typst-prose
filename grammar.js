@@ -120,7 +120,7 @@ module.exports = grammar({
     _content_lb: $ => seq(optional($._redent), choice($.parbreak, $._lb), $._line_start_check),
 
     linebreak: $ => /\\/,
-    quote: $ => /"|'|“|”|‘|’/,
+    quote: $ => /"|'|“|”|‘|’|„|‚|‹|›|«|»|「|」|『|』/,
     _brackets: $ => seq(alias($._token_bracket, $.text), content($), alias($._termination, $.text)),
 
     _markup: $ => choice(
@@ -136,6 +136,7 @@ module.exports = grammar({
       $.label,
       $.ref,
       $.shorthand,
+      $.ellipsis,
       $.quote,
       $.linebreak,
     ),
@@ -197,7 +198,8 @@ module.exports = grammar({
       $._immediate,
     ),
     raw_span: $ => seq('`', alias($._token_raw_span_blob, $.blob), '`', $._immediate),
-    shorthand: $ => token(prec(1, choice('--', '---', '-?', '~', '...'))),
+    shorthand: $ => token(prec(1, choice('--', '---', '-?', '~'))),
+    ellipsis: $ => token(prec(2, '...')),
 
     math: $ => seq('$', optional($.formula), '$', $._immediate),
 
@@ -213,6 +215,7 @@ module.exports = grammar({
       alias($._math_call, $.call),
       alias($._math_apply, $.apply),
       alias($._math_shorthand, $.shorthand),
+      $.ellipsis,
       $._math_item,
       $.escape,
       $.string,
@@ -307,8 +310,6 @@ module.exports = grammar({
       '<=', '<<', '<<<',
       // cmp greater
       '>=', '>>', '>>>',
-      // other
-      '...',
     ))), $._immediate),
     _math_symbol: $ => choice(
       $._math_token_colon,

@@ -11022,7 +11022,7 @@ A... vs #"A..."
             (ident)
             (string))))))
   (text)
-  (shorthand)
+  (ellipsis)
   (text)
   (code
     (string))
@@ -11091,7 +11091,7 @@ $||$
   (comment)
   (math
     (formula
-      (shorthand)))
+      (ellipsis)))
   (linebreak)
   (math
     (formula
@@ -14044,7 +14044,7 @@ n#super[1], n#sub[2], ... n#super[N]
       (content
         (text))))
   (text)
-  (shorthand)
+  (ellipsis)
   (text)
   (code
     (call
@@ -43128,7 +43128,7 @@ $ mat(
         (formula
           (number))
         (formula
-          (shorthand))
+          (ellipsis))
         (formula
           (number))
         (formula
@@ -43136,7 +43136,7 @@ $ mat(
         (formula
           (number))
         (formula
-          (shorthand))
+          (ellipsis))
         (formula
           (number))
         (formula
@@ -43160,7 +43160,7 @@ $ mat(
         (formula
           (number))
         (formula
-          (shorthand))
+          (ellipsis))
         (formula
           (number)))))
   (parbreak))
@@ -44901,13 +44901,13 @@ $ mat(stop &a+b&stop,c;...stop stop&d&...stop stop, e) $
         (formula
           (letter))
         (formula
-          (shorthand)
+          (ellipsis)
           (ident)
           (ident)
           (align)
           (letter)
           (align)
-          (shorthand)
+          (ellipsis)
           (ident)
           (ident))
         (formula
@@ -50808,7 +50808,7 @@ $ underline(f' : NN -> RR) \
           (number)
           (ident)
           (align)
-          (shorthand)))))
+          (ellipsis)))))
   (parbreak))
 
 ====================
@@ -51596,7 +51596,7 @@ $func(...)$
       (call
         (ident)
         (formula
-          (shorthand)))))
+          (ellipsis)))))
   (parbreak))
 
 ====================
@@ -63972,7 +63972,7 @@ $ x = underbrace(
           (symbol)
           (number)
           (symbol)
-          (shorthand)
+          (ellipsis)
           (symbol)
           (number))
         (formula
@@ -64021,7 +64021,7 @@ $ x = overbracket(
           (symbol)
           (number)
           (symbol)
-          (shorthand)
+          (ellipsis)
           (symbol)
           (number)))))
   (parbreak))
@@ -64108,7 +64108,7 @@ $ overparen(
           (symbol)
           (number)
           (symbol)
-          (shorthand)
+          (ellipsis)
           (symbol)
           (number)))))
   (parbreak))
@@ -64139,7 +64139,7 @@ $ undershell(
             (formula
               (number)
               (symbol)
-              (shorthand))
+              (ellipsis))
             (formula
               (letter)
               (symbol)
@@ -88071,7 +88071,7 @@ typst/quote/quote-plato
             (content
               (text)))))
       (content
-        (shorthand)
+        (ellipsis)
         (text)
         (text))))
   (code
@@ -88084,7 +88084,7 @@ typst/quote/quote-plato
             (content
               (text)))))
       (content
-        (shorthand)
+        (ellipsis)
         (text)
         (text))))
   (parbreak))
@@ -91693,9 +91693,9 @@ Why would anybody ever ...
             (number
               (unit)))))))
   (text)
-  (shorthand)
+  (ellipsis)
   (parbreak)
-  (shorthand)
+  (ellipsis)
   (text)
   (parbreak))
 
@@ -144685,7 +144685,7 @@ typst/footnote/footnote-break-across-pages
             (ident)
             (content
               (text)
-              (shorthand))))
+              (ellipsis))))
         (comment))))
   (code
     (call
@@ -145331,13 +145331,13 @@ More #footnote[just for ...] footnotes #footnote[... testing. :)]
       (ident)
       (content
         (text)
-        (shorthand))))
+        (ellipsis))))
   (text)
   (code
     (call
       (ident)
       (content
-        (shorthand)
+        (ellipsis)
         (text))))
   (parbreak))
 
@@ -145731,7 +145731,7 @@ Ref @fn
     (call
       (ident)
       (content
-        (shorthand))))
+        (ellipsis))))
   (label)
   (linebreak)
   (text)
@@ -179642,7 +179642,9 @@ typst/cjk/cjk-punctuation-adjustment-1
           (tagged
             (ident)
             (string))))))
+  (quote)
   (text)
+  (quote)
   (parbreak)
   (code
     (set
@@ -179655,7 +179657,9 @@ typst/cjk/cjk-punctuation-adjustment-1
           (tagged
             (ident)
             (string))))))
+  (quote)
   (text)
+  (quote)
   (parbreak))
 
 ====================
@@ -182954,6 +182958,10 @@ typst/justify/justify-japanese
                 (string))))))
       (content
         (text)
+        (quote)
+        (text)
+        (quote)
+        (text)
         (parbreak)
         (text)
         (quote)
@@ -183040,6 +183048,11 @@ typst/justify/justify-whitespace-adjustment
         (parbreak)
         (text))))
   (parbreak)
+  (quote)
+  (quote)
+  (text)
+  (quote)
+  (quote)
   (text)
   (quote)
   (quote)
@@ -183134,6 +183147,13 @@ typst/justify/justify-variants
             (ident)
             (string))))))
   (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
+  (quote)
+  (text)
+  (quote)
   (parbreak))
 
 ====================

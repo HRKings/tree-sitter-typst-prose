@@ -39,8 +39,16 @@ This branch diverges from upstream to better support prose-oriented tooling
   em/en-dashes (`— – ‐ ―`) followed by whitespace at line start now parse as
   a dedicated `prose_marker` node, ahead of the prose body on that line.
   This lets prose linters exclude them as structural without text-slicing.
+- **Multilingual quote glyphs.** `quote` matches German low-9 (`„ ‚`), French
+  guillemets (`« » ‹ ›`) and Japanese corner brackets (`「 」 『 』`) in
+  addition to ASCII and curly English quotes. Pairing (open/close) is not
+  yet typed — all are flat `quote` nodes.
+- **`ellipsis` is its own node.** Typst's `...` shorthand is now a dedicated
+  `ellipsis` node (in both prose and math) instead of being lumped with
+  `--`/`---`/`-?`/`~` under `shorthand`. Lets prose linters interpret it as
+  `…` for LanguageTool's ELLIPSIS rule.
 
-These changes only affect markup contexts; code, math, raw, and string
+These changes only affect markup and math contexts; code, raw, and string
 contexts are unchanged.
 
 ## TODO

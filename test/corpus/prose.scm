@@ -173,3 +173,83 @@ prose/code-string-apostrophe-untouched
     (let
       (ident)
       (string))))
+
+==============================
+prose/quote-german-low9
+==============================
+Er sagte „hallo" heute
+------------------------------
+
+(source_file
+  (text)
+  (quote)
+  (text)
+  (quote)
+  (text))
+
+==============================
+prose/quote-french-guillemets
+==============================
+Il dit «bonjour» today
+------------------------------
+
+(source_file
+  (text)
+  (quote)
+  (text)
+  (quote)
+  (text))
+
+==============================
+prose/quote-japanese-corner
+==============================
+「こんにちは」
+------------------------------
+
+(source_file
+  (quote)
+  (text)
+  (quote))
+
+==============================
+prose/ellipsis-prose
+==============================
+Wait...what?
+------------------------------
+
+(source_file
+  (text)
+  (ellipsis)
+  (text))
+
+==============================
+prose/ellipsis-standalone
+==============================
+And then...
+------------------------------
+
+(source_file
+  (text)
+  (ellipsis))
+
+==============================
+prose/shorthand-emdash-still-works
+==============================
+Long --- dash
+------------------------------
+
+(source_file
+  (text)
+  (shorthand)
+  (text))
+
+==============================
+prose/shorthand-endash-still-works
+==============================
+Range -- value
+------------------------------
+
+(source_file
+  (text)
+  (shorthand)
+  (text))

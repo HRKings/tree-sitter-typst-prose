@@ -784,6 +784,10 @@
             "named": true
           },
           {
+            "type": "ellipsis",
+            "named": true
+          },
+          {
             "type": "escape",
             "named": true
           },
@@ -863,6 +867,10 @@
           },
           {
             "type": "code",
+            "named": true
+          },
+          {
+            "type": "ellipsis",
             "named": true
           },
           {
@@ -946,6 +954,10 @@
         },
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -1889,6 +1901,10 @@
           "named": true
         },
         {
+          "type": "ellipsis",
+          "named": true
+        },
+        {
           "type": "emph",
           "named": true
         },
@@ -2485,6 +2501,10 @@
           "named": true
         },
         {
+          "type": "ellipsis",
+          "named": true
+        },
+        {
           "type": "emph",
           "named": true
         },
@@ -2586,6 +2606,10 @@
         },
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -3063,6 +3087,10 @@
           "named": true
         },
         {
+          "type": "ellipsis",
+          "named": true
+        },
+        {
           "type": "escape",
           "named": true
         },
@@ -3147,6 +3175,10 @@
         },
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -3393,6 +3425,10 @@
       "types": [
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -4013,6 +4049,10 @@
       "types": [
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -5343,6 +5383,10 @@
           "named": true
         },
         {
+          "type": "ellipsis",
+          "named": true
+        },
+        {
           "type": "escape",
           "named": true
         },
@@ -5659,6 +5703,10 @@
         },
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -6449,6 +6497,10 @@
           "named": true
         },
         {
+          "type": "ellipsis",
+          "named": true
+        },
+        {
           "type": "emph",
           "named": true
         },
@@ -6548,6 +6600,10 @@
       "types": [
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -7152,6 +7208,10 @@
             "named": true
           },
           {
+            "type": "ellipsis",
+            "named": true
+          },
+          {
             "type": "emph",
             "named": true
           },
@@ -7228,6 +7288,10 @@
       "types": [
         {
           "type": "code",
+          "named": true
+        },
+        {
+          "type": "ellipsis",
           "named": true
         },
         {
@@ -7688,6 +7752,10 @@
   {
     "type": "continue",
     "named": false
+  },
+  {
+    "type": "ellipsis",
+    "named": true
   },
   {
     "type": "else",

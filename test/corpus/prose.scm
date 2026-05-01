@@ -525,3 +525,21 @@ _emphasized text_
   (paragraph
     (emph
       (text))))
+
+==============================
+prose/item-after-heading-no-parbreak
+==============================
+== Subtitle
+- list item right after
+------------------------------
+
+(source_file
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (paragraph
+          (item
+            (item_marker)
+            (text)))))))

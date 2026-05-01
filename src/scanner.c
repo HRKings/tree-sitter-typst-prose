@@ -720,13 +720,21 @@ bool tree_sitter_typst_external_scanner_scan(
 			if (scanner_container_at(self, 0) != CONTAINER_BRACKET) {
 				scanner_dedent(self);
 			}
-			case TERMINATION_EXCLUSIVE:
+			case TERMINATION_EXCLUSIVE: {
+			enum container popped = scanner_container_at(self, 0);
 			scanner_container_pop(self);
 			// Termination crosses arbitrary text we couldn't classify.
 			// Mark stale so the quote block consults the nesting bitfield.
 			self->last_class = CLASS_STALE;
+			// BARRIER ends at LB (heading/item/term/prose_marker). Pre-seed
+			// line_start so the next line's first item/section/term marker
+			// is recognized without needing an intervening parbreak.
+			if (popped == CONTAINER_BARRIER && is_lb(lex_next)) {
+				self->line_start = true;
+			}
 			lexer->result_symbol = TOKEN_TERMINATION;
 			return true;
+			}
 		}
 	}
 

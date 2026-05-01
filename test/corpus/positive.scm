@@ -4540,11 +4540,15 @@ positive/292
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
-            (content)))))))
+            (content
+              (paragraph
+                (section
+                  (heading
+                    (text))
+                  (content))))))))))
 
 =====================
 positive/293
@@ -6168,9 +6172,11 @@ positive/390
   (paragraph
     (section
       (heading)
-      (content
-        (paragraph
-          (text))))))
+      (content)))
+  (paragraph
+    (section
+      (heading)
+      (content))))
 
 =====================
 positive/391
@@ -6420,13 +6426,15 @@ positive/408
   (paragraph
     (section
       (heading)
-      (content
-        (paragraph
-          (text)))))
+      (content)))
   (paragraph
     (section
       (heading)
-      (content))))
+      (content
+        (paragraph
+          (section
+            (heading)
+            (content)))))))
 
 =====================
 positive/409

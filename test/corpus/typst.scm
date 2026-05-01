@@ -2196,7 +2196,9 @@ typst/show/show-rule-in-function
         (ident)
         (content
           (paragraph
-            (text)
+            (item
+              (item_marker)
+              (text))
             (item
               (item_marker)
               (text))
@@ -2512,12 +2514,16 @@ typst/show/show-set-where-override
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
-              (parbreak))))))))
+              (paragraph
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (parbreak)))))))))))
 
 ====================
 typst/show/show-selector-or-elements-with-set
@@ -2567,14 +2573,21 @@ typst/show/show-selector-or-elements-with-set
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text))
-              (parbreak))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (paragraph
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (parbreak))))))))))))))
 
 ====================
 typst/show/show-selector-element-or-label
@@ -4120,64 +4133,70 @@ typst/show-set/show-set-same-element-and-order
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)
-        (paragraph
-          (code
-            (show
-              (call
-                (field
-                  (ident)
-                  (ident))
-                (group
-                  (tagged
-                    (ident)
-                    (number))))
-              (set
-                (call
-                  (ident)
-                  (group
-                    (ident))))))
-          (code
-            (show
-              (call
-                (field
-                  (ident)
-                  (ident))
-                (group
-                  (tagged
-                    (ident)
-                    (number))))
-              (set
-                (call
-                  (ident)
-                  (group
-                    (ident))))))
-          (code
-            (show
-              (call
-                (field
-                  (ident)
-                  (ident))
-                (group
-                  (tagged
-                    (ident)
-                    (number))))
-              (set
-                (call
-                  (ident)
-                  (group
-                    (tagged
-                      (ident)
-                      (string)))))))))))
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak)
+              (paragraph
+                (code
+                  (show
+                    (call
+                      (field
+                        (ident)
+                        (ident))
+                      (group
+                        (tagged
+                          (ident)
+                          (number))))
+                    (set
+                      (call
+                        (ident)
+                        (group
+                          (ident))))))
+                (code
+                  (show
+                    (call
+                      (field
+                        (ident)
+                        (ident))
+                      (group
+                        (tagged
+                          (ident)
+                          (number))))
+                    (set
+                      (call
+                        (ident)
+                        (group
+                          (ident))))))
+                (code
+                  (show
+                    (call
+                      (field
+                        (ident)
+                        (ident))
+                      (group
+                        (tagged
+                          (ident)
+                          (number))))
+                    (set
+                      (call
+                        (ident)
+                        (group
+                          (tagged
+                            (ident)
+                            (string))))))))))))))
   (paragraph
     (section
       (heading
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak))))))))
 
 ====================
 typst/show-set/show-set-same-element-matched-field
@@ -4723,10 +4742,13 @@ typst/locate/locate-duplicate-label
       (heading
         (text)
         (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
       (content
-        (paragraph
-          (text)
-          (label))
         (parbreak)
         (comment)
         (paragraph
@@ -4819,10 +4841,13 @@ typst/locate/locate-element-selector-multiple-matches
       (heading
         (text)
         (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
       (content
-        (paragraph
-          (text)
-          (label))
         (parbreak)
         (comment)
         (paragraph
@@ -5413,10 +5438,13 @@ Hi
       (heading
         (text)
         (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
       (content
-        (paragraph
-          (text)
-          (label))
         (parbreak)
         (comment)
         (comment)
@@ -6639,36 +6667,40 @@ typst/query/query-complex
         (text))
       (content
         (paragraph
-          (text)
-          (code
-            (call
-              (ident)
-              (group
-                (content
-                  (paragraph
-                    (text)))
-                (tagged
-                  (ident)
-                  (string))
-                (tagged
-                  (ident)
-                  (content
-                    (paragraph
-                      (text)))))))
-          (code
-            (call
-              (call
-                (ident)
-                (group
-                  (tagged
+          (section
+            (heading
+              (text))
+            (content
+              (paragraph
+                (code
+                  (call
                     (ident)
-                    (number))
-                  (tagged
-                    (ident)
-                    (bool))))
-              (content
-                (paragraph
-                  (text)))))))))
+                    (group
+                      (content
+                        (paragraph
+                          (text)))
+                      (tagged
+                        (ident)
+                        (string))
+                      (tagged
+                        (ident)
+                        (content
+                          (paragraph
+                            (text)))))))
+                (code
+                  (call
+                    (call
+                      (ident)
+                      (group
+                        (tagged
+                          (ident)
+                          (number))
+                        (tagged
+                          (ident)
+                          (bool))))
+                    (content
+                      (paragraph
+                        (text))))))))))))
   (paragraph
     (section
       (heading
@@ -11197,7 +11229,8 @@ typst/comment/issue-4632-sth-followed-by-comment
               (comment)))
           (content
             (paragraph
-              (text)
+              (item
+                (item_marker))
               (item
                 (item_marker))))))))
   (parbreak)
@@ -11221,7 +11254,8 @@ typst/comment/issue-4632-sth-followed-by-comment
               (comment)))
           (content
             (paragraph
-              (text)
+              (item
+                (item_marker))
               (item
                 (item_marker)))
             (parbreak)
@@ -14217,12 +14251,15 @@ typst/smartquote/issue-3662-pdf-smartquotes
         (lquote)
         (text)
         (rquote))
-      (content
-        (paragraph
-          (text)
-          (lquote)
-          (text)
-          (rquote)))))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (lquote)
+        (text)
+        (rquote))
+      (content)))
   (paragraph
     (section
       (heading
@@ -92882,11 +92919,12 @@ typst/terms/terms-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text)
+            (term
+              (text)
+              (text)
+              (comment)
+              (parbreak)
+              (text))
             (term
               (text)
               (text)
@@ -92898,14 +92936,14 @@ typst/terms/terms-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text))
-          (parbreak)
-          (paragraph
-            (text))
+            (term
+              (text)
+              (text)
+              (comment)
+              (parbreak)
+              (text)
+              (parbreak)
+              (text)))
           (parbreak)
           (paragraph
             (term
@@ -94442,7 +94480,9 @@ starts a paragraph, also with indent.
         (text))
       (content
         (paragraph
-          (text)
+          (item
+            (item_marker)
+            (text))
           (item
             (item_marker)
             (text)
@@ -97080,16 +97120,23 @@ typst/heading/heading-basic
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
-              (parbreak)
-              (comment)
               (paragraph
-                (text))
-              (parbreak))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (parbreak)
+                    (comment)
+                    (paragraph
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (parbreak))))))))))))))
 
 ====================
 typst/heading/heading-syntax-at-start
@@ -97635,19 +97682,23 @@ typst/heading/heading-show-where
         (text))
       (content
         (paragraph
-          (text)
-          (code
-            (call
-              (call
-                (ident)
-                (group
-                  (tagged
-                    (ident)
-                    (number))))
-              (content
-                (paragraph
-                  (text))))))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content
+              (paragraph
+                (code
+                  (call
+                    (call
+                      (ident)
+                      (group
+                        (tagged
+                          (ident)
+                          (number))))
+                    (content
+                      (paragraph
+                        (text))))))
+              (parbreak))))))))
 
 ====================
 typst/heading/heading-hanging-indent-auto
@@ -97923,27 +97974,42 @@ typst/heading/heading-html-basic
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)
                 (section
                   (heading
                     (text))
                   (content
-                    (comment)
-                    (comment)
-                    (comment)
                     (paragraph
-                      (text)
-                      (comment)
-                      (comment)
-                      (comment)
-                      (text))
-                    (parbreak)))))))))))
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (paragraph
+                            (section
+                              (heading
+                                (text))
+                              (content
+                                (comment)
+                                (comment)
+                                (comment)
+                                (paragraph
+                                  (section
+                                    (heading
+                                      (text))
+                                    (content
+                                      (comment)
+                                      (comment)
+                                      (comment)
+                                      (paragraph
+                                        (section
+                                          (heading
+                                            (text))
+                                          (content
+                                            (parbreak)))))))))))))))))))))))
 
 ====================
 typst/heading/issue-5719-heading-nested
@@ -99093,11 +99159,12 @@ typst/list/list-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text)
+            (item
+              (item_marker)
+              (text)
+              (comment)
+              (parbreak)
+              (text))
             (item
               (item_marker)
               (text)
@@ -99109,14 +99176,14 @@ typst/list/list-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text))
-          (parbreak)
-          (paragraph
-            (text))
+            (item
+              (item_marker)
+              (text)
+              (comment)
+              (parbreak)
+              (text)
+              (parbreak)
+              (text)))
           (parbreak)
           (paragraph
             (item
@@ -99475,10 +99542,13 @@ typst/ref/ref-label-duplicate
       (heading
         (text)
         (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
       (content
-        (paragraph
-          (text)
-          (label))
         (parbreak)
         (comment)
         (paragraph
@@ -99985,27 +100055,41 @@ typst/outline/outline-indent-auto
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
-            (content
-              (paragraph
-                (text)
-                (section
-                  (heading
-                    (text))
-                  (content
-                    (paragraph
-                      (text))))))))
+            (content)))
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content)))
         (paragraph
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text))
-              (parbreak))))))))
+                (section
+                  (heading
+                    (text))
+                  (content)))))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content
+              (paragraph
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (parbreak)))))))))))
 
 ====================
 typst/outline/outline-indent-auto-mixed-prefix
@@ -100073,37 +100157,52 @@ typst/outline/outline-indent-auto-mixed-prefix
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)))))
+                (section
+                  (heading
+                    (text))
+                  (content)))))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
         (paragraph
           (section
             (heading
               (text))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (paragraph
+          (code
             (content
               (paragraph
-                (text)
                 (code
+                  (set
+                    (call
+                      (ident)
+                      (group
+                        (tagged
+                          (ident)
+                          (none))))))
+                (section
+                  (heading
+                    (text))
                   (content
                     (paragraph
-                      (code
-                        (set
-                          (call
-                            (ident)
-                            (group
-                              (tagged
-                                (ident)
-                                (none))))))
                       (section
                         (heading
                           (text))
                         (content
                           (paragraph
-                            (text)
                             (section
                               (heading
                                 (text))
@@ -100208,21 +100307,31 @@ typst/outline/outline-indent-auto-no-prefix
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)))))
+                (section
+                  (heading
+                    (text))
+                  (content)))))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
         (paragraph
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text))
-              (parbreak))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (parbreak)))))))))))
 
 ====================
 typst/outline/outline-indent-zero
@@ -100274,29 +100383,40 @@ typst/outline/outline-indent-zero
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)
-                (code
-                  (set
-                    (call
-                      (ident)
-                      (group
-                        (tagged
-                          (ident)
-                          (none))))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (paragraph
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (paragraph
+                            (code
+                              (set
+                                (call
+                                  (ident)
+                                  (group
+                                    (tagged
+                                      (ident)
+                                      (none))))))))))))))))
         (paragraph
           (section
             (heading
               (text))
-            (content
-              (paragraph
-                (text))
-              (parbreak))))))))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (parbreak)))))
 
 ====================
 typst/outline/outline-indent-fixed
@@ -100348,29 +100468,40 @@ typst/outline/outline-indent-fixed
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)
-                (code
-                  (set
-                    (call
-                      (ident)
-                      (group
-                        (tagged
-                          (ident)
-                          (none))))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (paragraph
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (paragraph
+                            (code
+                              (set
+                                (call
+                                  (ident)
+                                  (group
+                                    (tagged
+                                      (ident)
+                                      (none))))))))))))))))
         (paragraph
           (section
             (heading
               (text))
-            (content
-              (paragraph
-                (text))
-              (parbreak))))))))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (parbreak)))))
 
 ====================
 typst/outline/outline-indent-func
@@ -100436,29 +100567,40 @@ typst/outline/outline-indent-func
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)
-                (code
-                  (set
-                    (call
-                      (ident)
-                      (group
-                        (tagged
-                          (ident)
-                          (none))))))))))
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (paragraph
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (paragraph
+                            (code
+                              (set
+                                (call
+                                  (ident)
+                                  (group
+                                    (tagged
+                                      (ident)
+                                      (none))))))))))))))))
         (paragraph
           (section
             (heading
               (text))
-            (content
-              (paragraph
-                (text))
-              (parbreak))))))))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (parbreak)))))
 
 ====================
 typst/outline/outline-indent-bad-type
@@ -100588,23 +100730,33 @@ typst/outline/outline-entry
     (section
       (heading
         (text))
-      (content
-        (paragraph
-          (text)
-          (section
-            (heading
-              (text))
-            (content
-              (paragraph
-                (text))))))))
+      (content)))
   (paragraph
     (section
       (heading
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content)))
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak))))))))
 
 ====================
 typst/outline/outline-entry-complex
@@ -100790,13 +100942,20 @@ typst/outline/outline-entry-complex
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
               (paragraph
-                (text)))))
+                (section
+                  (heading
+                    (text))
+                  (content)))
+              (paragraph
+                (section
+                  (heading
+                    (text))
+                  (content))))))
         (paragraph
           (section
             (heading
@@ -100823,12 +100982,16 @@ typst/outline/outline-entry-complex
         (text))
       (content
         (paragraph
-          (text)
           (section
             (heading
               (text))
             (content
-              (parbreak))))))))
+              (paragraph
+                (section
+                  (heading
+                    (text))
+                  (content
+                    (parbreak)))))))))))
 
 ====================
 typst/outline/outline-entry-inner
@@ -100900,9 +101063,12 @@ typst/outline/outline-entry-inner
     (section
       (heading
         (text))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
       (content
-        (paragraph
-          (text))
         (parbreak)))))
 
 ====================
@@ -101022,9 +101188,13 @@ A
     (section
       (heading
         (text))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
       (content
         (paragraph
-          (text)
           (code
             (call
               (ident)
@@ -101057,9 +101227,13 @@ A
           (section
             (heading
               (text))
+            (content)))
+        (paragraph
+          (section
+            (heading
+              (text))
             (content
               (paragraph
-                (text)
                 (section
                   (heading
                     (text))
@@ -101223,23 +101397,33 @@ typst/outline/outline-first-line-indent
     (section
       (heading
         (text))
-      (content
-        (paragraph
-          (text)
-          (section
-            (heading
-              (text))
-            (content
-              (paragraph
-                (text))))))))
+      (content)))
   (paragraph
     (section
       (heading
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content)))
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content))))))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content
+        (paragraph
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak))))))))
 
 ====================
 typst/outline/outline-bad-element
@@ -101301,9 +101485,12 @@ typst/outline/outline-par
     (section
       (heading
         (text))
-      (content
-        (paragraph
-          (text)))))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content)))
   (paragraph
     (section
       (heading
@@ -101355,10 +101542,19 @@ typst/outline/outline-html
       (heading
         (text)
         (label))
-      (content
-        (paragraph
-          (text)
-          (label)))))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
+      (content)))
   (paragraph
     (section
       (heading
@@ -101366,16 +101562,18 @@ typst/outline/outline-html
         (label))
       (content
         (paragraph
-          (text)
-          (label)
+          (section
+            (heading
+              (text)
+              (label))
+            (content)))
+        (paragraph
           (section
             (heading
               (text)
               (label))
             (content
               (paragraph
-                (text)
-                (label)
                 (code
                   (call
                     (ident)
@@ -101392,22 +101590,26 @@ typst/outline/outline-html
                     (comment))
                   (content
                     (paragraph
-                      (text)
-                      (code
-                        (call
-                          (call
-                            (ident)
-                            (group
-                              (tagged
-                                (ident)
-                                (number))
-                              (tagged
-                                (ident)
-                                (bool))))
-                          (content
-                            (paragraph
-                              (text)))))
-                      (comment)))))))))))
+                      (section
+                        (heading
+                          (text))
+                        (content
+                          (paragraph
+                            (code
+                              (call
+                                (call
+                                  (ident)
+                                  (group
+                                    (tagged
+                                      (ident)
+                                      (number))
+                                    (tagged
+                                      (ident)
+                                      (bool))))
+                                (content
+                                  (paragraph
+                                    (text)))))
+                            (comment))))))))))))))
   (paragraph
     (section
       (heading
@@ -101560,8 +101762,11 @@ typst/outline/issue-2048-outline-multiline
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak))))))))
 
 ====================
 typst/outline/issue-2530-outline-entry-panic-text
@@ -101655,9 +101860,12 @@ typst/outline/issue-4476-outline-rtl-title-ending-in-ltr-text
     (section
       (heading
         (text))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
       (content
-        (paragraph
-          (text))
         (parbreak)))))
 
 ====================
@@ -101723,8 +101931,11 @@ typst/outline/issue-4859-outline-entry-show-set
         (text))
       (content
         (paragraph
-          (text))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content
+              (parbreak))))))))
 
 ====================
 typst/outline/issue-5176-outline-cjk-title
@@ -101766,9 +101977,12 @@ typst/outline/issue-5176-outline-cjk-title
     (section
       (heading
         (text))
-      (content
-        (paragraph
-          (text))))))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
+      (content))))
 
 ====================
 typst/bibliography/bibliography-no-title
@@ -102277,16 +102491,20 @@ typst/bibliography/issue-4618-bibliography-set-heading-level
         (text))
       (content
         (paragraph
-          (text)
-          (ref))
-        (parbreak)
-        (paragraph
-          (code
-            (call
-              (ident)
-              (group
-                (string)))))
-        (parbreak)))))
+          (section
+            (heading
+              (text))
+            (content
+              (paragraph
+                (ref))
+              (parbreak)
+              (paragraph
+                (code
+                  (call
+                    (ident)
+                    (group
+                      (string)))))
+              (parbreak))))))))
 
 ====================
 typst/bibliography/bibliography-chicago-fullnotes-warning
@@ -102939,44 +103157,56 @@ typst/link/link-html-label-disambiguation
         (text)
         (label)
         (comment))
-      (content
-        (paragraph
-          (text)
-          (label)
-          (comment)))))
+      (content)))
   (paragraph
     (section
       (heading
         (text)
         (label)
         (comment))
-      (content
-        (paragraph
-          (text)
-          (label)
-          (comment)))))
+      (content)))
   (paragraph
     (section
       (heading
         (text)
         (label)
         (comment))
-      (content
-        (paragraph
-          (text)
-          (label)
-          (comment)))))
+      (content)))
   (paragraph
     (section
       (heading
         (text)
         (label)
         (comment))
-      (content
-        (paragraph
-          (text)
-          (label)
-          (comment)))))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label)
+        (comment))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label)
+        (comment))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label)
+        (comment))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label)
+        (comment))
+      (content)))
   (paragraph
     (section
       (heading
@@ -104693,11 +104923,12 @@ typst/enum/enum-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text)
+            (item
+              (item_marker)
+              (text)
+              (comment)
+              (parbreak)
+              (text))
             (item
               (item_marker)
               (text)
@@ -104709,14 +104940,14 @@ typst/enum/enum-par
         (ident)
         (content
           (paragraph
-            (text))
-          (comment)
-          (parbreak)
-          (paragraph
-            (text))
-          (parbreak)
-          (paragraph
-            (text))
+            (item
+              (item_marker)
+              (text)
+              (comment)
+              (parbreak)
+              (text)
+              (parbreak)
+              (text)))
           (parbreak)
           (paragraph
             (item
@@ -105835,10 +106066,13 @@ typst/context/context-in-show-rule
       (heading
         (text)
         (label))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text)
+        (label))
       (content
-        (paragraph
-          (text)
-          (label))
         (parbreak)))))
 
 ====================
@@ -105896,9 +106130,13 @@ typst/context/context-in-show-rule-query
     (section
       (heading
         (text))
+      (content)))
+  (paragraph
+    (section
+      (heading
+        (text))
       (content
         (paragraph
-          (text)
           (strong
             (text))
           (emph
@@ -157333,12 +157571,17 @@ typst/cell/issue-5723-grid-heading-numbering
                   (group
                     (content
                       (paragraph
-                        (text)
-                        (code
-                          (call
-                            (ident)
-                            (group
-                              (number))))
+                        (section
+                          (heading
+                            (text))
+                          (content
+                            (paragraph
+                              (code
+                                (call
+                                  (ident)
+                                  (group
+                                    (number))))))))
+                      (paragraph
                         (section
                           (heading
                             (text))
